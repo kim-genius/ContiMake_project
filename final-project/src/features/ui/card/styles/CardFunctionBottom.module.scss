@@ -1,0 +1,21 @@
+@use 'CardFunction';
+
+
+
+.cardBottom{
+    @include CardFunction.cardBox();
+
+
+}
+.cardBottomTitle{
+    @include CardFunction.cardTitle();
+}
+.cardBottomTitle>span{
+    font-size: 25px;
+}
+.cardBottomTitle>h2{
+    font-size: 30px;
+}
+.cardBottomBox{
+    @include CardFunction.cardContent()
+}

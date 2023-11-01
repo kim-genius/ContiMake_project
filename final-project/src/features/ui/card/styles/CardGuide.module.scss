@@ -9,17 +9,23 @@
 }
 .cardGuideBox{
     width:80%;
-    height:80%;
+    height:90%;
     border:1px solid rgba(0,0,0,0.2);
     display:flex;
     justify-content: space-around;
     align-items: center;
 }
 .cardGuideBoxLeft{
-    border:1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height:50%;
+    height:60%;
+    h2{
+        font-size: 30px;
+    }
+    p{
+        font-size:20px;
+        line-height:30px;
+    }
 }

@@ -7,7 +7,7 @@ const Header = () => {
     <header className={styles.header}>
         <div className={styles.headerBox}>
             <Link to='/'><img className={styles.logo} src='images/logo.png' alt='logo'/></Link>
-            <Link to='/generate'>{Button('콘티 생성하기')}</Link>
+            <Link to='/generate'>{Button('새 콘티 생성')}</Link>
         </div>
     </header>
    
