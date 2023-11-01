@@ -1,0 +1,30 @@
+.navBox {
+  border-right: 1px solid rgba(200, 200, 200, 0.2);
+}
+
+.user {
+  margin: 7vh 2.7vw;
+}
+
+.userImg {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  background: #FFC478;
+}
+
+.myInfo {
+  color: black;
+  font-weight: bold;
+}
+
+.myBox:hover {
+  /* background: #FFC478;
+  color:black; */
+}
+
+.contiBox {
+  color: black;
+  width: 10vw;
+  font-weight: bold;
+}/*# sourceMappingURL=Nav.css.map */
