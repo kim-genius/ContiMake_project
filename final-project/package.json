@@ -13,6 +13,7 @@
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
+    "sass": "^1.69.5",
     "swiper": "^11.0.3",
     "web-vitals": "^2.1.4"
   },
@@ -39,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass-loader": "^13.3.2"
   }
 }
