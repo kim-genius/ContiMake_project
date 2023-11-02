@@ -36,40 +36,40 @@ export default class Form extends Component {
 
     // end of handle inputs
 
-    formSubmit=(e)=>{
+    formSubmit = (e) => {
         e.preventDefault();
-        
-        let data={
+
+        let data = {
             name: this.state.name,
             lastname: this.state.lastname,
             email: this.state.email,
             message: this.state.message
         }
-        
-        axios.post('/api/forma',data)
-        .then(res=>{
-            this.setState({
-                sent:true,
-            }.this.resetForm())
-        }).catch(()=>{
-            console.log('message not sent');
-        })
+
+        axios.post('/api/forma', data)
+            .then(res => {
+                this.setState({
+                    sent: true,
+                }.this.resetForm())
+            }).catch(() => {
+                console.log('message not sent');
+            })
     }
 
     // for reseting initial data
-    resetForm=()=>{
+    resetForm = () => {
         this.setState({
-            name:'',
-            lastname:'',
-            email:'',
-            message:''
+            name: '',
+            lastname: '',
+            email: '',
+            message: ''
         })
 
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setState({
-                sent:false,
+                sent: false
             })
-        },3000)
+        }, 3000)
     }
 
 
@@ -77,6 +77,7 @@ export default class Form extends Component {
     render() {
         return (
             <div className='container' >
+                <form onSubmit={this.formSubmit}>
                 <form onSubmit={this.formSubmit}>
                     <div className="singleItem">
                         <label htmlFor="name" className="">name</label>
@@ -95,14 +96,18 @@ export default class Form extends Component {
                             placeholder='your lastname...'
                             value={this.state.lastname}
                             onChange={this.handleLastName} />
+                            onChange={this.handleLastName} />
                     </div>
                     <div className="singleItem">
                         <label htmlFor="email" className="">email</label>
-                        <input type="text" 
+                        <input type="text"
                             name="email"
+                            className="email"
                             className="email"
                             placeholder='your email...'
                             value={this.state.email}
+                            onChange={this.handleEmail}
+                            required />
                             onChange={this.handleEmail}
                             required />
                     </div>
@@ -117,7 +122,7 @@ export default class Form extends Component {
                             onChange={this.handleMessage}>
                         </textarea>
                     </div>
-                    <div className={this.state.sent ?'msg msgAppear':'msg'}>Message has been sent</div>
+                    <div className={this.state.sent ? 'msg msgAppear' : 'msg'}>Message has been sent</div>
                     <div className="btn">
                         <button type="submit">Submit</button>
                     </div>
