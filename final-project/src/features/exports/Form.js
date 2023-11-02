@@ -78,7 +78,6 @@ export default class Form extends Component {
         return (
             <div className='container' >
                 <form onSubmit={this.formSubmit}>
-                <form onSubmit={this.formSubmit}>
                     <div className="singleItem">
                         <label htmlFor="name" className="">name</label>
                         <input type="text"
@@ -96,18 +95,14 @@ export default class Form extends Component {
                             placeholder='your lastname...'
                             value={this.state.lastname}
                             onChange={this.handleLastName} />
-                            onChange={this.handleLastName} />
                     </div>
                     <div className="singleItem">
                         <label htmlFor="email" className="">email</label>
                         <input type="text"
                             name="email"
                             className="email"
-                            className="email"
                             placeholder='your email...'
                             value={this.state.email}
-                            onChange={this.handleEmail}
-                            required />
                             onChange={this.handleEmail}
                             required />
                     </div>

@@ -11,7 +11,7 @@ let user = createSlice({
       }
     }
   }
-})
+)
 
 export let {userJoin}  = user.actions /** setState를 export 해는 것 */
 
