@@ -6,11 +6,14 @@ import Mypage from './pages/Mypage';
 import Myconti from './pages/Myconti';
 import Mypassword from './pages/Mypassword';
 import Form from './features/exports/Form';
-// import Login from './pages/Login';
+import Login from './pages/Login';
+// import Join from './pages/Join';
 import Login from './features/auth/login/Login';
-import Join from './pages/Join';
 import Footer from './features/ui/footer/Footer';
+import Generatepage from './pages/Generatepage';
+import Inpainting from './features/inpainting/Inpainting';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
+
 
 function App() {
   return (
@@ -25,6 +28,8 @@ function App() {
         <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler/>}></Route>
         <Route path='/join' element={<Join />}></Route>
         <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
+        <Route path='/generate' element={<Generatepage/>}></Route>
+        <Route path='/edit' element={<Editpage/>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
