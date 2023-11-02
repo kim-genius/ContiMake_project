@@ -36,40 +36,40 @@ export default class Form extends Component {
 
     // end of handle inputs
 
-    formSubmit=(e)=>{
+    formSubmit = (e) => {
         e.preventDefault();
-        
-        let data={
+
+        let data = {
             name: this.state.name,
             lastname: this.state.lastname,
             email: this.state.email,
             message: this.state.message
         }
-        
-        axios.post('/api/forma',data)
-        .then(res=>{
-            this.setState({
-                sent:true,
-            }.this.resetForm())
-        }).catch(()=>{
-            console.log('message not sent');
-        })
+
+        axios.post('/api/forma', data)
+            .then(res => {
+                this.setState({
+                    sent: true,
+                }.this.resetForm())
+            }).catch(() => {
+                console.log('message not sent');
+            })
     }
 
     // for reseting initial data
-    resetForm=()=>{
+    resetForm = () => {
         this.setState({
-            name:'',
-            lastname:'',
-            email:'',
-            message:''
+            name: '',
+            lastname: '',
+            email: '',
+            message: ''
         })
 
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setState({
-                sent:false,
+                sent: false
             })
-        },3000)
+        }, 3000)
     }
 
 
@@ -98,7 +98,7 @@ export default class Form extends Component {
                     </div>
                     <div className="singleItem">
                         <label htmlFor="email" className="">email</label>
-                        <input type="text" 
+                        <input type="text"
                             name="email"
                             className="email"
                             placeholder='your email...'
@@ -117,7 +117,7 @@ export default class Form extends Component {
                             onChange={this.handleMessage}>
                         </textarea>
                     </div>
-                    <div className={this.state.sent ?'msg msgAppear':'msg'}>Message has been sent</div>
+                    <div className={this.state.sent ? 'msg msgAppear' : 'msg'}>Message has been sent</div>
                     <div className="btn">
                         <button type="submit">Submit</button>
                     </div>
