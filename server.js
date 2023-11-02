@@ -1,10 +1,16 @@
 const express = require('express');
 const app = express();
 const nodemailer = require('nodemailer');
+const { S3Client } = require('@aws-sdk/client-s3');
+const multer = require('multer');
+const indexRouter = require('./routes');
+const userRouter = require('./routes/user');
+const multerS3 = require('multer-s3');
+const path = require('path');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 3001;
 
-const { S3Client } = require('@aws-sdk/client-s3')
-const multer = require('multer')
-const multerS3 = require('multer-s3')
 const s3 = new S3Client({
     region: 'us-east-1',
     credentials: {
@@ -45,18 +51,6 @@ app.post('/add', upload.single('img1'), async (req, res) => {
     }
 }
 )
-
-const path = require('path');
-
-const cors = require('cors');
-const bodyParser = require('body-parser');
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use(express.static(path.join(__dirname, 'final-project', 'build')));
-
 
 app.get('/', (req, res) => {
     res.send('welcome to my forma');
@@ -117,11 +111,15 @@ const storage = multer.diskStorage({
 });
 
 app.post('/upload', upload.single('file'), (req, res) => {
-
     res.json({ message: 'File uploaded successfully' });
 });
 
-const PORT = process.env.PORT || 3001;
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/', indexRouter);
+app.use('/user', userRouter);
+app.use(express.static(path.join(__dirname, 'final-project', 'build')));
 
 app.listen(PORT, () => {
     console.log(`port waiting... 🐼 ${PORT}`);

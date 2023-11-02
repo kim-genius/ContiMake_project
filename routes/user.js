@@ -24,11 +24,10 @@ conn.query(sql,[email,password,nickname],(err,rows)=>{
 
 /** 이메일 중복확인 */
 router.post('/vaildEmail',(req,res)=>{
-  
+    console.log('hi')
     let {email} = req.body
     let sql = 'select user_email from user where user_email = ?'
     conn.query(sql,[email],(err,rows)=>{
-   
         if(err){
             res.send('fail')
         }else if(rows.length > 0){

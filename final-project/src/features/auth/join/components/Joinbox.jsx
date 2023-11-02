@@ -1,5 +1,4 @@
 import React,{ useState,useEffect } from 'react'
-import LoginButton from '../../../ui/button/LoginButton'
 import styles from '../styles/Joinbox.module.scss'
 import { Link } from 'react-router-dom';
 import axios from '../../../../axios'
@@ -16,7 +15,9 @@ const Joinbox = () => {
 
     }
     const vaildEmail = ()=>{
+      console.log('vaildEmail')
       axios.post('/user/vaildEmail',{email:email}).then((res)=>{
+   
         if(res.data =='success'){alert('중복된 아이디가 존재합니다.')}
         else{alert('가입 가능한 아이디입니다.')}
       })
