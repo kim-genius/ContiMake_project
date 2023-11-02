@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Canvas from "./components/Canvas";
 
-// 일정 시간동안 대기하는 함수 (ms: 밀리초)
+// 일정 시간동안 대기하는 함수 (ms: 밀리초)..
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 
