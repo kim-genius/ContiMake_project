@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/Cardguide.module.css'
+import styles from '../styles/CardGuide.module.css'
 import Button from '../../button/Button'
 import { Link } from 'react-router-dom'
 // Import Swiper React components
@@ -21,9 +21,7 @@ const Cardguide = () => {
                 <Link to='/generate'>{Button('콘티 생성하기')}</Link>
             </div>
             <div className={styles.cardGuideBoxRight}>
-                   
             </div>
-
         </article>
     </section>
   )

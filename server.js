@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.set('port', process.env.PORT || 3001);
 
-app.use(express.static(path.join(__dirname, 'react-project', 'build')))
+// app.use(express.static(path.join(__dirname, 'react-project', 'build')))
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
