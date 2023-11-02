@@ -50,4 +50,18 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   padding: 0 10px;
   margin: 5px;
+}
+
+.joinBtn {
+  width: 300px;
+  height: 55px;
+  border-radius: 10px;
+  background-color: #FFC478;
+  border: none;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: 1rem;
+  color: black;
+  cursor: pointer;
+  margin: 5px 0;
 }/*# sourceMappingURL=Joinbox.module.css.map */
