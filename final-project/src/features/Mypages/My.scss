@@ -1,0 +1,161 @@
+
+.myBox{
+    width: 50vw;
+    margin: 10vh 0 0 12vw;
+}
+.userImg{
+    border:1px solid rgba(0,0,0,0.2);
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    margin: 2vh 0 3vh 0 ;
+}
+
+.myname{
+    padding: 5vh 2vw 0 2vw;
+    font-weight: bold;
+}
+
+.userBox{
+    width: 11vw;
+    height: 35vh;
+    border-right:1px solid rgba(200, 200, 200, 0.2);
+}
+.userflex{
+    display: flex;
+    margin-bottom: 6vh;
+}
+.changeName{
+    padding: 1vh 2vw;
+    font-weight: bold;
+    color: #6EAAF8;
+}
+
+.changeName:hover{
+    color : black; 
+}
+.btnUp{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    padding: 0px 1.25rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color:#FFC478;
+    color: white;
+    width: 9vw;
+}
+.btnUp1{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    padding: 0px 1.25rem;
+    height: 2.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color:#f5f5f5;
+    color: black;
+    width: 9vw;
+}
+.btnUp2{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    padding: 0px 1.25rem;
+    height: 2.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color:#FFC478;
+    color:white;
+    margin-left:0.5vw;
+}
+
+.btnDown{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    padding: 0px 1.25rem;
+    width: 9vw;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color:#f5f5f5;
+    color: black;
+    margin-top: 2vh;
+}
+.outBtn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    padding: 0px 1.25rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    color: black;
+    margin: 2vh 0 0 2vw;
+    width: 9vw;
+}
+.droplist{
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.midText{
+    flex-grow:1;
+}
+.dropBtn{
+    display: inline-flex;
+    flex-grow:1;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    padding: 0px 1.25rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    color: black;
+    width: 9vw;
+}
+.changeBtn{
+    height: 5vh;
+    font-weight: bold; 
+    color:#6EAAF8;
+}
+
+.changeBtn:hover{
+    color : black;   
+}
+hr{
+    border:1px solid rgba(200, 200, 200, 0.2);
+    width: 100%;
+}
+.list{
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drop{
+    font-weight: bold;
+    font-size: 1.1em;
+    width: 14vw;
+}
+.dropText{
+    color : gray;
+    font-size: 1em;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './Cardguide.module.css'
-import Button from '../button/Button'
+import styles from '../styles/CardGuide.module.scss'
+import Button from '../../button/Button'
 import { Link } from 'react-router-dom'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';

@@ -1,0 +1,12 @@
+.contiBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+.selectBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.selectBtn2{
+    margin-left: 0.5vw;
+}
