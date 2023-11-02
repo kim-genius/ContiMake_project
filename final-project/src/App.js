@@ -9,6 +9,7 @@ import Form from './features/exports/Form';
 import Login from './pages/Login';
 import Join from './pages/Join';
 import Footer from './features/ui/footer/Footer';
+import FileUpload from './features/FileUpload/FileUpload';
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/join' element={<Join />}></Route>
         <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
-        <Route path='/form' element={<Mypassword></Mypassword>}></Route>
+        <Route path='/form' element={<Form></Form>}></Route>
+        <Route path='/fileupload' element={<FileUpload></FileUpload>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
