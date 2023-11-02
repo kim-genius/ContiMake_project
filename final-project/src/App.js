@@ -13,9 +13,8 @@ import Footer from './features/ui/footer/Footer';
 import Generatepage from './pages/Generatepage';
 import Inpainting from './features/inpainting/Inpainting';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
-
 import FileUpload from './features/FileUpload/FileUpload';
-
+import Editpage from './pages/Editpage';
 function App() {
   return (
     <div>
@@ -23,8 +22,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/form' element={<Form></Form>}></Route>
+        <Route path='/generate' element={<Generatepage></Generatepage>}></Route>
         <Route path='/mypage' element={<Mypage></Mypage>}></Route>
         <Route path='/myconti' element={<Myconti></Myconti>}></Route>
+        <Route path='/edit' element={<Editpage></Editpage>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler/>}></Route>
         <Route path='/join' element={<Join />}></Route>
