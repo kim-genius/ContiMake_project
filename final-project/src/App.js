@@ -22,6 +22,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/join' element={<Join />}></Route>
         <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
+        <Route path='/form' element={<Mypassword></Mypassword>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

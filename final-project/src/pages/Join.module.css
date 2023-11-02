@@ -1,12 +1,5 @@
-.loginBackground {
+.joinBackground {
     width: 100%;
-<<<<<<< HEAD
-    height: 70vh;
-    background-color: lightgray;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-=======
     height: 100vh;
     background-color: lightgray;
     justify-content: center;
@@ -14,12 +7,11 @@
     position: Absolute;
     top: 0;
     z-index: -1;
->>>>>>> 3fd83399f08cf215e8a2b24a8edcb9302f21d9f6
     display: flex;
     align-items: center;
 }
 
-.loginBox {
+.joinBox {
     padding: 20px;
     width: 350px;
     /* height: 450px; */
@@ -29,10 +21,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-<<<<<<< HEAD
-=======
     z-index: 999;
->>>>>>> 3fd83399f08cf215e8a2b24a8edcb9302f21d9f6
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.100);
 }
 
@@ -45,5 +34,5 @@
     outline: none;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.100);
     padding: 0 10px;
-    margin: 5px;
+    margin:5px;
 }
