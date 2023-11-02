@@ -21,9 +21,7 @@ const Cardguide = () => {
                 <Link to='/generate'>{Button('콘티 생성하기')}</Link>
             </div>
             <div className={styles.cardGuideBoxRight}>
-                   
             </div>
-
         </article>
     </section>
   )
