@@ -6,7 +6,7 @@ import Mypage from './pages/Mypage';
 import Myconti from './pages/Myconti';
 import Mypassword from './pages/Mypassword';
 import Form from './features/exports/Form';
-import Login from './pages/Login';
+import Join from './pages/Join'
 // import Join from './pages/Join';
 import Login from './features/auth/login/Login';
 import Footer from './features/ui/footer/Footer';
