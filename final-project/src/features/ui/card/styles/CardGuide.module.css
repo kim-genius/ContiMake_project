@@ -16,10 +16,16 @@
 }
 
 .cardGuideBoxLeft {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 50%;
+  height: 60%;
+}
+.cardGuideBoxLeft h2 {
+  font-size: 30px;
+}
+.cardGuideBoxLeft p {
+  font-size: 20px;
+  line-height: 30px;
 }/*# sourceMappingURL=CardGuide.module.css.map */

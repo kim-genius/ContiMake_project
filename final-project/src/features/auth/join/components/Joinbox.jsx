@@ -7,8 +7,7 @@ const Joinbox = () => {
         const [email,setEmail] = useState('')
         const [password,setPassword] = useState('')
         const [nickname,setNickname] = useState('')
-
-    
+   
     
     const sendJoin = ()=>{
       console.log('hi')
@@ -25,7 +24,7 @@ const Joinbox = () => {
   return (
     <section className={styles.joinBackground}>
     <div className={styles.joinBox}>
-      <div><img width='100px' src='images/logo.png' alt='logo' /></div>
+      <div style={{marginBottom:'10px'}}><img width='100px' src='images/logo.png' alt='logo' /></div>
       {/* <GoogleLoginButton /> */}
       <div className={styles.joinEmail}>
       <input className={styles.formItem} type='email' placeholder='이메일' onChange={(e)=>setEmail(e.target.value)}></input>

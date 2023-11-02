@@ -14,8 +14,8 @@ const Home = () => {
       <CardFunctionTop></CardFunctionTop>
       <CardFunctionMiddle></CardFunctionMiddle>
       <CardFunctionBottom></CardFunctionBottom>
-      
-        
+
+
     </main>
   )
 }
