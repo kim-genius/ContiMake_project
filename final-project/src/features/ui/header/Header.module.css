@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .header{
     width:100%;
     height:100px;
@@ -6,6 +6,7 @@
     display: flex;
     justify-content:right;
     align-items: center;
+    background-color: white;
     
 
 
@@ -23,29 +24,3 @@
     right:50%;
     
 }
-=======
-.header{
-    width:100%;
-    height:100px;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    display: flex;
-    justify-content:right;
-    align-items: center;
-    
-
-
-}
-.headerBox{
-    width:70%;
-    height:100px;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.logo{
-    width:150px;
-    height:50px;
-    right:50%;
-    
-}
->>>>>>> 91e34bc ('add')
