@@ -1,0 +1,22 @@
+@use 'CardFunction';
+
+.cardTop{
+    @include CardFunction.cardBox();
+
+}
+.cardTopTitle{
+    @include CardFunction.cardTitle();
+}
+.cardTopTitle{
+    span{
+    font-size: 25px;
+}
+}
+.cardTopTitle{
+    h2{
+    font-size: 30px;
+}
+}
+.cardTopBox{
+    @include CardFunction.cardContent()
+}

@@ -1,0 +1,71 @@
+.joinBackground {
+    width: 100%;
+    height: 70vh;
+    background-color: lightgray;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.joinBox {
+    padding: 20px;
+    width: 450px;
+    height: 600px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.100);
+    
+}
+
+.joinEmail{
+    width:90%;
+    display:flex;
+    align-items: center;
+    position:relative;
+    transform:translateX(8%);
+    button{
+        width:40px;
+        right:75px;
+        position:absolute;
+        font-size: 10px;
+        background-color: transparent;
+        border:1px solid rgba(0,0,0,0.7);
+        padding:5px;
+        border-radius: 5px;
+    }
+
+}
+
+
+.formItem {
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    border: lightgray solid 1px;
+    /* border:none; */
+    outline: none;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.100);
+    padding: 0 10px;
+    margin:5px;
+}
+
+.joinBtn{
+    width: 300px;
+    height: 55px;
+    border-radius: 10px;
+    background-color: #FFC478;
+    border: none;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    font-size: 1rem;
+    color:black;
+    cursor: pointer;
+    margin: 5px 0;
+}

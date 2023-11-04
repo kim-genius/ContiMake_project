@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 const Generate = () => {
@@ -9,3 +10,4 @@ const Generate = () => {
 }
 
 export default Generate
+
