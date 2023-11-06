@@ -6,6 +6,7 @@ const multer = require('multer');
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
 const userJoinRouter = require('./routes/userJoin')
+const userLoginRouter = require('./routes/userLogin');
 const multerS3 = require('multer-s3');
 const path = require('path');
 const cors = require('cors');
@@ -122,6 +123,7 @@ app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/userJoin', userJoinRouter);
 
+app.use('/userLogin', userLoginRouter);
 app.use(express.static(path.join(__dirname, 'final-project', 'build')));
 
 app.listen(PORT, () => {
