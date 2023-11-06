@@ -1,0 +1,27 @@
+.Wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.navBar {
+  height: 5vh;
+}
+
+.contentsWrapper {
+  display: flex;
+}
+
+.designTab {
+  height: 100vh;
+  width: 21.04vw;
+}
+
+.canvas {
+  width: 58.18vw;
+  height: 100vh;
+}
+
+.contis {
+  width: 21.04vw;
+  height: 100vh;
+}/*# sourceMappingURL=Generatepage.module.css.map */
