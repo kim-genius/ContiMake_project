@@ -10,6 +10,8 @@ const Login = () => {
   // 라우터에 /login/oauth/callback/kakao로 연결한 컴포넌트 -> C:\Users\gjaischool2\Desktop\실전역량프로젝트\contiStoryPrompt\final-project\src\features\auth\OAuthRedirectHandler.jsx
   const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
   
+
+  //https://velog.io/@gingaminga/OAuth-%EC%86%8C%EC%85%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1with-React-Express
   // 사용자가 카카오 로그인 인증을 완료한 뒤
   // 카카오인증서버로부터 redirect uri로 전달받은 유저의 인가코드 Authorization Code 받아오기
   // (주소창 redirect_uri 뒤의 ?code=인가코드값!)
@@ -17,6 +19,9 @@ const Login = () => {
   // https://data-jj.tistory.com/53 참고****
   // const authCode = new URL(window.location.href).searchParams.get('code')
   // console.log(authCode)
+
+  // google
+  // https://www.npmjs.com/package/react-google-login 참고.
 
   return (
     <div className={styles.loginBackground}>
