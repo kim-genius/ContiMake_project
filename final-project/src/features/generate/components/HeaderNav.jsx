@@ -7,13 +7,11 @@ import { setCurrentTitle } from '../../../store/index';
 const HeaderNav = (props) => {
     const inputRef = useRef();
     const [showEditIcon, setShowEditIcon] = useState(true);
-    const [changeTitle, setChangeTitle] = useState();
     const dispatch = useDispatch();
-    const { setCurrentTitle } = useSelector(state => state.cur_project);
+    const cur_project = useSelector(state => state.cur_project);
 
     /** 타이틀 수정 활성화 */
     const editTitle = () => {
-        // console.log(setCurrentTitle.title)
         inputRef.current.disabled = null;
         inputRef.current.focus();
         setShowEditIcon(false)
@@ -21,9 +19,9 @@ const HeaderNav = (props) => {
     }
     useEffect(()=>{
         console.log(inputRef.current.value)
-        // dispatch(setCurrentTitle(inputRef.current.value))
-    },[])
-    
+        dispatch(setCurrentTitle(inputRef.current.value))
+        console.log(cur_project)
+    },)
     return (
         <div className={styles.wrapper}>
             <span>

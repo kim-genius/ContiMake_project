@@ -1,0 +1,27 @@
+.boxWrapper {
+  width: 95%;
+  border: 1px solid black;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+  border-bottom: 1px solid black;
+}
+.title img {
+  margin-right: 0.3em;
+}
+
+.inputArea {
+  display: flex;
+  justify-content: space-between;
+}
+.inputArea :first-child {
+  width: 80%;
+}
+.inputArea :nth-child(2) {
+  text-align: center;
+  width: 2.5em;
+  border-radius: 0.5em;
+}/*# sourceMappingURL=CutsNumber.module.css.map */
