@@ -30,6 +30,7 @@ function App() {
         <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler/>}></Route>
         <Route path='/join' element={<Join />}></Route>
         <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
+        <Route path='/fileupload' element={<FileUpload></FileUpload>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Form.scss';
+import styles from './Form.module.css';
 import axios from '../../axios';
 
 export default class Form extends Component {
@@ -46,7 +46,7 @@ export default class Form extends Component {
             message: this.state.message
         }
 
-        axios.post('/api/forma', data)
+        axios.post('/exports/api/forma', data)
             .then(res => {
                 this.setState({
                     sent: true,
@@ -76,37 +76,37 @@ export default class Form extends Component {
 
     render() {
         return (
-            <div className='container' >
+            <div className={styles.container} >
                 <form onSubmit={this.formSubmit}>
-                    <div className="singleItem">
+                    <div className={styles.singleItem}>
                         <label htmlFor="name" className="">name</label>
                         <input type="text"
                             name="name"
-                            className="name"
+                            className={styles.name}
                             placeholder='your name...'
                             value={this.state.name}
                             onChange={this.handleName} />
                     </div>
-                    <div className="singleItem">
+                    <div className={styles.singleItem}>
                         <label htmlFor="lastname" className="">Lastname</label>
                         <input type="text"
                             name="lastname"
-                            className="lastname"
+                            className={styles.lastname}
                             placeholder='your lastname...'
                             value={this.state.lastname}
                             onChange={this.handleLastName} />
                     </div>
-                    <div className="singleItem">
+                    <div className={styles.singleItem}>
                         <label htmlFor="email" className="">email</label>
                         <input type="text"
                             name="email"
-                            className="email"
+                            className={styles.email}
                             placeholder='your email...'
                             value={this.state.email}
                             onChange={this.handleEmail}
                             required />
                     </div>
-                    <div className="textArea singleItem">
+                    <div className={styles.textArea} singleItem>
                         <label htmlFor="message" className="">Message</label>
                         <textarea name="message"
                             id=""
@@ -118,7 +118,7 @@ export default class Form extends Component {
                         </textarea>
                     </div>
                     <div className={this.state.sent ? 'msg msgAppear' : 'msg'}>Message has been sent</div>
-                    <div className="btn">
+                    <div className={styles.btn}>
                         <button type="submit">Submit</button>
                     </div>
                 </form >

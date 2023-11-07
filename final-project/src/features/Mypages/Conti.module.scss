@@ -1,0 +1,37 @@
+.search {
+    margin: 6vh 1vw;
+    input{
+        width: 16vw;
+    }
+    .searchBtn{
+        width: 5vw;
+    }
+    .dropBtn{
+        width: 10vw;
+    }
+}
+
+.section {
+    margin: 2vh 4vw;
+}
+
+.contiBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contiListBox {
+    display: flex;
+    flex-direction: column;
+    margin: 2vh 1.3vw;
+}
+
+.contiViewImg {
+    width: 16vw;
+    height: 38vh;
+    position: relative;
+}
+
+.selectBtn {
+    position: absolute;
+}/*# sourceMappingURL=Conti.css.map */
