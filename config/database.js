@@ -1,11 +1,11 @@
 // 내가 연결할 DB에 대한 정보ss
 const mysql = require('mysql2');
 const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    port: 3306,
-    database: 'nodejs'
+    host: 'project-db-stu3.smhrd.com',
+    user: 'Insa4_JSB_final_2',
+    password: 'aishcool2',
+    port: 3307,
+    database: 'Insa4_JSB_final_2'
 });
 conn.connect();
 
