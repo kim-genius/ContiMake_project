@@ -1,12 +1,37 @@
-.contiBox{
-    display: flex;
-    flex-wrap: wrap;
+.search {
+  margin: 6vh 1vw;
 }
-.selectBtn{
-    display: flex;
-    justify-content: flex-end;
+.search input {
+  width: 16vw;
+}
+.search .searchBtn {
+  width: 5vw;
+}
+.search .dropBtn {
+  width: 10vw;
 }
 
-.selectBtn2{
-    margin-left: 0.5vw;
+.section {
+  margin: 2vh 4vw;
 }
+
+.contiBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contiListBox {
+  display: flex;
+  flex-direction: column;
+  margin: 2vh 1.3vw;
+}
+
+.contiViewImg {
+  width: 16vw;
+  height: 38vh;
+  position: relative;
+}
+
+.selectBtn {
+  position: absolute;
+} /*# sourceMappingURL=Conti.module.css.map */
