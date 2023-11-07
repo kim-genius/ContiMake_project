@@ -7,7 +7,7 @@ const OAuthRedirectHandler = (props) => {
 
     // 인가코드
     const authCode = new URL(window.location.href).searchParams.get('code')
-    console.log(authCode)
+    // console.log(authCode)
 
     // React.useEffect(async () => {
     //     await dispatch(userActions.kakaoLogin(authCode));

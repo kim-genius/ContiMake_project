@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './LoginButton.module.scss'
 
-const LoginButton = ({ text, color }) => {
+const LoginButton = ({ text, color, link }) => {
 
     return (
-        <button style={{ backgroundColor: color }} className={styles.button}>{text}</button>
+        <button style={{ backgroundColor: color }} link={link} className={styles.button}>{text}</button>
     )
 }
 
