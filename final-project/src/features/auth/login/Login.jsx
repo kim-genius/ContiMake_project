@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import LoginButton from '../../ui/button/LoginButton'
 import AuthButton from '../../ui/button/AuthButton'
 import styles from './Login.module.css'
@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import { GoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import axios from 'axios';
+import KakaoLoginButton from './KakaoLoginButton'
+
 const Login = () => {
 const googleIcon = '/images/googleIcon.png'
   const kakao_REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
@@ -14,7 +16,7 @@ const googleIcon = '/images/googleIcon.png'
   const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${kakao_REST_API_KEY}&redirect_uri=${kakao_REDIRECT_URI}`;
 
   //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=f5810145dffc679dc95abf173323705a&redirect_uri=http://localhost:3000/login/oauth/callback/kakao
-  axios.get(kakaoLink).then(res=>console.log(res))
+  // axios.get(kakaoLink).then(res=>console.log(res))
   const google_REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/google';
   const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 
@@ -33,6 +35,7 @@ const googleIcon = '/images/googleIcon.png'
         <div><AuthButton text='카카오톡 로그인' color='kakao' link={kakaoLink} /></div>
         <div><LoginButton text='구글 로그인' color='google' /></div>
 
+        <div><KakaoLoginButton/></div>
         <GoogleOAuthProvider clientId={googleClientId}>
           <GoogleLogin 
             clientId={googleClientId}
@@ -47,7 +50,7 @@ const googleIcon = '/images/googleIcon.png'
                 <div className='social_login_blank_box'> </div>
               </div>
             )}
-          />=
+          />
         </GoogleOAuthProvider>
 
         <hr style={{ width: '99%', border: 'solid 1px #E7E7E7', margin: '5px' }} />
