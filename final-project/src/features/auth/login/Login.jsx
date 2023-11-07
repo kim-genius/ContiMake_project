@@ -15,7 +15,6 @@ const googleIcon = '/images/googleIcon.png'
   const kakao_REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/kakao';
   
   //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=f5810145dffc679dc95abf173323705a&redirect_uri=http://localhost:3000/login/oauth/callback/kakao
-  axios.get(kakaoLink).then(res=>console.log(res))
   const google_REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/google';
   const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 
