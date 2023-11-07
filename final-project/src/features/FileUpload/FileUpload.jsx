@@ -13,7 +13,7 @@ function FileUpload() {
         formData.append('file', selectedFile);
 
         axios
-            .post('/upload', formData, {
+            .post('/exports/fileupload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -25,10 +25,12 @@ function FileUpload() {
                 console.error('File upload error: ', error);
             });
     };
-
+    handleUpload()
     return (
-        <form className="fileFormBox" method='POST'
-            action="/add">
+        <form className="fileFormBox" 
+        action="exports/fileupload" 
+        method='POST' 
+        enctype="multipart/form-data">
             <h4>글쓰기</h4>
             <input type="title" />
             <input type="content" />
