@@ -5,6 +5,7 @@ const { S3Client } = require('@aws-sdk/client-s3');
 const multer = require('multer');
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
+const userJoinRouter = require('./routes/userJoin')
 const userLoginRouter = require('./routes/userLogin');
 const exportsRouter = require('./routes/exports');
 const multerS3 = require('multer-s3');
@@ -21,6 +22,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/userJoin', userJoinRouter);
+
 app.use('/userLogin', userLoginRouter);
 app.use('/exports', exportsRouter);
 

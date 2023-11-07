@@ -31,6 +31,8 @@ function App() {
         <Route path='/join' element={<Join />}></Route>
         <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
         <Route path='/fileupload' element={<FileUpload></FileUpload>}></Route>
+        <Route path='/generate' element={<Generatepage/>}></Route>
+        <Route path='/edit' element={<Editpage/>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react'
 import LoginButton from '../../ui/button/LoginButton'
-import AuthButton from '../../ui/button/AuthButton'
+import AuthButton from '../../ui/button/authButton'
 import styles from './Login.module.css'
 import { Link } from 'react-router-dom'
 import { GoogleLogin } from "@react-oauth/google";
@@ -13,13 +13,19 @@ const Login = () => {
 const googleIcon = '/images/googleIcon.png'
   const kakao_REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
   const kakao_REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/kakao';
-  const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${kakao_REST_API_KEY}&redirect_uri=${kakao_REDIRECT_URI}`;
-
+  
   //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=f5810145dffc679dc95abf173323705a&redirect_uri=http://localhost:3000/login/oauth/callback/kakao
-  // axios.get(kakaoLink).then(res=>console.log(res))
+  axios.get(kakaoLink).then(res=>console.log(res))
   const google_REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/google';
   const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 
+  const REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
+  const REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/kakao'; 
+  // 라우터에 /login/oauth/callback/kakao로 연결한 컴포넌트 -> C:\Users\gjaischool2\Desktop\실전역량프로젝트\contiStoryPrompt\final-project\src\features\auth\OAuthRedirectHandler.jsx
+  const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
+  
+
+  //https://velog.io/@gingaminga/OAuth-%EC%86%8C%EC%85%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1with-React-Express
   // 사용자가 카카오 로그인 인증을 완료한 뒤
   // 카카오인증서버로부터 redirect uri로 전달받은 유저의 인가코드 Authorization Code 받아오기
   // (주소창 redirect_uri 뒤의 ?code=인가코드값!)
@@ -27,6 +33,9 @@ const googleIcon = '/images/googleIcon.png'
   // https://data-jj.tistory.com/53 참고****
   // const authCode = new URL(window.location.href).searchParams.get('code')
   // console.log(authCode)
+
+  // google
+  // https://www.npmjs.com/package/react-google-login 참고.
 
   return (
     <div className={styles.loginBackground}>
