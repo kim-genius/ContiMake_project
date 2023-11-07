@@ -61,13 +61,13 @@ const Joinbox = () => {
         </div>
         <input
           className={styles.formItem}
-          type="password"
+          type=""
           placeholder="비밀번호"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <input
           className={styles.formItem}
-          type="password"
+          type=""
           placeholder="비밀번호 확인"
           onChange={(e) => setSamePassword(e.target.value)}
         ></input>
