@@ -22,18 +22,22 @@ const projectState = createSlice({
 
   // 초기 상태
   initialState : {
-    title: '',
+    title: '제목없음',
+    imgNums: 0,
   },
 
   // 액션 처리
   reducers : {
     setCurrentTitle : (state,action) => {
       state.title = action.payload;
+    },
+    setCurrentImgNum : (state,action) => {
+      state.imgNums = action.payload;
     }
   }
 }
 )
-export const { setCurrentTitle } = projectState.actions;
+export const { setCurrentTitle,setCurrentImgNum } = projectState.actions;
 
 export default projectState.reducer;
 

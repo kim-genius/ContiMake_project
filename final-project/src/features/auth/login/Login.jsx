@@ -17,11 +17,11 @@ const googleIcon = '/images/googleIcon.png'
   //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=f5810145dffc679dc95abf173323705a&redirect_uri=http://localhost:3000/login/oauth/callback/kakao
   const google_REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/google';
   const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
-
+  
   const REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
   const REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/kakao'; 
-  // 라우터에 /login/oauth/callback/kakao로 연결한 컴포넌트 -> C:\Users\gjaischool2\Desktop\실전역량프로젝트\contiStoryPrompt\final-project\src\features\auth\OAuthRedirectHandler.jsx
   const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
+  // 라우터에 /login/oauth/callback/kakao로 연결한 컴포넌트 -> C:\Users\gjaischool2\Desktop\실전역량프로젝트\contiStoryPrompt\final-project\src\features\auth\OAuthRedirectHandler.jsx
   
 
   //https://velog.io/@gingaminga/OAuth-%EC%86%8C%EC%85%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1with-React-Express
