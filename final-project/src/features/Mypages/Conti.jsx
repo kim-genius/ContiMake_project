@@ -10,7 +10,7 @@ function Conti() {
         <div className={styles.search}>
           <h4>마이콘티</h4>
           <input placeholder='콘티 제목을 검색'></input>
-          <Button className={styles.searchBtn}  variant="outline-dark">검색</Button>
+          <Button className={styles.searchBtn} variant="outline-dark">검색</Button>
           <ButtonGroup>
             <DropdownButton className={styles.dropBtn} as={ButtonGroup} title="제목" id="bg-nested-dropdown">
               <Dropdown.Item eventKey="1">수정날짜순</Dropdown.Item>
@@ -24,11 +24,14 @@ function Conti() {
 
           <div className={styles.contiListBox}>
             <Card>
-              <Card.Img className={styles.contiViewImg} variant="top" src="images/logo.png" />
+              <Card.Img className={styles.contiViewImg} variant="top" src="images/images(1).jpg" />
               <div className={styles.selectBtn}>
-                <Button variant="none">📂</Button>
-                <Button variant="none">📬</Button>
-                <Button variant="none">📝</Button>
+                <button className={styles.exportBtn}>
+                  <img src="images/Vector.png" alt="" />
+                </button>
+                <button className={styles.modifyBtn}>
+                  <img src="images/Vector1.png" alt="" />
+                </button>
               </div>
             </Card>
             <h4>콘티제목</h4>
@@ -37,10 +40,14 @@ function Conti() {
 
           <div className={styles.contiListBox}>
             <Card>
-              <Card.Img className={styles.contiViewImg} variant="top" src="images/logo.png" />
+              <Card.Img className={styles.contiViewImg} variant="top" src="images/images(2).jpg" />
               <div className={styles.selectBtn}>
-                <Button variant="none">so</Button>
-                <Button variant="none">qh</Button>
+                <button className={styles.exportBtn}>
+                  <img src="images/Vector.png" alt="" />
+                </button>
+                <button className={styles.modifyBtn}>
+                  <img src="images/Vector1.png" alt="" />
+                </button>
               </div>
             </Card>
             <h4>콘티제목</h4>
@@ -49,10 +56,14 @@ function Conti() {
 
           <div className={styles.contiListBox}>
             <Card>
-              <Card.Img className={styles.contiViewImg} variant="top" src="images/logo.png" />
+              <Card.Img className={styles.contiViewImg} variant="top" src="images/images(3).jpg" />
               <div className={styles.selectBtn}>
-                <Button variant="none">so</Button>
-                <Button variant="none">qh</Button>
+                <button className={styles.exportBtn}>
+                  <img src="images/Vector.png" alt="" />
+                </button>
+                <button className={styles.modifyBtn}>
+                  <img src="images/Vector1.png" alt="" />
+                </button>
               </div>
             </Card>
             <h4>콘티제목</h4>
@@ -61,10 +72,14 @@ function Conti() {
 
           <div className={styles.contiListBox}>
             <Card>
-              <Card.Img className={styles.contiViewImg} variant="top" src="images/logo.png" />
+              <Card.Img className={styles.contiViewImg} variant="top" src="images/images.jpg" />
               <div className={styles.selectBtn}>
-                <Button variant="none">so</Button>
-                <Button variant="none">qh</Button>
+                <button className={styles.exportBtn}>
+                  <img src="images/Vector.png" alt="" />
+                </button>
+                <button className={styles.modifyBtn}>
+                  <img src="images/Vector1.png" alt="" />
+                </button>
               </div>
             </Card>
             <h4>콘티제목</h4>
@@ -73,17 +88,25 @@ function Conti() {
 
           <div className={styles.contiListBox}>
             <Card>
-              <Card.Img className={styles.contiViewImg} variant="top" src="images/logo.png" />
+              <Card.Img className={styles.contiViewImg} variant="top" src="images/images(1).jpg" />
               <div className={styles.selectBtn}>
-                <Button variant="none">so</Button>
-                <Button variant="none">qh</Button>
+                <button className={styles.exportBtn}>
+                  <img src="images/Vector.png" alt="" />
+                </button>
+                <button className={styles.modifyBtn}>
+                  <img src="images/Vector1.png" alt="" />
+                </button>
               </div>
             </Card>
             <h4>콘티제목</h4>
             <p>콘티 생성일</p>
           </div>
 
-
+          <div className={styles.contiListBox}>
+            <Card className={styles.contiViewImg} variant="top">
+              <img className={styles.contiImgAdd} src="/images/plus.png"></img>
+            </Card>
+          </div>
 
         </div>
       </div>
