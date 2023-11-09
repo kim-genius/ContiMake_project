@@ -1,0 +1,11 @@
+.tab {
+  border: 2px solid black;
+  width: 100%;
+  padding-left: 0;
+}
+.tab li {
+  background-color: pink;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}/*# sourceMappingURL=ToggleBtn.module.css.map */

@@ -8,7 +8,7 @@ const Nav = () => {
 
       <div className={styles.user}>
         <div className={styles.userImg}></div>
-        <h4 claStylessName={styles.userList}>
+        <h4 className={styles.userList}>
           hansol
         </h4>
       </div>

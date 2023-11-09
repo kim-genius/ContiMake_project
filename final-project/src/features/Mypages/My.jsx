@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import styles from "./My.module.css"
-
+import axios from '../../axios'
 const My = () => {
+        const [password,setPassword] = useState('')
+        const [nickName,setNickname] = useState(sessionStorage.getItem('nickname'))
+        const [email,setEmail] = useState(sessionStorage.getItem('email'))
+
+    // axios.post('userpage/update',{email:sessionStorage.getItem('email')})
+
     return (
 
         <form className={styles.myBox} onSubmit={styles.handleChange}>
@@ -13,7 +19,7 @@ const My = () => {
                     <button className={styles.btnDown}>이미지제거</button>
                 </div>
                 <div>
-                    <h2 className={styles.myname}>Kimhansol</h2>
+                    <input className={styles.myname} value={nickName}></input>
                     <div className={styles.changeName}>수정</div>
                 </div>
             </div>
@@ -23,7 +29,7 @@ const My = () => {
             <div>
                 <div className={styles.list}>
                     <div className={styles.drop}>이메일(아이디)</div>
-                    <div className={styles.midText}> hsring23@gmail.com</div>
+                    <div className={styles.midText}> {email}</div>
                 </div>
                 <hr></hr>
                 <div className={styles.list}>

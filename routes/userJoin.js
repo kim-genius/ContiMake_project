@@ -16,24 +16,28 @@ let sql = 'insert into t_user(user_email,user_password,user_nickname) values(?,?
 
 conn.query(sql,[email,password,nickname],(err,rows)=>{
     if(err){
-        res.send('fail')
-    }else{
+        res.send('err')
+    }else if(rows.affectedRows>0){
         res.send('success')
+    }else{
+        res.send('fail')
     }
 })})
 
 /** 이메일 중복확인 */
 router.post('/vaildEmail',(req,res)=>{
-    console.log('hi')
     let {email} = req.body
     let sql = 'select user_email from t_user where user_email = ?'
     conn.query(sql,[email],(err,rows)=>{
+        console.log(rows.length)
         if(err){
-            res.send('fail')
+            res.send('err')
         }else if(rows.length > 0){
-            res.send('success')
+            console.log('뭐가뜨냐',rows)
+            res.send('invaild')
         }else{
-            res.send('join')
+            console.log('뭐가뜨냐2',rows)
+            res.send('vaild')
         }
     })
 })
