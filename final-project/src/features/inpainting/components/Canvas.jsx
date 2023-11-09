@@ -136,8 +136,8 @@ const Canvas = (props) => {
                 onChange={onChange}
                 ref={canvasRef}
                 style={style}
-                width="800px"
-                height="800px"
+                width="500px"
+                height="500px"
                 strokeWidth={15}
                 strokeColor="red"
             />

@@ -1,48 +1,64 @@
-import React, { useState } from 'react';
-import axios from '../../axios';
+import React, { useState } from 'react'
+import axios from '../../axios'
 
-function FileUpload() {
-    const [selectedFile, setSelectedFile] = useState(null);
+const FileUpload = () => {
+    const [image, setImage] = useState({
+        preview:
+            "",
+        data: ""
+    });
+
+    const Submit = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData();
+        formData.append("file", image.data);
+
+        console.log(image.data, "선택한이미지! ");
+        console.log(formData, "들어가기전폼데이터");
+
+        axios.post(
+            "/upload/submit",
+            formData,
+
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            }
+        ).then(() =>
+            console.log(
+                formData,
+                "then이후 폼데이터",
+                image,
+                "이건뭐",
+                image.data,
+                "이미지데이터"
+            )
+        );
+    };
 
     const handleFileChange = (e) => {
-        setSelectedFile(e.target.files[0]);
+        const img = {
+            preview: URL.createObjectURL(e.target.files[0]),
+            data: e.target.files[0],
+        };
+
+        setImage(img);
     };
 
-    const handleUpload = () => {
-        const formData = new FormData();
-        formData.append('file', selectedFile);
-
-        axios
-            .post('/exports/fileupload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            })
-            .then((response) => {
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.error('File upload error: ', error);
-            });
-    };
-    handleUpload()
     return (
-        <form className="fileFormBox" 
-        action="exports/fileupload" 
-        method='POST' 
-        enctype="multipart/form-data">
-            <h4>글쓰기</h4>
-            <input type="title" />
-            <input type="content" />
-            <input type="file"
-                name="img1"
-                accept="image/*"
-                multiple />
-            <button
-                type="submit"
-            >전송</button>
-        </form>
-    );
+        <div>
+            <input
+                type="file"
+                onChange={handleFileChange}
+                name="Images"
+                accept="Images/*"
+            />
+
+            <button onClick={Submit}>제출</button>
+        </div>
+    )
 }
 
-export default FileUpload;
+export default FileUpload

@@ -6,14 +6,14 @@ const Nav = () => {
   return (
     <nav className={styles.navBox}>
 
-      <div className={styles.user}>
-        <div className={styles.userImg}></div>
-        <h4 className={styles.userList}>
-          hansol
-        </h4>
-      </div>
-      <Link to='/mypassword'><div className={styles.myInfo}><img src='images/icon1.png'></img>내정보수정</div></Link>
-      <Link to='/myconti'><div className={styles.contiBox}><img src='images/icon2.png'></img>마이콘티</div></Link>
+      <div className={styles.userImg}></div>
+      <h4>
+        hansol
+      </h4>
+      <ul>
+        <Link to='/mypassword'><div><img src='images/icon1.png'></img>내정보수정</div></Link>
+        <Link to='/myconti'><div><img src='images/icon2.png'></img>마이콘티</div></Link>
+      </ul>
     </nav >
   )
 }

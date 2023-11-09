@@ -17,6 +17,7 @@ const Password = () => {
     )
   }
   return (
+
     <div className={styles.PasswordForm}>
       <h4>내정보수정</h4>
       <span>비밀번호</span>
