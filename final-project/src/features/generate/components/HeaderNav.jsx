@@ -1,4 +1,4 @@
-import React, { useRef, useState,useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styles from '../styles/HeaderNav.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentTitle } from '../../../store/index';
@@ -17,13 +17,12 @@ const HeaderNav = (props) => {
         inputRef.current.disabled = null;
         inputRef.current.focus();
         setShowEditIcon(false)
-        
     }
-    useEffect(()=>{
+    useEffect(() => {
         console.log(inputRef.current.value)
         // dispatch(setCurrentTitle(inputRef.current.value))
-    },[])
-    
+    }, [])
+
     return (
         <div className={styles.wrapper}>
             <span>

@@ -1,3 +1,5 @@
+$main:#FFC478;
+
 @mixin btn {
     border-radius: 50%;
     border: none;
@@ -7,24 +9,58 @@
     margin: {
         top : 31.5vh;
     };
+    &:hover {
+        transform: scale(1.4);
+        background-color: $main;
+    }   
 }
-
-.search {
-    margin: 6vh 1vw;
-    input{
-        width: 16vw;
-    }
-    .searchBtn{
-        width: 5vw;
-    }
-    .dropBtn{
-        width: 10vw;
-    }
+@mixin btn-st {
+    height: 5vh;
+    border-radius: 5px;
+    border : 1px solid gray;
+    margin-right: 1vw;
 }
 
 .section {
-    margin: 2vh 4vw;
+    margin: 6vh 4vw;
+    h4 {
+        margin: 1vh 1vw;
+        font-weight: bold;
+        margin-bottom: 2vh;
+    }
 }
+.search {
+    margin: 1vh 1vw 4vh 1vw;
+    display: flex;
+    div {
+        font-size: 1.5em;
+        margin-right: 1vw;
+    }
+    h4 {
+        font-weight: bold;
+        margin-bottom: 2vh;
+    }
+    input{
+        @include btn-st;
+        width: 16vw;
+        padding-left: 0.5vw;
+    }
+    .searchBtn{
+        @include btn-st;
+        width: 5vw;
+        background: white;
+        &:hover {
+           background: $main;
+           border: none;
+           color :white;
+        }
+    }
+    .dropBtn{
+        width: 10vw;
+        margin-bottom: 0.5vh;
+    }
+}
+
 
 .contiBox {
     display: flex;
@@ -52,31 +88,37 @@
         width: 6vw;
         height: 12vh;
     }
+    &:hover {
+        background: gray;
+        .contiImgAdd {
+            display: none;
+        }
+    }
+    div {
+        font-size: 20px;
+        font-weight: bold;
+        color:white;
+
+    }
 }
 
 .selectBtn {
     position: absolute;
     display: flex;
-    justify-content: flex-end;    
-}
-
-.exportBtn{
-    @include btn;
-    margin-left:11vw;
-}
-
-img {
-    width: 1.3vw;
-    height: 2.5vh;
-    padding-bottom: 0.2vh;
-    overflow: hidden;
-    // &:hover {
-    //     transform: scale(1.4);
-    // }
-}
-
-.modifyBtn{
-    @include btn;
+    justify-content: flex-end; 
+    .exportBtn{
+        @include btn;
+        margin-left:11vw;
+    }
+    .modifyBtn{
+        @include btn;
+    }
+    img {
+        width: 1.3vw;
+        height: 2.5vh;
+        padding-bottom: 0.2vh;
+        overflow: hidden;
+    }
 }
 
 

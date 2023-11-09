@@ -15,25 +15,25 @@ function Conti() {
     ]
 
     return (
-      
-          ContiData.map((data) => (
-            <div key={data.id} className={styles.contiListBox}>
-              <Card>
-                <img className={styles.contiViewImg} variant="top" src={data.imageSrc} />
-                <div className={styles.selectBtn}>
-                  <button className={styles.exportBtn}>
-                    <img src="images/Vector.png" alt="" />
-                  </button>
-                  <button className={styles.modifyBtn}>
-                    <img src="images/Vector1.png" alt="" />
-                  </button>
-                </div>
-              </Card>
-              <h4>{data.title}</h4>
-              <p>{data.creationDate}</p>
+
+      ContiData.map((data) => (
+        <div key={data.id} className={styles.contiListBox}>
+          <Card>
+            <img className={styles.contiViewImg} variant="top" src={data.imageSrc} />
+            <div className={styles.selectBtn}>
+              <button className={styles.exportBtn}>
+                <img src="images/Vector.png" alt="" />
+              </button>
+              <button className={styles.modifyBtn}>
+                <img src="images/Vector1.png" alt="" />
+              </button>
             </div>
-          ))
-       
+          </Card>
+          <h5>{data.title}</h5>
+          <p>{data.creationDate}</p>
+        </div>
+      ))
+
     )
   }
 
@@ -43,12 +43,14 @@ function Conti() {
     <div>
       <div className={styles.section}>
 
+        <h4>마이콘티</h4>
         <div className={styles.search}>
-          <h4>마이콘티</h4>
           <input placeholder='콘티 제목을 검색'></input>
-          <Button className={styles.searchBtn} variant="outline-dark">검색</Button>
+          <div>|</div>
+          <button className={styles.searchBtn} variant="outline-dark">검색</button>
+          <div>|</div>
           <ButtonGroup>
-            <DropdownButton className={styles.dropBtn} as={ButtonGroup} title="제목" id="bg-nested-dropdown">
+            <DropdownButton className={styles.dropBtn} as={ButtonGroup} title="제목" id="bg-nested-dropdown" variant="outline-secondary">
               <Dropdown.Item eventKey="1">수정날짜순</Dropdown.Item>
               <Dropdown.Item eventKey="2">만든날짜순</Dropdown.Item>
             </DropdownButton>
@@ -62,6 +64,7 @@ function Conti() {
           <div className={styles.contiListBox}>
             <Card className={styles.contiViewImg} variant="top">
               <img className={styles.contiImgAdd} src="/images/plus.png"></img>
+              <div>새 콘티 생성</div>
             </Card>
           </div>
 
