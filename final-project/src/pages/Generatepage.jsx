@@ -18,12 +18,11 @@ const Generatepage = () => {
           <ToggleBtn tab1={"생성"} tab2={"편집"} />
           <BoxItem title={'생성할 컷 수 지정'} />
           <CutsNumber />
-
           <BoxItem title={'콘티 내용 입력'} />
           <div className={styles.promptsBox}>
             <Prompts />
           </div>
-            <ColorButton text={'생성하기'}/>
+          <ColorButton text={'생성하기'} />
         </section>
         <section className={styles.canvas}>
         </section>

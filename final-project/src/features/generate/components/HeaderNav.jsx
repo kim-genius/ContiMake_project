@@ -2,6 +2,7 @@ import React, { useRef, useState,useEffect } from 'react'
 import styles from '../styles/HeaderNav.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentTitle } from '../../../store/index';
+import ColorButton from '../../ui/button/ColorButton/ColorButton';
 
 
 const HeaderNav = (props) => {
@@ -15,8 +16,8 @@ const HeaderNav = (props) => {
         inputRef.current.disabled = null;
         inputRef.current.focus();
         setShowEditIcon(false)
-        
     }
+
     useEffect(()=>{
         console.log(inputRef.current.value)
         dispatch(setCurrentTitle(inputRef.current.value))
@@ -24,13 +25,13 @@ const HeaderNav = (props) => {
     },)
     return (
         <div className={styles.wrapper}>
-            <span>
+            <div className={styles.inputArea}>
                 <input
                     disabled="True"
                     ref={inputRef}
                     type="text"
                     defaultValue={'제목없음'}
-                    className={styles.inputArea}
+                    className={styles.inputBox}
                 />
                 {showEditIcon &&
                     <button
@@ -39,10 +40,10 @@ const HeaderNav = (props) => {
                         <img src='/images/edit_icon.png' alt='titleEditBtn' />
                     </button>
                 }
-            </span>
-            <div>
-                <button>마이콘티 저장버튼</button>
-                <button>내보내기 버튼</button>
+            </div>
+            <div className={styles.btnArea}>
+                <ColorButton text={'저장'}/>
+                <img src='/images/export_icon.svg'/>
             </div>
         </div>
     )
