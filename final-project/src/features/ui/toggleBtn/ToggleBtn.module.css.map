@@ -1,1 +1,10 @@
-{"version":3,"sources":["ToggleBtn.module.scss","ToggleBtn.module.css"],"names":[],"mappings":"AAAA;EACI,uBAAA;EAEA,WAAA;EACA,eAAA;ACAJ;ADCG;EACC,sBAAA;EACA,qBAAA;EACA,UAAA;EACA,kBAAA;ACCJ","file":"ToggleBtn.module.css"}
+{
+    "version": 3,
+    "sources": [
+        "ToggleBtn.module.scss",
+        "ToggleBtn.module.css"
+    ],
+    "names": [],
+    "mappings": "AAAA;EACI,WAAA;EACA,eAAA;ACCJ;ADAG;EACC,uBAAA;EACA,qBAAA;EACA,WAAA;EACA,UAAA;EACA,kBAAA;EACA,kBAAA;EACA,8BAAA;ACEJ",
+    "file": "ToggleBtn.module.css"
+}

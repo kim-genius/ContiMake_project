@@ -1,35 +1,31 @@
 
 import React, { useEffect } from 'react'
 import LoginButton from '../../ui/button/LoginButton'
-import AuthButton from '../../ui/button/authButton'
+import AuthButton from './AuthButton'
 import styles from './Login.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { GoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import axios from 'axios';
 import KakaoLoginButton from './KakaoLoginButton'
 
+
 const Login = () => {
-const googleIcon = '/images/googleIcon.png'
+  const googleIcon = '/images/googleIcon.png'
   const kakao_REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
   const kakao_REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/kakao';
-  
+  const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${kakao_REST_API_KEY}&redirect_uri=${kakao_REDIRECT_URI}`;
+
+  // 라우터에 /login/oauth/callback/kakao로 연결한 컴포넌트 -> \src\features\auth\OAuthRedirectHandler.jsx
   //https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=f5810145dffc679dc95abf173323705a&redirect_uri=http://localhost:3000/login/oauth/callback/kakao
+
   const google_REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/google';
   const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 
-  const REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
-  const REDIRECT_URI = 'http://localhost:3000/login/oauth/callback/kakao'; 
-  // 라우터에 /login/oauth/callback/kakao로 연결한 컴포넌트 -> C:\Users\gjaischool2\Desktop\실전역량프로젝트\contiStoryPrompt\final-project\src\features\auth\OAuthRedirectHandler.jsx
-  const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
-  
-
-  //https://velog.io/@gingaminga/OAuth-%EC%86%8C%EC%85%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1with-React-Express
   // 사용자가 카카오 로그인 인증을 완료한 뒤
   // 카카오인증서버로부터 redirect uri로 전달받은 유저의 인가코드 Authorization Code 받아오기
   // (주소창 redirect_uri 뒤의 ?code=인가코드값!)
   // redirect_uri 변경 : 개발자페이지-내애플리케이션-앱설정-플랫폼-Web-Redirect URI 등록하러 가기
-  // https://data-jj.tistory.com/53 참고****
   // const authCode = new URL(window.location.href).searchParams.get('code')
   // console.log(authCode)
 
@@ -40,12 +36,12 @@ const googleIcon = '/images/googleIcon.png'
     <div className={styles.loginBackground}>
       <div className={styles.loginBox}>
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
-        <div><AuthButton text='카카오톡 로그인' color='kakao' link={kakaoLink} /></div>
-        <div><LoginButton text='구글 로그인' color='google' /></div>
+        <div><AuthButton text='카카오 로그인' color='kakao' link={kakaoLink} /></div>
+        {/* <div><KakaoLoginButton/></div> */}
+        <div><AuthButton text='구글 로그인' color='google' /></div>
 
-        <div><KakaoLoginButton/></div>
-        <GoogleOAuthProvider clientId={googleClientId}>
-          <GoogleLogin 
+        <GoogleOAuthProvider>
+          <GoogleLogin
             clientId={googleClientId}
             onSuccess={(res) => console.log(res, '성공')}
             onFailure={(res) => console.log(res, '실패')}
@@ -73,12 +69,7 @@ const googleIcon = '/images/googleIcon.png'
 
 export default Login
 
-//REST API key :
-//f5810145dffc679dc95abf173323705a
-
 // 카카오 developers 앱ID : 	988974
-
-
 
 //google
 //클라이언트 ID :

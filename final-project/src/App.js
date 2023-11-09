@@ -15,6 +15,9 @@ import Inpainting from './features/inpainting/Inpainting';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
 import Editpage from './pages/Editpage';
+import KakaoLoginButton from './features/auth/login/KakaoLoginButton';
+
+
 function App() {
   return (
     <div>
@@ -29,7 +32,8 @@ function App() {
         <Route path='/myconti' element={<Myconti></Myconti>}></Route>
         <Route path='/edit' element={<Editpage></Editpage>}></Route>
         <Route path='/login' element={<Login />}></Route>
-        <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler />}></Route>
+        <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler/>}></Route>
+        <Route path='/login/oauth/callback/google' element={<OAuthRedirectHandler/>}></Route>
         <Route path='/join' element={<Join />}></Route>
         <Route path='/generate' element={<Generatepage />}></Route>
         <Route path='/edit' element={<Editpage />}></Route>

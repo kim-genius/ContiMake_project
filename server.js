@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const indexRouter = require('./routes');
+const kakaoRouter = require('./routes/userKakao');
 const userRouter = require('./routes/user');
 const userJoinRouter = require('./routes/userJoin')
 const userLoginRouter = require('./routes/userLogin');
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/userJoin', userJoinRouter);
-
+app.use('/kakao', kakaoRouter);
 app.use('/userLogin', userLoginRouter);
 app.use('/exports', exportsRouter);
 app.use('/upload', uploadRouter);
