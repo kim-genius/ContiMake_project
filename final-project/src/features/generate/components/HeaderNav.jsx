@@ -1,4 +1,4 @@
-import React, { useRef, useState,useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styles from '../styles/HeaderNav.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentTitle } from '../../../store/index';
