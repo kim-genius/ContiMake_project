@@ -27,7 +27,11 @@ const projectState = createSlice({
   }
 }
 )
-export const { setCurrentTitle, setCurrentImgNum, setPrompt } = projectState.actions;
+
+
+
+
+export const { setCurrentTitle,setCurrentImgNum,setPrompt } = projectState.actions;
 
 export default projectState.reducer;
 

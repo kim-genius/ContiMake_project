@@ -1,6 +1,6 @@
 import React, { useState,useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentImgNum } from '../../../store/index'
+import { setCurrentImgNum } from '../../../store'
 import styles from '../styles/CutsNumber.module.scss'
 const CutsNumber = () => {
     const [number, setNumber] = useState(0)
