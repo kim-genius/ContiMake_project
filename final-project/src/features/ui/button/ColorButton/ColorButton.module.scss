@@ -1,0 +1,9 @@
+@use '../../../styles/color.scss' as *;
+
+.button {
+    background-color: $primaryColor1;
+    padding: 0.2em 1em;
+    border: none;
+    border-radius: 0.3em;
+    letter-spacing: -1px;
+}

@@ -11,7 +11,6 @@ import Join from './pages/Join'
 import Login from './features/auth/login/Login';
 import Footer from './features/ui/footer/Footer';
 import Generatepage from './pages/Generatepage';
-import Inpainting from './features/inpainting/Inpainting';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
 import Editpage from './pages/Editpage';
@@ -21,7 +20,7 @@ import KakaoLoginButton from './features/auth/login/KakaoLoginButton';
 function App() {
   return (
     <div>
-      <Header></Header>
+      {/* <Header></Header> */}
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/exportemail' element={<ExportEmail></ExportEmail>}></Route>

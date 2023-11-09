@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './ColorButton.module.scss'
-const ColorButton = ({text}) => {
+const ColorButton = ({text, func}) => {
     return (
-        <button className={styles.button}>{text}</button>
+        <button className={styles.button} onClick={func}>{text}</button>
     )
 }
 

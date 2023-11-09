@@ -28,8 +28,7 @@ const promptsList = useSelector((state) => state.cur_project.prompts);
           <ToggleBtn tab1={"생성"} tab2={"편집"} />
           <BoxItem title={"생성할 컷 수 지정"} />
           <CutsNumber />
-
-          <BoxItem title={"콘티 내용 입력"} />
+          <BoxItem title={'콘티 내용 입력'} />
           <div className={styles.promptsBox}>
             <Prompts />
           </div>
