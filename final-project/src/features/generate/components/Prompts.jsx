@@ -8,7 +8,7 @@ const Prompts = () => {
     useEffect(() => {
         setPromptsList(Array(parseInt(cur_project.imgNums)).fill(0))
     }, [cur_project.imgNums])
-    console.log(promptsList)
+    console.log(cur_project)
     return (
         <div className={styles.inputArea}>
             {cur_project.imgNums > 0 ?

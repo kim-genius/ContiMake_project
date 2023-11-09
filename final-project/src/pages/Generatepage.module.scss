@@ -22,7 +22,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 8px 0px 0px 0px rgba(0, 0, 0, 1);
     
     button:last-child {
         margin-top: 1em;    
@@ -35,12 +34,6 @@
     width:  58.18vw;
     height: 100vh;
 
-}
-
-.contis {
-    background-color: tomato;
-    width:  21.04vw;
-     height: 100vh;
 }
 
 .promptsBox {

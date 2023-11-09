@@ -5,8 +5,8 @@ const ToggleBtn = (props) => {
   return (
     <ul className={styles.tab}>
       <NavLink to="/generate">
-        {({ isActive }) => (
-          <li className={isActive ? `${styles.active}` : ""}>{props.tab1}</li>
+        {({ isActive, isPending }) => (
+          <li className={isActive ? `${styles.active}` : "" }>{props.tab1}</li>
         )}
       </NavLink>
       <NavLink to="/edit">

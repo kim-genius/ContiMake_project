@@ -26,6 +26,11 @@ const HeaderNav = (props) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.inputArea}>
+                    <button
+                        className={styles.editBtn}
+                        onClick={() => editTitle()}>
+                        <img src='/images/edit_icon.png' alt='titleEditBtn' />
+                    </button>
                 <input
                     disabled="True"
                     ref={inputRef}
@@ -33,13 +38,6 @@ const HeaderNav = (props) => {
                     defaultValue={'제목없음'}
                     className={styles.inputBox}
                 />
-                {showEditIcon &&
-                    <button
-                        className={styles.editBtn}
-                        onClick={() => editTitle()}>
-                        <img src='/images/edit_icon.png' alt='titleEditBtn' />
-                    </button>
-                }
             </div>
             <div className={styles.btnArea}>
                 <ColorButton text={'저장'}/>
