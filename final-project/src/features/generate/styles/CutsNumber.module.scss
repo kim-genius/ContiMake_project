@@ -1,0 +1,12 @@
+.inputArea {
+    display: flex;
+    justify-content: space-between;
+    :first-child {
+        width: 80%;
+    }
+    :nth-child(2) {
+        text-align: center;
+        width: 2.5em;
+        border-radius: 0.5em;
+    }
+}

@@ -14,41 +14,45 @@ const multer = require('multer')
 const multerS3 = require('multer-s3')
 
 const s3 = new S3Client({
-  region : 'ap-northeast-2',
-  credentials : {
-      accessKeyId : 'AKIA4BH6VEOK2XFMALPZ',
-      secretAccessKey : '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'
-  }
+    region: 'ap-northeast-2',
+    credentials: {
+        accessKeyId: 'AKIA4BH6VEOK2XFMALPZ',
+        secretAccessKey: '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'
+    }
 })
 
 const upload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: 'contistoryprompt',
-    key: function (요청, file, cb) {
-      cb(null, Date.now().toString()) //업로드시 파일명 변경가능
-    }
-  })
+    storage: multerS3({
+        s3: s3,
+        bucket: 'contistoryprompt',
+        key: function (요청, file, cb) {
+            cb(null, Date.now().toString()) //업로드시 파일명 변경가능
+        }
+    })
 })
 
 app.use(passport.initialize())
 app.use(session({
-secret: '암호화에 쓸 비번',
-resave : false,
-saveUninitialized : false
+    secret: '암호화에 쓸 비번',
+    resave: false,
+    saveUninitialized: false
 }))
 
 
-router.post('/fileupload', upload.single('img1'), async (req, res) => {
-    
-    console.log('하엥')
-    // console.log(req.file)
+router.post('/add', upload.single('img1'), async (req, res) => {
+
+    console.log('하잉')
+    console.log(req.file.location)
     try {
         if (req.body.title == '') {
             res.send('제목입력안했는데?')
         } else {
-            await db.collection('post').insertOne({ title: req.body.title, content: req.body.content })
-            res.redirect('/myconti')
+            await db.collection('post').insertOne({
+                title: req.body.title,
+                content: req.body.content,
+                img: req.file.location
+            })
+            res.redirect('/list')
         }
 
     } catch (e) {
@@ -56,7 +60,6 @@ router.post('/fileupload', upload.single('img1'), async (req, res) => {
         res.status(500).send('서버에러남')
     }
 })
-
 
 // router.get('/', (req, res) => {
 //     res.send('welcome to my forma');
