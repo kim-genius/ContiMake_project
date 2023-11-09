@@ -1,52 +1,66 @@
+$main : #FFC478;
+
 .navBox{
     border-right:1px solid rgba(200, 200, 200, 0.2);
-}
-.user{
-    margin : 7vh 2.7vw;
-}
-.userImg{
-    width: 10em;
-    height: 10em;
-    border-radius: 50%;
-    background:#FFC478;
+    .userImg{
+        margin : 7vh 3vw 3vh 3vw;
+        width: 9vw;
+        height: 18vh;
+        border-radius: 50%;
+        background:$main;
+    }
+    h4 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10vh;
+    }
+    ul {
+        margin-left: 1.2vw;
+        line-height: 6vh;
+        a{
+            text-decoration: none;
+            color : black;
+            font-weight: bold; 
+            div{
+                img {
+                    width: 1.5vw;
+                    height: 3vh;
+                }
+            }
+        }
+    }
 }
 
-.myInfo{
-    color : black;
-    font-weight: bold; 
-}
 .myBox:hover{
     /* background: #FFC478;
     color:black; */
 }
 
-.contiBox{
-    color : black;
-    width: 10vw;
-    font-weight: bold; 
+@mixin btn-st {
+    height: 5vh;
+    border-radius: 5px;
+    margin-right: 1vw;
 }
 
 .PasswordForm{
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
     height: 100vh;
-    width: 30vw;
+    width: 75%;
+    h4{
+        font-weight: bold;
+    }
     input{
-        height: 5vh;
-        border: none;
-        border-radius: 4px;
-        background: rgba(200, 200, 200, 0.2);
+        @include btn-st;
+        border : 1px solid gray;
+        margin-left: 1vw;
     }
     .checkpw {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
+        @include btn-st;
         border: none;
-        border-radius: 4px;
-        padding: 0 1rem;
-        height: 2rem;
-        font-size: 1rem;
         font-weight: bold;
-        background-color:#FFC478;
-        color: white;
+        background-color:$main;
         width: 5vw;
     }
 }

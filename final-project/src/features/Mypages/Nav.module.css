@@ -1,21 +1,30 @@
 .navBox {
   border-right: 1px solid rgba(200, 200, 200, 0.2);
 }
-
-.user {
-  margin: 7vh 2.7vw;
-}
-
-.userImg {
-  width: 10em;
-  height: 10em;
+.navBox .userImg {
+  margin: 7vh 3vw 3vh 3vw;
+  width: 9vw;
+  height: 18vh;
   border-radius: 50%;
   background: #FFC478;
 }
-
-.myInfo {
+.navBox h4 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+.navBox ul {
+  margin-left: 1.2vw;
+  line-height: 6vh;
+}
+.navBox ul a {
+  text-decoration: none;
   color: black;
   font-weight: bold;
+}
+.navBox ul a div img {
+  width: 1.5vw;
+  height: 3vh;
 }
 
 .myBox:hover {
@@ -23,33 +32,29 @@
   color:black; */
 }
 
-.contiBox {
-  color: black;
-  width: 10vw;
-  font-weight: bold;
-}
-
 .PasswordForm {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
   height: 100vh;
-  width: 30vw;
+  width: 75%;
+}
+.PasswordForm h4 {
+  font-weight: bold;
 }
 .PasswordForm input {
   height: 5vh;
-  border: none;
-  border-radius: 4px;
-  background: rgba(200, 200, 200, 0.2);
+  border-radius: 5px;
+  margin-right: 1vw;
+  border: 1px solid gray;
+  margin-left: 1vw;
 }
 .PasswordForm .checkpw {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  height: 5vh;
+  border-radius: 5px;
+  margin-right: 1vw;
   border: none;
-  border-radius: 4px;
-  padding: 0 1rem;
-  height: 2rem;
-  font-size: 1rem;
   font-weight: bold;
   background-color: #FFC478;
-  color: white;
   width: 5vw;
 }/*# sourceMappingURL=Nav.module.css.map */

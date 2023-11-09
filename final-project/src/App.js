@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Mypage from './pages/Mypage';
 import Myconti from './pages/Myconti';
 import Mypassword from './pages/Mypassword';
-import Form from './features/exports/Form';
+import ExportEmail from './features/exports/ExportEmail';
 import Join from './pages/Join'
 // import Join from './pages/Join';
 import Login from './features/auth/login/Login';
@@ -24,7 +24,9 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/form' element={<Form></Form>}></Route>
+        <Route path='/exportemail' element={<ExportEmail></ExportEmail>}></Route>
+        <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
+        <Route path='/fileupload' element={<FileUpload></FileUpload>}></Route>
         <Route path='/generate' element={<Generatepage></Generatepage>}></Route>
         <Route path='/mypage' element={<Mypage></Mypage>}></Route>
         <Route path='/myconti' element={<Myconti></Myconti>}></Route>
@@ -33,10 +35,8 @@ function App() {
         <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler/>}></Route>
         <Route path='/login/oauth/callback/google' element={<OAuthRedirectHandler/>}></Route>
         <Route path='/join' element={<Join />}></Route>
-        <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
-        <Route path='/fileupload' element={<FileUpload></FileUpload>}></Route>
-        <Route path='/generate' element={<Generatepage/>}></Route>
-        <Route path='/edit' element={<Editpage/>}></Route>
+        <Route path='/generate' element={<Generatepage />}></Route>
+        <Route path='/edit' element={<Editpage />}></Route>
       </Routes>
       <Footer></Footer>
     </div>
