@@ -28,25 +28,10 @@ const projectState = createSlice({
 }
 )
 
-// session관리
-
-const sessionState = createSlice({
-    name:'session',
-    initialState:{
-      email:'',
-      nickName:''
-    },
-    reducers :{
-      setSession:(state,action) =>{
-        state.email = action.payload.email;
-        state.nickName = action.payload.nickName;
-      }
-    }
-})
 
 
 
-export const { setCurrentTitle } = projectState.actions;
+export const { setCurrentTitle,setCurrentImgNum,setPrompt } = projectState.actions;
 
 export default projectState.reducer;
 
