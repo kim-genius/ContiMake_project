@@ -40,7 +40,8 @@ app.use('/userJoin', userJoinRouter);
 app.use('/kakao', kakaoRouter);
 app.use('/userLogin', userLoginRouter);
 app.use('/exports', exportsRouter);
-app.use('/upload', uploadRouter);app.use('/userpage', userMyPageRouter);
+app.use('/upload', uploadRouter);
+app.use('/userpage', userMyPageRouter);
 app.use(express.static(path.join(__dirname, 'final-project', 'build')));
 
 app.listen(PORT, () => {

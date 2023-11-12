@@ -22,14 +22,17 @@ router.post('/vaildpassword',(req,res)=>{
 
 //회원정보수정
 router.post("/update", (req, res) => {
-  let { email } = req.body;
-  console.log(email);
-  let sql = "select * from t_user where user_email = ?";
-  conn.query(sql, [email], (err, rows) => {
+  let { email,password,nickName } = req.body;
+  console.log('나오냐',email,password,nickName)
+  let sql = "update t_user set user_password = ? , user_nickname =? where user_email =?;";
+  conn.query(sql, [password,nickName,email], (err, rows) => {
+    console.log(rows)
     if (err) {
       res.send("err");
-    } else if (rows.length > 0) {
-      res.json(rows[0]);
+    }else if (rows.affectedRows > 0) {
+      res.json('success');
+    }else{
+      res.json('fail')
     }
   });
 });
