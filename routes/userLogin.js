@@ -30,6 +30,8 @@ router.post('/login',(req,res)=>{
             }
             })
 
+        }else{
+            res.send('invaild')
         }
     })
 })

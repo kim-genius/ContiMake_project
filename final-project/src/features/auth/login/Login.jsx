@@ -44,6 +44,8 @@ const Login = () => {
         alert('로그인이 완료됐습니다.')
         navigate('/')
         
+      }else{
+        alert('다시 확인해주세요')
       }
     })
   }
