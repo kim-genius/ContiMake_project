@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Conti.module.css'
 import { Button, Card, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap';
-
+import axios from '../../axios'
 function Conti() {
 
   const ContiList = () => {
+    const [contiTitle,setContiTitle] = useState([])
 
+    const getContiData = ()=>{
+        axios.post('/conti/contilist',{email:sessionStorage.getItem('email')}).then((res)=>{console.log(res.data);return(setContiTitle(res.data))})
+    }
     const ContiData = [
       { id: 1, title: '콘티제목1', creationDate: '2023-11-01', imageSrc: 'images/images1.jpg' },
       { id: 2, title: '콘티제목2', creationDate: '2023-11-02', imageSrc: 'images/images2.jpg' },
@@ -13,13 +17,17 @@ function Conti() {
       { id: 4, title: '콘티제목4', creationDate: '2023-11-04', imageSrc: 'images/images4.jpg' },
       { id: 5, title: '콘티제목5', creationDate: '2023-11-05', imageSrc: 'images/images5.jpg' },
     ]
+    useEffect(()=>{
+      getContiData()
+    },[])
+
 
     return (
 
-      ContiData.map((data) => (
+      contiTitle.map((data,idx) => (
         <div key={data.id} className={styles.contiListBox}>
           <Card>
-            <img className={styles.contiViewImg} variant="top" src={data.imageSrc} />
+            <img className={styles.contiViewImg} variant="top" src={data.img_path} />
             <div className={styles.selectBtn}>
               <button className={styles.exportBtn}>
                 <img src="images/Vector.png" alt="" />
@@ -29,8 +37,8 @@ function Conti() {
               </button>
             </div>
           </Card>
-          <h5>{data.title}</h5>
-          <p>{data.creationDate}</p>
+          <h5>{data.project_title}</h5>
+          <p>{data.created_at}</p>
         </div>
       ))
 

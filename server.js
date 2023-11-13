@@ -6,6 +6,7 @@ const userRouter = require('./routes/user');
 const userJoinRouter = require('./routes/userJoin')
 const userMyPageRouter = require('./routes/userMyPage')
 const userLoginRouter = require('./routes/userLogin');
+const contiRouter = require('./routes/userMyConti')
 const exportsRouter = require('./routes/exports');
 const uploadRouter = require('./routes/upload');
 const session = require('express-session')
@@ -41,6 +42,7 @@ app.use('/kakao', kakaoRouter);
 app.use('/userLogin', userLoginRouter);
 app.use('/exports', exportsRouter);
 app.use('/upload', uploadRouter);
+app.use('/conti', contiRouter);
 app.use('/userpage', userMyPageRouter);
 app.use(express.static(path.join(__dirname, 'final-project', 'build')));
 

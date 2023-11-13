@@ -5,3 +5,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+.blank{
+    width:100%;
+    height:100px;
+}

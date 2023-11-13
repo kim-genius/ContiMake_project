@@ -8,10 +8,13 @@ const Password = () => {
 
 
   const vaildPassword = ()=>{
+
+    console.log('validPassword Function', sessionStorage.getItem('email'))
     axios.post('/userpage/vaildpassword',{password:password,email:sessionStorage.getItem('email')})
     .then((res)=>{
-      if(res.data == 'success'){return(nav('/mypage'))}
-      else{return(alert('패스워드가 틀립니다.'))}
+      console.log('node -> react res',res)
+      if(res.data == 'success'){nav('/mypage')}
+      else{alert('패스워드가 틀립니다.')}
     }
 
     )

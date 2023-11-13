@@ -56,21 +56,20 @@ const OAuthRedirectHandler = (props) => {
                 try {
                     const token = await getToken(authorizationCode);
                     const userInfo = await getUserInfo(token);
-
-                    console.log(userInfo);
+                     console.log(userInfo);
                     setNickname(userInfo?.kakao_account?.profile?.nickname || '');
                     setEmail(userInfo?.kakao_account?.email || '');
-                    console.log('안에거', email, nickname)
-                    const response = await axios.post('/kakao/kaokologin', { // 서버에 로그인 요청을 보냅니다.
-                        user_email: email, // 이메일 상태 값을 요청 본문에 포함시킵니다.
-                        user_nickname: nickname // 닉네임 상태 값을 요청 본문에 포함시킵니다.
-                    });
-                    console.log(response.data);
                 } catch (err) {
                     console.error('에러??' + err);
                 }
             };
             fetchUser();
+            console.log('안에거', email, nickname)
+            axios.post('/kakao/kaokologin', { // 서버에 로그인 요청을 보냅니다.
+                user_email: email, // 이메일 상태 값을 요청 본문에 포함시킵니다.
+                user_nickname: nickname // 닉네임 상태 값을 요청 본문에 포함시킵니다.
+            }).then(res=>console.log('hihi'))
+
         }
     }, [email, nickname]);
 
