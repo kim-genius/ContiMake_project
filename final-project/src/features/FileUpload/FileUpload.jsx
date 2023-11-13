@@ -1,14 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import axios from '../../axios'
+import styles from './FileUpload.module.css'
 
-const FileUpload = () => {
+const FileUpload = ({ setModal }) => {
+
     const [image, setImage] = useState({
         preview:
             "",
         data: ""
     });
 
-    const Submit = (e) => {
+    // const [imgFile, setImgFile] = useState("");
+
+    // const imgRef = useRef();
+
+    // const saveImgFile = () => {
+    //     const file = imgRef.current.files[0];
+    //     console.log(file)
+    //     const reader = new FileReader();
+    //     reader.readAsDataURL(file);
+    //     reader.onloadend = () => {
+    //         setImgFile(reader.result);
+    //     };
+    // };
+
+    const submit = (e) => {
         e.preventDefault();
 
         let formData = new FormData();
@@ -43,21 +59,39 @@ const FileUpload = () => {
             preview: URL.createObjectURL(e.target.files[0]),
             data: e.target.files[0],
         };
-
         setImage(img);
     };
 
     return (
-        <div>
-            <input
-                type="file"
-                onChange={handleFileChange}
-                name="Images"
-                accept="Images/*"
-            />
+        <form className={styles.modal}>
+            {/* <img
+                src={imgFile ? imgFile : `/images/icon/user.png`}
+            /> */}
 
-            <button onClick={Submit}>제출</button>
-        </div>
+            <div className={styles.modalContent}>
+                <div className={styles.close}>
+                    <button className={styles.closeBtn} onClick={() => { setModal() }}>X</button><br></br>
+                </div>
+
+                {/* <label className={styles.signupProfileImgLabel} htmlFor="profileImg">프로필 이미지 선택</label> */}
+                <input
+                    type="file"
+                    onChange={handleFileChange}
+                    accept="Images/*"
+                    id="profileImg"
+                    name="Images"
+                />
+                {/* <input
+                    type="file"
+                    accept="image/*"
+                    id="profileImg"
+                    onChange={saveImgFile}
+                    ref={imgRef}
+                /><br></br> */}
+                <img src={image.preview} alt="Preview" />
+                <button onClick={submit} className={styles.submitBtn}>확인</button>
+            </div>
+        </form>
     )
 }
 

@@ -1,0 +1,16 @@
+.title {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2em 0.3em;
+  margin-bottom: 1em;
+  border-bottom: 0.12em solid #BABABA;
+}
+.title h4 {
+  letter-spacing: -0.1em;
+  word-spacing: -0.05em;
+  font-size: 1.1em;
+}
+.title img {
+  margin-right: 0.3em;
+}/*# sourceMappingURL=BoxItem.module.css.map */

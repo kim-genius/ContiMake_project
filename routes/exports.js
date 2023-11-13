@@ -55,6 +55,7 @@ router.post('/api/forma', (req, res) => {
             res.status(500).send('Email sending failed');
         } else {
             console.log('성공');
+            
             res.send('Success');
         }
     });

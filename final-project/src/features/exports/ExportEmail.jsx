@@ -77,6 +77,12 @@ export default class ExportEmail extends Component {
     render() {
         return (
             <div className={styles.container} >
+                <div>안</div>
+                <div>안</div>
+                <div>안</div>
+                <div>안</div>
+                <div>안</div>
+                <div>안</div>
                 <form onSubmit={this.formSubmit}>
                     <div className={styles.singleItem}>
                         <label htmlFor="name" className="">name</label>
@@ -133,7 +139,7 @@ export default class ExportEmail extends Component {
 
 
 // import React, { useState } from 'react';
-// import styles from './exportEmail.module.css';
+// import styles from './ExportEmail.module.css';
 // import axios from 'axios';
 
 // const ExportEmail = () => {
@@ -189,6 +195,13 @@ export default class ExportEmail extends Component {
 
 //     return (
 //         <div className={styles.container}>
+//             <div>안</div>
+//             <div>안</div>
+//             <div>안</div>
+//             <div>안</div>
+//             <div>안</div>
+//             <div>안</div>
+//             <div>안</div>
 //             <form onSubmit={formSubmit}>
 //                 <div className={styles.singleItem}>
 //                     <label htmlFor="name">Name</label>
