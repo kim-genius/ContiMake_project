@@ -28,20 +28,22 @@ const FileUpload = ({ setModal }) => {
         e.preventDefault();
 
         let formData = new FormData();
+        let email = sessionStorage.getItem("email");
         formData.append("file", image.data);
+        formData.append("email", email);
 
         console.log(image.data, "선택한이미지! ");
         console.log(formData, "들어가기전폼데이터");
+        console.log(sessionStorage.getItem("email"))
 
         axios.post(
             "/upload/submit",
             formData,
-
             {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
-            }
+            },
         ).then(() =>
             console.log(
                 formData,

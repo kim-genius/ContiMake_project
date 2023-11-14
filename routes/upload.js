@@ -9,7 +9,7 @@ router.use(express.static("Images"));
 const upload = multer({
     storage: multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, "uploads/");
+            cb(null, "final-project/public/images/");
         },
         filename: function (req, file, cb) {
             cb(null, new Date().valueOf() + path.extname(file.originalname));
@@ -19,8 +19,9 @@ const upload = multer({
 
 router.post("/submit", upload.single("file"), (req, res) => {
     console.log(req.file, "파일");
+    console.log(req.body.email)
     const user_profilpath = req.file.path;
-    const user_email = 'hsring22';
+    const user_email = req.body.email
 
     let sql = 'UPDATE t_user SET user_profilpath = ? WHERE user_email = ?'
 
