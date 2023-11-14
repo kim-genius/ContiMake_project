@@ -13,10 +13,18 @@
 }
 
 .myname{
-    padding: 5vh 2vw 0 2vw;
+    transform: translateX(10%);
+    font-size: 40px;
+    border-radius: 15px;    
+    padding: 10px;
+    text-align:left;
+    border: none;
     font-weight: bold;
 }
-
+.changeName{
+    font-size: 25px;
+    transform: translateX(3%);
+}
 .userBox{
     width: 11vw;
     height: 35vh;
@@ -114,7 +122,11 @@
     align-items: center;
 }
 .midText{
-    flex-grow:1;
+    flex-grow:0;
+    width:30%;
+
+    
+
 }
 .dropBtn{
     display: inline-flex;
@@ -132,7 +144,7 @@
     width: 9vw;
 }
 .changeBtn{
-    height: 5vh;
+    transform: translateX(20px);
     font-weight: bold; 
     color:#6EAAF8;
 }
@@ -145,9 +157,9 @@ hr{
     width: 100%;
 }
 .list{
-    width: 50vw;
+    width: 40vw;
     display: flex;
-    justify-content: space-between;
+ 
     align-items: center;
 }
 
@@ -159,4 +171,16 @@ hr{
 .dropText{
     color : gray;
     font-size: 1em;
+}
+
+.myPageVaildPassword{
+    transform: translateY(-20%);
+   height:70px;
+   width:80%;
+   display: flex;
+   position: relative;
+   span{
+    font-size: 15px;
+    height:40px;
+   }
 }
