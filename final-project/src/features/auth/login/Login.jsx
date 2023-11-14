@@ -4,10 +4,8 @@ import LoginButton from '../../ui/button/LoginButton'
 import AuthButton from './AuthButton'
 import styles from './Login.module.css'
 import { Link, redirect, useNavigate } from 'react-router-dom'
-import { GoogleLogin } from "@react-oauth/google";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import axios from '../../../axios';
-import KakaoLoginButton from './KakaoLoginButton'
 
 
 const Login = () => {
@@ -35,14 +33,16 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password,setPassword] = useState('')
   const navigate = useNavigate()
+
+  
    const vaildLogin=()=>{
     axios.post('/userLogin/login',{email:email,password:password})
     .then((res)=>{
       if(res.data.msg =='success'){
         sessionStorage.setItem('email',res.data.email);
         sessionStorage.setItem('nickname',res.data.nickname)
-        alert('로그인이 완료됐습니다.')
         navigate('/')
+        alert('로그인이 완료됐습니다.')
         
       }else{
         alert('다시 확인해주세요')
@@ -55,7 +55,6 @@ const Login = () => {
       <div className={styles.loginBox}>
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
         <div><AuthButton text='카카오 로그인' color='kakao' link={kakaoLink} /></div>
-        {/* <div><KakaoLoginButton/></div> */}
         <div><AuthButton text='구글 로그인' color='google' /></div>
 
         <GoogleOAuthProvider>

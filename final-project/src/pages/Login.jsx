@@ -1,6 +1,6 @@
 
 import React from 'react'
-import LoginButton from '../../ui/button/LoginButton'
+import LoginButton from '../../src/features/ui/button/LoginButton'
 import styles from './Login.module.css'
 import { Link } from 'react-router-dom'
 

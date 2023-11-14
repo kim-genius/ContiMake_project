@@ -19,7 +19,7 @@ const My = () => {
   const samePasswordRef = useRef();
 
   const changeMyPage = () => {
-    console.log("hihihi");
+    console.log('email', sessionStorage.getItem("email") , 'nick', nickName)
     axios
       .post("/userpage/update", {
         email: sessionStorage.getItem("email"),
@@ -51,6 +51,39 @@ const My = () => {
   const removeImg = () => {
     console.log('이미지 제거')
   };
+
+  const Withdrawal =()=>{
+    console.log('회원탈퇴')
+  const isConfirmed = window.confirm('정말 탈퇴하시겠어요?');
+
+    if (isConfirmed) {
+      axios
+        .post("/userpage/withdrawl", {
+          email: sessionStorage.getItem("email"),
+          nickName: nickName,
+          password: password,
+        })
+        .then((res) => {
+          if (res.data === 'success') {
+            alert('탈퇴가 완료되었습니다.');
+            sessionStorage.clear()
+            navigate('/');
+          } else {
+            alert('Error occurred.');
+          }
+        })
+        .catch((error) => {
+          console.error('Error during update:', error);
+          alert('An error occurred during the update.');
+        });
+    } else {
+      // 취소 눌렀을 시
+      console.log('탈퇴취소');
+    }
+  
+  }
+
+
 
   return (
     <form className={styles.myBox} onSubmit={(e) => e.preventDefault()}>
@@ -132,7 +165,7 @@ const My = () => {
         <div className={styles.droplist}>
           <div className={styles.drop}>회원 탈퇴</div>
           <div>
-            <button className={styles.dropBtn}>탈퇴하기</button>
+            <button className={styles.dropBtn} onClick={Withdrawal}>탈퇴하기</button>
           </div>
         </div>
         <div className={styles.dropText}>

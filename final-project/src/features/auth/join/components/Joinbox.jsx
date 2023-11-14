@@ -6,11 +6,12 @@ import axios from "../../../../axios";
 import VaildPassword from "./VaildPassword";
 
 const Joinbox = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("1");
   const [samePassword, setSamePassword] = useState("");
   const [nickname, setNickname] = useState("");
-  const navigate = useNavigate();
+  
 
   const sendJoin = () => {
     if(email!=''&&password!=''&&nickname!=''){
@@ -22,8 +23,9 @@ const Joinbox = () => {
       })
       .then((res) => {
         if (res.data == "success") {
-          alert("회원가입 완료되었습니다");
           navigate("/join");
+          alert("회원가입 완료되었습니다");
+          
         }else{
           alert('입력을 확인해주세요')
         }

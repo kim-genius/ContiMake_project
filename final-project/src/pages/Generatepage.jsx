@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
 import {useSelector} from "react-redux";
 import styles from './Generatepage.module.scss'
-import Inpainting from '../features/inpainting/Inpainting'
 import HeaderNav from '../features/generate/components/HeaderNav'
 import ToggleBtn from '../features/ui/toggleBtn/ToggleBtn'
 import CutsNumber from '../features/generate/components/CutsNumber'
 import Prompts from '../features/generate/components/Prompts'
 import BoxItem from '../features/ui/BoxItem/BoxItem'
-import ColorButton from '../features/ui/button/ColorButton/ColorButton'
 import axios from 'axios'
+import ColorButton from '../features/ui/button/ColorButton/ColorButton';
 const Generatepage = () => {
 const [image, updateImage] = useState()
 const promptsList = useSelector((state) => state.cur_project.prompts);
 
   const generate = async (prompt) => {
-    const result = await axios.get(`http://127.0.0.1:8000/?prompt==${prompt}`);
+    const result = await axios.get(
+      `http://64.98.238.3:41006/?prompt==${prompt}`
+    );
+    console.log(result);
     updateImage(result.data);
   };
 
@@ -32,7 +34,7 @@ const promptsList = useSelector((state) => state.cur_project.prompts);
           <div className={styles.promptsBox}>
             <Prompts />
           </div>
-          <button onClick={()=>{generate(promptsList[0])}}>생성하기</button>
+          <ColorButton text={'생성하기'} func={generate} parameter={promptsList[0]}/>
         </section>
         <section className={styles.canvas}>
           {image? <img src={`data:image/png;base64,${image}`} alt="표시" /> : null}

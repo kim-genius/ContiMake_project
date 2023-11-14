@@ -8,7 +8,7 @@ const Nav = () => {
 
       <div className={styles.userImg}></div>
       <h4>
-        hansol
+        {sessionStorage.getItem('nickname')}
       </h4>
       <ul>
         <Link to='/mypassword'><div><img src='images/icon1.png'></img>내정보수정</div></Link>
