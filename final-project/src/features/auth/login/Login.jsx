@@ -1,11 +1,11 @@
 
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import LoginButton from '../../ui/button/LoginButton'
 import AuthButton from './AuthButton'
 import styles from './Login.module.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, redirect, useNavigate } from 'react-router-dom'
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
-import axios from 'axios';
+import axios from '../../../axios';
 
 
 const Login = () => {
@@ -29,6 +29,26 @@ const Login = () => {
 
   // google
   // https://www.npmjs.com/package/react-google-login 참고.
+
+  const [email, setEmail] = useState('')
+  const [password,setPassword] = useState('')
+  const navigate = useNavigate()
+
+  
+   const vaildLogin=()=>{
+    axios.post('/userLogin/login',{email:email,password:password})
+    .then((res)=>{
+      if(res.data.msg =='success'){
+        sessionStorage.setItem('email',res.data.email);
+        sessionStorage.setItem('nickname',res.data.nickname)
+        navigate('/')
+        alert('로그인이 완료됐습니다.')
+        
+      }else{
+        alert('다시 확인해주세요')
+      }
+    })
+  }
 
   return (
     <div className={styles.loginBackground}>
@@ -55,9 +75,10 @@ const Login = () => {
         </GoogleOAuthProvider>
 
         <hr style={{ width: '99%', border: 'solid 1px #E7E7E7', margin: '5px' }} />
-        <input className={styles.formItem} type='email' placeholder='이메일'></input>
-        <input className={styles.formItem} type='password' placeholder='비밀번호'></input>
-        <LoginButton className={styles.formItem} type='submit' text='로그인' />
+        
+        <input className={styles.formItem}  placeholder='이메일' onChange={(e)=>setEmail(e.target.value)}></input>
+        <input className={styles.formItem} type='password' placeholder='비밀번호' onChange={(e)=>setPassword(e.target.value)}></input>
+        <LoginButton className={styles.formItem} text='로그인'func={vaildLogin}></LoginButton>
         <div><p>회원이 아니신가요?  <Link to='/join'>일반 회원가입</Link></p></div>
       </div>
     </div>

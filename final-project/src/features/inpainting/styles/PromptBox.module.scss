@@ -1,0 +1,25 @@
+@use '../../styles/color.scss' as *;
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.textBox {
+    width: 90%;
+    height: 12em;
+    resize: none;
+    border: none;
+    border-radius: 0.5em;
+    background-color: rgb(237, 237, 237);;
+    padding: 0.5em;
+    letter-spacing: -0.1em;
+    color: gray;
+    &:focus {
+        outline: none;
+        background-color: white;
+        border: 1px solid $boxItemStroke1;
+        color: #949494;
+    }
+  
+}

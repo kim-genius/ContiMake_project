@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from '../../axios';
-import ClipLoader from "react-spinners/BarLoader";
+
 import { useNavigate } from 'react-router-dom';
 // import { actionCreators as userActions } from '../redux/modules/user';
 
@@ -18,6 +18,7 @@ const OAuthRedirectHandler = (props) => {
     const [nickname, setNickname] = useState("");
     let [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
+    
 
     // React.useEffect(async () => {
     //     await dispatch(userActions.kakaoLogin(authCode));
@@ -92,6 +93,12 @@ const OAuthRedirectHandler = (props) => {
             };
 
             fetchUser();
+            console.log('안에거', email, nickname)
+            axios.post('/kakao/kaokologin', { // 서버에 로그인 요청을 보냅니다.
+                user_email: email, // 이메일 상태 값을 요청 본문에 포함시킵니다.
+                user_nickname: nickname // 닉네임 상태 값을 요청 본문에 포함시킵니다.
+            }).then(res=>console.log('hihi'))
+
         }
     }, []);
 

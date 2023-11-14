@@ -29,7 +29,7 @@ const Prompts = () => {
     <div className={styles.inputArea}>
       {cur_project.imgNums > 0
         ? promptsList.map((_, idx) => (
-            <input
+            <textarea
               key={`input-${idx}`}
               placeholder={"컷" + (idx + 1)}
               className={styles.inputBox}

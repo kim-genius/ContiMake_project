@@ -1,10 +1,17 @@
+@use '../../styles/color.scss' as *;
 .title {
     width: 95%;
     display: flex;
     justify-content: space-between;
-    padding: 0 1em;
-    border-bottom: 1px solid black;
-    
+    padding: 0.2em 0.3em;
+    margin: 1em 0em;
+    border-bottom: 0.12em solid $boxItemStroke1;
+    h4 {
+        // font-weight: 600;
+        letter-spacing: -0.1em;
+        word-spacing: -0.05em;
+        font-size: 1.1em;
+    }
     img {
         margin-right: 0.3em;
     }

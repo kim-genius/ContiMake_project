@@ -1,11 +1,14 @@
+@use '../features/styles/color.scss' as *;
 .Wrapper {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 .navBar {
-    border: 1px solid pink;
-    height: 5vh;
+    display: flex;
+    align-items: center;
+    border: 1px solid $boxItemStroke1;
+    height: 5.5vh;
 }
 
 .contentsWrapper {
@@ -13,24 +16,23 @@
 }
 
 .designTab {
+    z-index: 1;
     height: 100vh;
     width: 21.04vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    button:last-child {
+        margin-top: 1em;    
+        width: 90%;
+    }
 }
 
 .canvas {
-    background-color: aqua;
+    background-color: #ECECEC;
     width:  58.18vw;
-    height: 100vh;
 
-}
-
-.contis {
-    background-color: tomato;
-    width:  21.04vw;
-    height: 100vh;
 }
 
 .promptsBox {

@@ -1,0 +1,24 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textBox {
+  width: 90%;
+  height: 7em;
+  resize: none;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #BABABA;
+  padding: 0.5em;
+  letter-spacing: -0.1em;
+  color: rgb(56, 56, 56);
+}
+.textBox:focus {
+  outline: none;
+  background-color: white;
+  border: 1px solid #BABABA;
+  color: #949494;
+}/*# sourceMappingURL=PromptBox.module.css.map */

@@ -7,7 +7,7 @@ const BoxItem = (props) => {
                 <img
                     src='/images/triangle.svg'
                     alt='downarrow'
-                    width={15}
+                    width={12}
                 />
             </div>
   )
