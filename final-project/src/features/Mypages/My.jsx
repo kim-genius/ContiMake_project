@@ -48,15 +48,19 @@ const My = () => {
     ref.current.focus();
     setState(true);
   };
+  const removeImg = () => {
+    console.log('이미지 제거')
+  };
 
   return (
     <form className={styles.myBox} onSubmit={(e) => e.preventDefault()}>
       <div className={styles.userflex}>
         <div className={styles.userBox}>
-          <div className={styles.userImg}></div>
+          <div className={styles.userImg}>
+          </div>
           <button onClick={() => setModal(true)} className={styles.btnUp}>이미지업로드</button>
           <br></br>
-          <button onClick={() => navigate('/mypage')} className={styles.btnDown}>이미지제거</button>
+          <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>
         </div>
         <div>
           <input
