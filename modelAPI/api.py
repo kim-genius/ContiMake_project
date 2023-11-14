@@ -28,8 +28,7 @@ pipe = StableDiffusionPipeline.from_pretrained(
 @app.get("/")
 def generate(prompt: str):
     with autocast(device):
-        image = pipe(prompt, guidance_scale=8.5,
-                     width=256, height=256).images[0]
+        image = pipe(prompt, guidance_scale=8.5).images[0]
     image.save("testimage.png")
     buffer = BytesIO()
     image.save(buffer, format="PNG")
