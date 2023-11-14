@@ -11,6 +11,7 @@ const router = express.Router();
 /**회원가입 기능 */
 router.post('/kaokologin', (req, res) => {
     console.log(req.body)
+    res.send('success')
 
 })
 

@@ -10,7 +10,7 @@ const HeaderModal = ({isOpen,isClose}) => {
 
     const logOut = ()=>{
         sessionStorage.clear()
-        axios.post('/userLogin/logout')
+        axios.post('/userLogin/logout').then(res=>(console.log('로그아웃완료')))
         isClose()
         navigate('/')
       }

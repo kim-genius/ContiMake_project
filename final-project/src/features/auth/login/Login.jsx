@@ -35,14 +35,16 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password,setPassword] = useState('')
   const navigate = useNavigate()
+
+  
    const vaildLogin=()=>{
     axios.post('/userLogin/login',{email:email,password:password})
     .then((res)=>{
       if(res.data.msg =='success'){
         sessionStorage.setItem('email',res.data.email);
         sessionStorage.setItem('nickname',res.data.nickname)
-        alert('로그인이 완료됐습니다.')
         navigate('/')
+        alert('로그인이 완료됐습니다.')
         
       }else{
         alert('다시 확인해주세요')

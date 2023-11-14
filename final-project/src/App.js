@@ -20,7 +20,8 @@ import KakaoLoginButton from './features/auth/login/KakaoLoginButton';
 function App() {
   return (
     <div>
-      {/* <Header></Header> */}
+      <Header></Header>
+      <div className='blank'></div>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/exportemail' element={<ExportEmail></ExportEmail>}></Route>
