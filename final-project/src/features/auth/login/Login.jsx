@@ -4,10 +4,8 @@ import LoginButton from '../../ui/button/LoginButton'
 import AuthButton from './AuthButton'
 import styles from './Login.module.css'
 import { Link, useNavigate } from 'react-router-dom'
-import { GoogleLogin } from "@react-oauth/google";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import axios from 'axios';
-import KakaoLoginButton from './KakaoLoginButton'
 
 
 const Login = () => {
@@ -37,7 +35,6 @@ const Login = () => {
       <div className={styles.loginBox}>
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
         <div><AuthButton text='카카오 로그인' color='kakao' link={kakaoLink} /></div>
-        {/* <div><KakaoLoginButton/></div> */}
         <div><AuthButton text='구글 로그인' color='google' /></div>
 
         <GoogleOAuthProvider>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from '../../axios';
 import ClipLoader from "react-spinners/BarLoader";
+import { useNavigate } from 'react-router-dom';
 // import { actionCreators as userActions } from '../redux/modules/user';
 
 const kakao_REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
@@ -12,6 +13,7 @@ const authorizationCode = url.searchParams.get('code');
 const grant_type = 'authorization_code'
 
 const OAuthRedirectHandler = (props) => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState("");
     const [nickname, setNickname] = useState("");
     let [loading, setLoading] = useState(true);
@@ -57,26 +59,41 @@ const OAuthRedirectHandler = (props) => {
                     const token = await getToken(authorizationCode);
                     const userInfo = await getUserInfo(token);
 
-                    console.log(userInfo);
+                    console.log('userInfo나오나', userInfo);
+                    let nametest = userInfo?.kakao_account?.profile?.nickname || ''
+                    let emailtest = userInfo?.kakao_account?.email || ''
                     setNickname(userInfo?.kakao_account?.profile?.nickname || '');
                     setEmail(userInfo?.kakao_account?.email || '');
-                    console.log('안에거',email, nickname)
-                    const response = await axios.post('/kakao/kaokologin', { // 서버에 로그인 요청을 보냅니다.
-                        user_email: email, // 이메일 상태 값을 요청 본문에 포함시킵니다.
-                        user_nickname: nickname // 닉네임 상태 값을 요청 본문에 포함시킵니다.
+                    console.log('뭐냐',nametest,emailtest)
+                    axios.post('/kakao/kaokologin', { // 서버에 로그인 요청을 보냅니다.
+                        email: emailtest, // 이메일 상태 값을 요청 본문에 포함시킵니다.
+                        nickname: nametest  // 닉네임 상태 값을 요청 본문에 포함시킵니다.
+
+                    }).then((res) => {
+                        if (res.data == "join") {
+                            alert("카카오계정으로 회원가입 완료되었습니다");
+                            sessionStorage.setItem('email',emailtest)
+                            sessionStorage.setItem('nickname',nametest)
+                            navigate("/");
+                        } else if (res.data == "login") {
+                            alert("카카오계정으로 로그인 완료되었습니다");
+                            sessionStorage.setItem('email', emailtest)
+                            sessionStorage.setItem('nickname', nametest)
+                            navigate("/");
+                        }else{
+                            navigate('/')
+                        }
                     });
-                    console.log(response.data);
+
                 } catch (err) {
                     console.error('에러??' + err);
+                    throw err;
                 }
             };
+
             fetchUser();
         }
-    }, [email,nickname]);
-
-
-
-
+    }, []);
 
     return (
         <div style={{ height: '100vh' }}>
