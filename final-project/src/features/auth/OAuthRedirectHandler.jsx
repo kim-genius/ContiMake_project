@@ -16,6 +16,7 @@ const OAuthRedirectHandler = (props) => {
     const [nickname, setNickname] = useState("");
     let [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
+    
 
     // React.useEffect(async () => {
     //     await dispatch(userActions.kakaoLogin(authCode));

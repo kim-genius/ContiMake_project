@@ -1,10 +1,13 @@
 import React, { useRef, useState } from "react";
-import {useNavigate} from 'react-router-dom'
-import styles from "./My.module.scss";
+import { useNavigate } from 'react-router-dom'
+import styles from "./My.module.css";
 import VaildPassword from "../auth/join/components/VaildPassword";
 import axios from "../../axios";
+import FileUpload from "../FileUpload/FileUpload";
+
 const My = () => {
   const navigate = useNavigate()
+  const [modal, setModal] = useState(false);
   const [password, setPassword] = useState("1");
   const [samePassword, setSamePassword] = useState("");
   const [nickName, setNickname] = useState(sessionStorage.getItem("nickname"));
@@ -24,11 +27,11 @@ const My = () => {
         password: password,
       })
       .then((res) => {
-        if(res.data == 'success'){
-          sessionStorage.setItem('nickname',nickName)
+        if (res.data == 'success') {
+          sessionStorage.setItem('nickname', nickName)
           alert('변경이 완료됐습니다.')
           navigate('/')
-        }else{
+        } else {
           alert('오류입니다')
         }
 
@@ -84,9 +87,9 @@ const My = () => {
       <div className={styles.userflex}>
         <div className={styles.userBox}>
           <div className={styles.userImg}></div>
-          <button className={styles.btnUp}>이미지업로드</button>
+          <button onClick={() => setModal(true)} className={styles.btnUp}>이미지업로드</button>
           <br></br>
-          <button className={styles.btnDown}>이미지제거</button>
+          <button onClick={() => navigate('/mypage')} className={styles.btnDown}>이미지제거</button>
         </div>
         <div>
           <input
@@ -107,6 +110,8 @@ const My = () => {
           </div>
         </div>
       </div>
+
+      {modal && <FileUpload setModal={setModal}></FileUpload>}
 
       <div>
         <div className={styles.list}>

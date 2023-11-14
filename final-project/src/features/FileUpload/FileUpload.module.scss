@@ -1,0 +1,87 @@
+@mixin uploadModal {
+  position:absolute;
+  left: 45%;
+  text-align: center;
+  background-color: #FFC478;
+  border-radius:10px; 
+  border:1px solid rgba(200, 200, 200, 0.2);  
+  transform:translateY(-50%); //모듈창열었을때 위치설정 가운데로 
+}
+
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.45);
+    img {
+      @include uploadModal;
+      z-index: 1;
+      width: 9vw;
+      height: 18vh;
+      margin-left: 5vw;
+      border-radius: 50%;
+      top:29%; 
+      background: white;
+    }
+    .modalContent {
+      @include uploadModal;
+      width:20vw;  
+      height:38vh; 
+      padding:10px;
+      top:35%;   
+        // label태그
+        .signupProfileImgLabel {
+          margin-top: 18vh;
+          font-weight: bold;
+          font-size: 1.2em;
+          color: #0095f6;
+          display: inline-block;
+          cursor: pointer;
+        }
+        // input태그
+        input {
+          // display: none;
+        }
+        .close{
+          display: flex;
+          justify-content: flex-end;
+          margin-right: 0.5vw;
+        }
+        .closeBtn{
+          border: none;
+          background-color: #FFC478;
+          font-size: 1.5em;
+          font-weight: bold;
+          &:hover{
+            color: white;
+          }
+        }
+     
+        .imgBox{  
+          background-color: white;
+          border:1px solid rgba(0,0,0,0.2);
+          width: 8em;
+          height: 8em;
+          border-radius: 50%;
+          margin: 2vh 0 3vh 0 ;
+        }
+        .submitBtn{
+          border: none;
+          border-radius: 20px;
+          height: 2rem;
+          width: 5vw;
+          font-size: 1rem;
+          font-weight: bold;
+          color : white;
+          margin-top: 1.1vh;
+        }
+    }
+
+  }  
+  
+

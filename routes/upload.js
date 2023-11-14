@@ -9,7 +9,7 @@ router.use(express.static("Images"));
 const upload = multer({
     storage: multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, "uploads/");
+            cb(null, "final-project/public/images/");
         },
         filename: function (req, file, cb) {
             cb(null, new Date().valueOf() + path.extname(file.originalname));
@@ -18,24 +18,22 @@ const upload = multer({
 });
 
 router.post("/submit", upload.single("file"), (req, res) => {
-    console.log(req.files, "레큐파일");
-    console.log(req.body, "레큐바디");
-    console.log(req.file.originalname);
-    const profile = req.file;
-
     console.log(req.file, "파일");
+    console.log(req.body.email)
+    const user_profilpath = req.file.path;
+    const user_email = req.body.email
 
-    let sql = "insert into t_user values( ?,?,?,?,?)";
-    conn.sql(
-        [profile],
-        (err, result) => {
-            if (err) {
-                console.log(err);
-            } else {
-                res.send("userlist values inserted");
-            }
+    let sql = 'UPDATE t_user SET user_profilpath = ? WHERE user_email = ?'
+
+    conn.query(sql, [user_profilpath, user_email], (err, result) => {
+        if (err) {
+            console.log(err);
+            res.
+                status(500).send("Internal Server Error");
+        } else {
+            res.send("userlist values inserted");
         }
-    );
+    });
 });
 
 module.exports = router; 
