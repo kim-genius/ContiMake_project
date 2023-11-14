@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import axios from '../../axios';
-import { ClipLoader } from "react-spinners/BarLoader";
+
 // import { actionCreators as userActions } from '../redux/modules/user';
 
 const kakao_REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
