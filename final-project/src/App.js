@@ -14,7 +14,6 @@ import Generatepage from './pages/Generatepage';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
 import Editpage from './pages/Editpage';
-import KakaoLoginButton from './features/auth/login/KakaoLoginButton';
 
 
 function App() {
