@@ -19,7 +19,7 @@ const HeaderNav = (props) => {
     }
 
     useEffect(()=>{
-        console.log(inputRef.current.value)
+        // console.log(inputRef.current.value)
         dispatch(setCurrentTitle(inputRef.current.value))
         console.log(cur_project)
     },)
