@@ -9,7 +9,7 @@ const projectState = createSlice({
   // 초기 상태
   initialState : {
     title: '제목없음',
-    imgNums: 0,
+    imgNums: 1,
     prompts: []
   },
 

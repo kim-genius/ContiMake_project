@@ -31,11 +31,14 @@ const My = () => {
         if (res.data == 'success') {
           sessionStorage.setItem('nickname', nickName)
           alert('변경이 완료됐습니다.')
-          navigate('/')
+          window.location.href='/'
         } else {
           alert('오류입니다')
         }
 
+      })
+      .catch(function (error) {
+        console.log(error.toJSON());
       });
   };
 
