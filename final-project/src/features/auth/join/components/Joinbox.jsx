@@ -23,19 +23,22 @@ const Joinbox = () => {
       })
       .then((res) => {
         if (res.data == "success") {
-          navigate("/join");
-          alert("회원가입 완료되었습니다");
-          
+          navigate("/login");
+          alert("회원가입 완료되었습니다");        
         }else{
           alert('입력을 확인해주세요')
         }
-      })}
+      })
+      .catch(function (error) {
+        console.log(error.toJSON());
+      });
+    }
+      
       else{
         alert('모든항목 입력해주세요')
       }
-  };
+  }
   const vaildEmail = () => {
-    
     axios.post("/userJoin/vaildEmail", { email: email }).then((res) => {
       if (res.data == "invaild") {
         window.location.href='/join'
@@ -45,6 +48,7 @@ const Joinbox = () => {
       }
     });
   };
+
   return (
     <section className={styles.joinBackground}>
       <div className={styles.joinBox}>
