@@ -1,9 +1,12 @@
 @use '../../../styles/color.scss' as *;
 
-.button {
+.colorBtn {
     background-color: $primaryColor1;
     padding: 0.2em 1em;
     border: none;
     border-radius: 0.3em;
-    letter-spacing: -1px;
+    letter-spacing: -0.1em;
+    &:active {
+        background-color: #efbd7b;
+    }
 }

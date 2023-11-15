@@ -1,6 +1,5 @@
 @mixin uploadModal {
   position:absolute;
-  left: 45%;
   text-align: center;
   background-color: #FFC478;
   border-radius:10px; 
@@ -23,29 +22,33 @@
       z-index: 1;
       width: 9vw;
       height: 18vh;
-      margin-left: 5vw;
       border-radius: 50%;
-      top:29%; 
+      top:33%; 
+      right:28%;
       background: white;
     }
     .modalContent {
       @include uploadModal;
+      left: 43%;
       width:20vw;  
       height:38vh; 
       padding:10px;
       top:35%;   
         // label태그
-        .signupProfileImgLabel {
+        .imgLabel {
           margin-top: 18vh;
           font-weight: bold;
           font-size: 1.2em;
           color: #0095f6;
           display: inline-block;
           cursor: pointer;
+          &:hover {
+            color : white;
+          }
         }
         // input태그
         input {
-          // display: none;
+          display: none;
         }
         .close{
           display: flex;
@@ -61,15 +64,6 @@
             color: white;
           }
         }
-     
-        .imgBox{  
-          background-color: white;
-          border:1px solid rgba(0,0,0,0.2);
-          width: 8em;
-          height: 8em;
-          border-radius: 50%;
-          margin: 2vh 0 3vh 0 ;
-        }
         .submitBtn{
           border: none;
           border-radius: 20px;
@@ -77,8 +71,11 @@
           width: 5vw;
           font-size: 1rem;
           font-weight: bold;
-          color : white;
-          margin-top: 1.1vh;
+          margin-top: 2vh;
+          &:hover {
+            background-color: #0095f6;
+            color: white;
+          }
         }
     }
 

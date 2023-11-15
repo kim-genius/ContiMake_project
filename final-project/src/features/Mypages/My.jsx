@@ -17,9 +17,10 @@ const My = () => {
   const nickNameRef = useRef();
   const passwordRef = useRef();
   const samePasswordRef = useRef();
+  let [imagepath, setImagepath] = useState()
 
   const changeMyPage = () => {
-    console.log('email', sessionStorage.getItem("email") , 'nick', nickName)
+    console.log('email', sessionStorage.getItem("email"), 'nick', nickName)
     axios
       .post("/userpage/update", {
         email: sessionStorage.getItem("email"),
@@ -30,11 +31,14 @@ const My = () => {
         if (res.data == 'success') {
           sessionStorage.setItem('nickname', nickName)
           alert('변경이 완료됐습니다.')
-          navigate('/')
+          window.location.href='/'
         } else {
           alert('오류입니다')
         }
 
+      })
+      .catch(function (error) {
+        console.log(error.toJSON());
       });
   };
 
@@ -49,9 +53,16 @@ const My = () => {
     setState(true);
   };
 
-  const Withdrawal =()=>{
+  const removeImg = () => {
+
+  };
+  
+  let location = JSON.parse(sessionStorage.getItem("location"))
+
+
+  const Withdrawal = () => {
     console.log('회원탈퇴')
-  const isConfirmed = window.confirm('정말 탈퇴하시겠어요?');
+    const isConfirmed = window.confirm('정말 탈퇴하시겠어요?');
 
     if (isConfirmed) {
       axios
@@ -77,7 +88,6 @@ const My = () => {
       // 취소 눌렀을 시
       console.log('탈퇴취소');
     }
-  
   }
 
 
@@ -86,10 +96,14 @@ const My = () => {
     <form className={styles.myBox} onSubmit={(e) => e.preventDefault()}>
       <div className={styles.userflex}>
         <div className={styles.userBox}>
-          <div className={styles.userImg}></div>
+          <div className={styles.userImg} style={{
+            backgroundImage: `url(${location})`,
+            backgroundSize: 'cover',
+          }}>
+          </div>
           <button onClick={() => setModal(true)} className={styles.btnUp}>이미지업로드</button>
           <br></br>
-          <button onClick={() => navigate('/mypage')} className={styles.btnDown}>이미지제거</button>
+          <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>
         </div>
         <div>
           <input
@@ -176,7 +190,7 @@ const My = () => {
           </button>
         </div>
       </div>
-    </form>
+    </form >
   );
 };
 

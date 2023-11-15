@@ -39,19 +39,23 @@ const Login = () => {
     console.log('구글로그인버튼클릭됨');
   };
   /**일반로그인 */
-  const vaildLogin = () => {
-    axios.post('/userLogin/login', { email: email, password: password })
-      .then((res) => {
-        if (res.data.msg == 'success') {
-          sessionStorage.setItem('email', res.data.email);
-          sessionStorage.setItem('nickname', res.data.nickname)
-          navigate('/')
-          alert('로그인이 완료됐습니다.')
-
-        } else {
-          alert('다시 확인해주세요')
-        }
-      })
+  
+  
+   const vaildLogin=()=>{
+    axios.post('/userLogin/login',{email:email,password:password})
+    .then((res)=>{
+      if(res.data.msg =='success'){
+        sessionStorage.setItem('email',res.data.email);
+        sessionStorage.setItem('nickname',res.data.nickname)
+        window.location.href = '/'
+        alert('로그인이 완료됐습니다.')
+      }else{
+        alert('다시 확인해주세요')
+      }
+    })
+    .catch(function (error) {
+      console.log(error.toJSON());
+    });
   }
 
 

@@ -1,8 +1,5 @@
 
-import React from 'react'
-import LoginButton from '../../src/features/ui/button/LoginButton'
-import styles from './Login.module.css'
-import { Link } from 'react-router-dom'
+import React from 'react';
 import Login from '../features/auth/login/Login'
 const Login = () => {
   const REST_API_KEY = 'f5810145dffc679dc95abf173323705a';
@@ -12,6 +9,7 @@ const Login = () => {
 
   return (
     <div><Login /></div>
+
   )
 }
 

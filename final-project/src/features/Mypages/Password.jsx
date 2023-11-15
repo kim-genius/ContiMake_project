@@ -7,15 +7,15 @@ const Password = () => {
   const [password, setpassword] = useState('')
 
 
-  const vaildPassword = ()=>{
+  const vaildPassword = () => {
 
     console.log('validPassword Function', sessionStorage.getItem('email'))
-    axios.post('/userpage/vaildpassword',{password:password,email:sessionStorage.getItem('email')})
-    .then((res)=>{
-      console.log('node -> react res',res)
-      if(res.data == 'success'){nav('/mypage')}
-      else{alert('패스워드가 틀립니다.')}
-    }
+    axios.post('/userpage/vaildpassword', { password: password, email: sessionStorage.getItem('email') })
+      .then((res) => {
+        console.log('node -> react res', res)
+        if (res.data == 'success') { nav('/mypage') }
+        else { alert('패스워드가 틀립니다.') }
+      }
 
       )
   }
@@ -23,9 +23,11 @@ const Password = () => {
 
     <div className={styles.PasswordForm}>
       <h4>내정보수정</h4>
-      <span>비밀번호</span>
-      <input onChange={(e) => setpassword(e.target.value)}></input>
-      <button className={styles.checkpw} onClick={vaildPassword}>확인</button>
+      <div>
+        <h6>비밀번호</h6>
+        <input onChange={(e) => setpassword(e.target.value)}></input>
+        <button className={styles.checkpw} onClick={vaildPassword}>확인</button>
+      </div>
     </div>
   )
 }
