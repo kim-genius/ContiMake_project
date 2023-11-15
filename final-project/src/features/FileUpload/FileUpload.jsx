@@ -4,7 +4,7 @@ import styles from './FileUpload.module.css'
 
 const FileUpload = ({ setModal }) => {
 
-    const [qnaFile, setQnaFile] = useState([]);
+    const [profile, setProfile] = useState([]);
     const [image, setImage] = useState({
         preview:
             "",
@@ -20,8 +20,12 @@ const FileUpload = ({ setModal }) => {
         formData.append("email", email);
 
         console.log(image.data, "선택한이미지! ");
-        console.log(formData, "들어가기전폼데이터");
         console.log(sessionStorage.getItem("email"))
+        console.log(image.preview, "들어간파일");
+        console.log(formData.getAll('file'))
+
+
+
         try {
             await axios.post(
                 "/upload/submit",
@@ -31,22 +35,20 @@ const FileUpload = ({ setModal }) => {
                         "Content-Type": "multipart/form-data",
                     },
                 },
-            ).then((res) =>
-                setQnaFile(res.data),
+            ).then((res) => {
+                console.log(res, '요기!!!');
 
-                console.log(
-                    formData,
-                    "then이후 폼데이터",
-                    image,
-                    "이건뭐",
-                    image.data,
-                    "이미지데이터"
-                )
+                sessionStorage.setItem('location',
+                    JSON.stringify(
+                        res.data
+                    ));
+            }
             );
         }
         catch (err) {
             console.error("Error during request:", err);
         }
+        setModal(false)
     };
 
     const handleFileChange = (e) => {
@@ -58,7 +60,7 @@ const FileUpload = ({ setModal }) => {
     };
 
     return (
-        <form className={styles.modal} onSubmit={(e) => e.preventDefault}>
+        <div className={styles.modal} onSubmit={(e) => e.preventDefault}>
             <div className={styles.modalContent}>
                 <div className={styles.close}>
                     <button className={styles.closeBtn} onClick={() => { setModal() }}>X</button><br></br>
@@ -75,7 +77,7 @@ const FileUpload = ({ setModal }) => {
                 <img src={image.preview} />
                 <button onClick={submit} className={styles.submitBtn}>확인</button>
             </div>
-        </form>
+        </div>
     )
 }
 

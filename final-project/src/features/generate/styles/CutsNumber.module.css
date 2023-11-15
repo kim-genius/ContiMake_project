@@ -1,4 +1,5 @@
 .inputArea {
+  width: 70%;
   display: flex;
   justify-content: space-between;
   margin: 1.5em 0;
@@ -10,4 +11,7 @@
   text-align: center;
   width: 2.5em;
   border-radius: 0.5em;
+}
+.inputArea input[type=range] {
+  accent-color: #FFC478;
 }/*# sourceMappingURL=CutsNumber.module.css.map */

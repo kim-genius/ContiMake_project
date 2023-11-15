@@ -42,6 +42,9 @@
           color: #0095f6;
           display: inline-block;
           cursor: pointer;
+          &:hover {
+            color : white;
+          }
         }
         // input태그
         input {
@@ -68,8 +71,11 @@
           width: 5vw;
           font-size: 1rem;
           font-weight: bold;
-          color : white;
           margin-top: 2vh;
+          &:hover {
+            background-color: #0095f6;
+            color: white;
+          }
         }
     }
 

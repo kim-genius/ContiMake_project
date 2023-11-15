@@ -44,6 +44,9 @@
   display: inline-block;
   cursor: pointer;
 }
+.modal .modalContent .imgLabel:hover {
+  color: white;
+}
 .modal .modalContent input {
   display: none;
 }
@@ -68,6 +71,9 @@
   width: 5vw;
   font-size: 1rem;
   font-weight: bold;
-  color: white;
   margin-top: 2vh;
+}
+.modal .modalContent .submitBtn:hover {
+  background-color: #0095f6;
+  color: white;
 }/*# sourceMappingURL=FileUpload.module.css.map */

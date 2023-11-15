@@ -17,9 +17,10 @@ const My = () => {
   const nickNameRef = useRef();
   const passwordRef = useRef();
   const samePasswordRef = useRef();
+  let [imagepath, setImagepath] = useState()
 
   const changeMyPage = () => {
-    console.log('email', sessionStorage.getItem("email") , 'nick', nickName)
+    console.log('email', sessionStorage.getItem("email"), 'nick', nickName)
     axios
       .post("/userpage/update", {
         email: sessionStorage.getItem("email"),
@@ -48,13 +49,17 @@ const My = () => {
     ref.current.focus();
     setState(true);
   };
-  const removeImg = () => {
-    console.log('이미지 제거')
-  };
 
-  const Withdrawal =()=>{
+  const removeImg = () => {
+
+  };
+  
+  let location = JSON.parse(sessionStorage.getItem("location"))
+
+
+  const Withdrawal = () => {
     console.log('회원탈퇴')
-  const isConfirmed = window.confirm('정말 탈퇴하시겠어요?');
+    const isConfirmed = window.confirm('정말 탈퇴하시겠어요?');
 
     if (isConfirmed) {
       axios
@@ -80,7 +85,6 @@ const My = () => {
       // 취소 눌렀을 시
       console.log('탈퇴취소');
     }
-  
   }
 
 
@@ -89,7 +93,10 @@ const My = () => {
     <form className={styles.myBox} onSubmit={(e) => e.preventDefault()}>
       <div className={styles.userflex}>
         <div className={styles.userBox}>
-          <div className={styles.userImg}>
+          <div className={styles.userImg} style={{
+            backgroundImage: `url(${location})`,
+            backgroundSize: 'cover',
+          }}>
           </div>
           <button onClick={() => setModal(true)} className={styles.btnUp}>이미지업로드</button>
           <br></br>
@@ -180,7 +187,7 @@ const My = () => {
           </button>
         </div>
       </div>
-    </form>
+    </form >
   );
 };
 
