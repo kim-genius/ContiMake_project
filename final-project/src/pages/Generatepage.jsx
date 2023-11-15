@@ -14,7 +14,7 @@ const promptsList = useSelector((state) => state.cur_project.prompts);
 
   const generate = async (prompt) => {
     const result = await axios.get(
-      `http://64.98.238.3:41006/?prompt==${prompt}`
+      `http://184.145.163.125:41226/?prompt==${prompt}`
     );
     console.log(result);
     updateImage(result.data);
