@@ -3,10 +3,16 @@ import styles from "./Nav.module.css"
 import { Link } from 'react-router-dom'
 
 const Nav = () => {
+
+  let location = JSON.parse(sessionStorage.getItem("location"))
+
   return (
     <nav className={styles.navBox}>
 
-      <div className={styles.userImg}></div>
+      <div className={styles.userImg} style={{
+        backgroundImage: `url(${location})`,
+        backgroundSize: 'cover',
+      }} />
       <h4>
         {sessionStorage.getItem('nickname')}
       </h4>

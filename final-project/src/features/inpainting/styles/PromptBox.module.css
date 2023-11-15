@@ -7,14 +7,14 @@
 
 .textBox {
   width: 90%;
-  height: 7em;
+  height: 12em;
   resize: none;
   border: none;
   border-radius: 0.5em;
-  background-color: #BABABA;
+  background-color: rgb(237, 237, 237);
   padding: 0.5em;
   letter-spacing: -0.1em;
-  color: rgb(56, 56, 56);
+  color: gray;
 }
 .textBox:focus {
   outline: none;

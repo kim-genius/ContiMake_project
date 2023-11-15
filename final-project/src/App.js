@@ -31,8 +31,8 @@ function App() {
         <Route path='/myconti' element={<Myconti></Myconti>}></Route>
         <Route path='/edit' element={<Editpage></Editpage>}></Route>
         <Route path='/login' element={<Login />}></Route>
-        <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler/>}></Route>
-        <Route path='/login/oauth/callback/google' element={<OAuthRedirectHandler/>}></Route>
+        <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler />}></Route>
+        <Route path='/login/oauth/callback/google' element={<OAuthRedirectHandler />}></Route>
         <Route path='/join' element={<Join />}></Route>
         <Route path='/generate' element={<Generatepage />}></Route>
         <Route path='/edit' element={<Editpage />}></Route>
