@@ -6,13 +6,20 @@
 
 .inputBox {
   background-color: rgb(237, 237, 237);
-  height: 3em;
+  height: 5.8em;
   margin: 0.2em 0em;
-  padding: 0em 0.5em;
+  padding: 0.5em;
   border-radius: 0.3em;
   border: 1px solid #BABABA;
   color: gray;
+  resize: none;
 }
 .inputBox:first-child {
   margin-top: 0.5em;
+}
+.inputBox:focus {
+  outline: none;
+  background-color: white;
+  border: 1px solid #BABABA;
+  color: #949494;
 }/*# sourceMappingURL=Prompts.module.css.map */
