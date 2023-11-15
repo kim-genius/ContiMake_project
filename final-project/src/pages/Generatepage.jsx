@@ -8,6 +8,7 @@ import Prompts from '../features/generate/components/Prompts'
 import BoxItem from '../features/ui/BoxItem/BoxItem'
 import axios from 'axios'
 import ColorButton from '../features/ui/button/ColorButton/ColorButton';
+import OutputImgs from '../features/inpainting/components/OutputImgs';
 const Generatepage = () => {
 const [image, updateImage] = useState()
 const promptsList = useSelector((state) => state.cur_project.prompts);
@@ -39,7 +40,9 @@ const promptsList = useSelector((state) => state.cur_project.prompts);
         <section className={styles.canvas}>
           {image? <img src={`data:image/png;base64,${image}`} alt="표시" /> : null}
         </section>
-        <section className={styles.designTab}></section>
+        <section className={styles.designTab}>
+          <OutputImgs/>
+        </section>
       </div>
     </div>
   );
