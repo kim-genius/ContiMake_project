@@ -8,9 +8,8 @@ const Login = () => {
 
 
   return (
-    <div>
-      <Login></Login>
-    </div>
+    <div><Login /></div>
+
   )
 }
 

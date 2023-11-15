@@ -14,7 +14,8 @@ import Generatepage from './pages/Generatepage';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
 import Editpage from './pages/Editpage';
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
+const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 
 function App() {
   return (
@@ -30,9 +31,10 @@ function App() {
         <Route path='/mypage' element={<Mypage></Mypage>}></Route>
         <Route path='/myconti' element={<Myconti></Myconti>}></Route>
         <Route path='/edit' element={<Editpage></Editpage>}></Route>
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler />}></Route>
-        <Route path='/login/oauth/callback/google' element={<OAuthRedirectHandler />}></Route>
+        
+        <Route path='/login' element={<GoogleOAuthProvider clientId={`${googleClientId}`}><Login /></GoogleOAuthProvider>}></Route>
+        <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler provider='kakao' />}></Route>
+        <Route path='/login/oauth/callback/google' element={<OAuthRedirectHandler provider='google' />}></Route>
         <Route path='/join' element={<Join />}></Route>
         <Route path='/generate' element={<Generatepage />}></Route>
         <Route path='/edit' element={<Editpage />}></Route>
