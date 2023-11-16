@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const indexRouter = require('./routes');
 const kakaoRouter = require('./routes/userKakao');
+const googleRouter = require('./routes/userGoogle');
 const userRouter = require('./routes/user');
 const userJoinRouter = require('./routes/userJoin')
 const userMyPageRouter = require('./routes/userMyPage')
@@ -39,6 +40,7 @@ app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/userJoin', userJoinRouter);
 app.use('/kakao', kakaoRouter);
+app.use('/google', googleRouter);
 app.use('/userLogin', userLoginRouter);
 app.use('/exports', exportsRouter);
 app.use('/upload', uploadRouter);
