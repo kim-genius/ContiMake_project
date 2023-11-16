@@ -3,6 +3,7 @@ import styles from '../styles/HeaderNav.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentTitle } from '../../../store/index';
 import ColorButton from '../../ui/button/ColorButton/ColorButton';
+import { current } from '@reduxjs/toolkit';
 
 
 const HeaderNav = (props) => {
@@ -19,8 +20,6 @@ const HeaderNav = (props) => {
     }
 
     useEffect(()=>{
-        // console.log(inputRef.current.value)
-        dispatch(setCurrentTitle(inputRef.current.value))
         console.log(cur_project)
     },)
     return (
@@ -32,10 +31,11 @@ const HeaderNav = (props) => {
                         <img src='/images/edit_icon.png' alt='titleEditBtn' />
                     </button>
                 <input
+                    onChange={(e)=> dispatch(setCurrentTitle(e.target.value))}
                     disabled="True"
                     ref={inputRef}
                     type="text"
-                    defaultValue={'제목없음'}
+                    defaultValue={cur_project.title}
                     className={styles.inputBox}
                 />
             </div>

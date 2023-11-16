@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Canvas from "./components/Canvas";
 // 일정 시간동안 대기하는 함수 (ms: 밀리초)..
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -9,6 +9,9 @@ const Inpainting = () => {
   const [error, setError] = useState(null); 
   const [maskImage, setMaskImage] = useState(null); 
   const [userUploadedImage, setUserUploadedImage] = useState(null);
+  useEffect(()=> {
+    console.log(maskImage)
+  }, setMaskImage)
   const handleSubmit = async (e) => {
     e.preventDefault();
 

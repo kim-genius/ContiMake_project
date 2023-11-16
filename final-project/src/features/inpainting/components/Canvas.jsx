@@ -17,6 +17,7 @@ const Canvas = (props) => {
         if (paths.length) {
             const data = await canvasRef.current.exportImage("svg");
             props.onDraw(data);
+            console.log(data)
         }
         // console.log(paths)
     };
@@ -55,8 +56,9 @@ const Canvas = (props) => {
                 width="500px"
                 height="500px"
                 strokeWidth={15}
-                strokeColor="red"
+                strokeColor="black"
                 allowOnlyPointerType={brushState.allowType}
+                backgroundImage = '/desktop.jpg'
             />
         </div>
     )
