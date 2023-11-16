@@ -1,19 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react';
 
-import styles from '../styles/CardGuide.module.scss'
-
-import Button from '../../button/Button'
-import { Link } from 'react-router-dom'
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-
-// import required modules
-
-import 'swiper/css/pagination';
+import styles from '../styles/CardGuide.module.scss';
+import Button from '../../button/Button';
+import { Link } from 'react-router-dom';
+// Direct React component imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
 
 
 const Cardguide = () => {
+  const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const chevronWidth = 40;
   return (
     <section className={styles.cardGuide}>
         <article className={styles.cardGuideBox}>
@@ -23,7 +23,16 @@ const Cardguide = () => {
                 <Link to='/generate'>{Button('콘티 생성하기')}</Link>
             </div>
             <div className={styles.cardGuideBoxRight}>
+            <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+      </Swiper>
+
             </div>
+            
         </article>
     </section>
   )
