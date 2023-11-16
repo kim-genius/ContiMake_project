@@ -23,11 +23,11 @@ var fileStoreOptions = {
 };
 
 app.use(session({
-    httpOnly : true,  //http 요청으로 온 것만 처리
-    resave : false, // session을 항상 재 저장할지? 즉 새로고침을 할 때마다 저장할거냐~!?
-    secret :"secret", //암호화할 때 쓰는 키값
-    store : new fileStore(fileStoreOptions),  //세션을 저장하기 위한 저장소
-    cookie:{maxAge:360000}
+    httpOnly: true,  //http 요청으로 온 것만 처리
+    resave: false, // session을 항상 재 저장할지? 즉 새로고침을 할 때마다 저장할거냐~!?
+    secret: "secret", //암호화할 때 쓰는 키값
+    store: new fileStore(fileStoreOptions),  //세션을 저장하기 위한 저장소
+    cookie: { maxAge: 360000 }
 }))
 
 

@@ -18,7 +18,6 @@ app.add_middleware(
 )
 
 device = "cuda"
-model_id = "CompVis/stable-diffusion-v1-4"
 pipe = StableDiffusionPipeline.from_pretrained(
     "stabilityai/stable-diffusion-2-1",
     torch_dtype=torch.float32
