@@ -10,7 +10,7 @@ const style = {
 const Canvas = (props) => {
     const brushState = useSelector((state) => state.canvas_slice)
 
-    console.log(brushState)
+    // console.log(brushState)
     const canvasRef = useRef();
     const onChange = async () => {
         const paths = await canvasRef.current.exportPaths();

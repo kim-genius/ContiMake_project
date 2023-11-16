@@ -8,7 +8,9 @@ import Prompts from '../features/generate/components/Prompts'
 import BoxItem from '../features/ui/BoxItem/BoxItem'
 import axios from 'axios'
 import ColorButton from '../features/ui/button/ColorButton/ColorButton';
+import OutputImgs from '../features/inpainting/components/OutputImgs';
 import BarLoader from 'react-spinners/BarLoader'
+
 const Generatepage = () => {
 const [image, updateImage] = useState([])
 const [loading, setLoading] = useState();
@@ -58,7 +60,9 @@ const pormptsNum = useSelector((state) => state.cur_project.imgNums);
           : null
           }
         </section>
-        <section className={styles.designTab}></section>
+        <section className={styles.designTab}>
+          <OutputImgs/>
+        </section>
       </div>
     </div>
   );
