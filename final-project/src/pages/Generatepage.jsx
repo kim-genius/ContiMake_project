@@ -16,15 +16,6 @@ const [image, updateImage] = useState([])
 const [loading, setLoading] = useState();
 const promptsList = useSelector((state) => state.cur_project.prompts);
 const pormptsNum = useSelector((state) => state.cur_project.imgNums);
-<<<<<<< HEAD
-console.log(image)
-  const generate = async (prompt) => {
-    const result = await axios.get(
-      `http://184.145.163.125:41226/?prompt==${prompt}`
-    );
-    console.log(result);
-    updateImage(result.data);
-=======
 
   const generate = async ({ prompt, promptLen }) => {
     updateImage([])
@@ -37,7 +28,6 @@ console.log(image)
       updateImage([...image]);
     }
     setLoading(false)
->>>>>>> 3bc82820da567da43d87589a089b381d3bc73a37
   };
 
   return (
