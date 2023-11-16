@@ -8,6 +8,8 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
 }
 .modal img {
   position: absolute;
@@ -31,7 +33,6 @@
   border-radius: 10px;
   border: 1px solid rgba(166, 130, 130, 0.2);
   transform: translateY(-50%);
-  left: 43%;
   width: 20vw;
   height: 38vh;
   padding: 10px;
@@ -67,14 +68,13 @@
 }
 .modal .modalContent .submitBtn {
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   height: 2rem;
-  width: 5vw;
+  width: 12vw;
   font-size: 1rem;
   font-weight: bold;
   margin-top: 2vh;
 }
 .modal .modalContent .submitBtn:hover {
   background-color: #FFC478;
-  color: white;
 }/*# sourceMappingURL=FileUpload.module.css.map */

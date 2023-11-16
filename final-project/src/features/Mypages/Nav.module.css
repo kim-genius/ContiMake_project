@@ -15,6 +15,13 @@
   position: absolute;
   border: none;
   height: 3vh;
+  display: none;
+}
+.navBox .userImg:hover {
+  opacity: 50%;
+}
+.navBox .userImg:hover .modifyBtn {
+  display: block;
 }
 .navBox h4 {
   display: flex;

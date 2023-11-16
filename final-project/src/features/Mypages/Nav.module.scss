@@ -12,13 +12,20 @@ $main : #FFC478;
         display: flex;
         justify-content: center;
         align-items: center;
-       
         .modifyBtn {
             position: absolute;
             border: none;
             height: 3vh;
+            display: none;
         }
-    }
+        &:hover{
+            opacity: 50%;
+            .modifyBtn {
+                display: block;
+            }
+        }
+        } 
+       
 
     h4 {
         display: flex;
