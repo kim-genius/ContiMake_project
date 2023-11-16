@@ -4,7 +4,6 @@ import styles from './FileUpload.module.css'
 
 const FileUpload = ({ setModal }) => {
 
-    const [profile, setProfile] = useState([]);
     const [image, setImage] = useState({
         preview:
             "",
@@ -24,8 +23,6 @@ const FileUpload = ({ setModal }) => {
         console.log(image.preview, "들어간파일");
         console.log(formData.getAll('file'))
 
-
-
         try {
             await axios.post(
                 "/upload/submit",
@@ -41,7 +38,9 @@ const FileUpload = ({ setModal }) => {
                 sessionStorage.setItem('location',
                     JSON.stringify(
                         res.data
-                    ));
+                    )
+
+                )
             }
             );
         }
@@ -59,6 +58,8 @@ const FileUpload = ({ setModal }) => {
         setImage(img);
     };
 
+    let location = JSON.parse(sessionStorage.getItem("location"))
+
     return (
         <div className={styles.modal} onSubmit={(e) => e.preventDefault}>
             <div className={styles.modalContent}>
@@ -74,7 +75,7 @@ const FileUpload = ({ setModal }) => {
                     name="file"
                 // multiple //여러장업로드 할 때
                 />
-                <img src={image.preview} />
+                <img src={location} />
                 <button onClick={submit} className={styles.submitBtn}>확인</button>
             </div>
         </div>
