@@ -17,12 +17,17 @@ const [loading, setLoading] = useState();
 const promptsList = useSelector((state) => state.cur_project.prompts);
 const pormptsNum = useSelector((state) => state.cur_project.imgNums);
 
-  const generate = async (prompt) => {
-    const result = await axios.get(
-      `http://184.145.163.125:41226/?prompt==${prompt}`
-    );
-    console.log(result);
-    updateImage(result.data);
+  const generate = async ({ prompt, promptLen }) => {
+    updateImage([])
+    setLoading(true)
+    for (let i = 0; i < promptLen; i++) {
+      const result = await axios.get(
+        `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20sketch,%20cartoon%20storyboard,%20fast%20sketch,%20gray%20color`
+      );
+      image.push(result.data);
+      updateImage([...image]);
+    }
+    setLoading(false)
   };
 
   return (
