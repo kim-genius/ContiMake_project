@@ -46,7 +46,7 @@ const image = useSelector((state)=> state.cur_project.images);
           <div className={styles.promptsBox}>
             <Prompts />
           </div>
-          <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: pormptsNum }}/>
+          <ColorButton style={{backgroundColor: 'gray'}} text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: pormptsNum }}/>
         </section>
         <section className={styles.canvas}>
           {loading ?
