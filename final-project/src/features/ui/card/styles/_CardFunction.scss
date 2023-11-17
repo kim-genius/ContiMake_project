@@ -3,15 +3,16 @@
 @mixin cardBox() {
     width:100%;
     height:auto;
-    margin-top:100px;
+    margin-top:150px;
     margin-bottom: 100px;
     display: flex;
     align-items: center;
     flex-direction: column;
+
 };
 
 @mixin cardTitle() {
-    width:70%;
+    width:55%;
     margin:10px;
     height:50px;
     display:flex;
@@ -20,7 +21,27 @@
 
 @mixin cardContent() {
     width:50%;
-    height:350px;
+    height:450px;
     margin:30px;
     border: 1px solid rgba(123,0,0);
-}
+    background-size:cover;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    
+    }
+
+    @mixin cardBoxAnimation{
+        animation:2s cardBoxAnimationEffect
+    }
+    
+        @keyframes cardBoxAnimationEffect {
+        0%{
+               transform: translateY(300px);
+               opacity: 0;
+        }
+        100%{
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+    }

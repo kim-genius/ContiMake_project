@@ -1,7 +1,10 @@
-.button {
+.colorBtn {
   background-color: #FFC478;
   padding: 0.2em 1em;
   border: none;
   border-radius: 0.3em;
-  letter-spacing: -1px;
+  letter-spacing: -0.1em;
+}
+.colorBtn:active {
+  background-color: #efbd7b;
 }/*# sourceMappingURL=ColorButton.module.css.map */

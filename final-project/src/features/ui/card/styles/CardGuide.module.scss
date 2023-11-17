@@ -1,6 +1,7 @@
 .cardGuide{
     width:100%;
     height:50vh;
+    transform: translateY(20%);
     display:flex;
     justify-content: center;
     align-items: center;
@@ -10,13 +11,12 @@
 .cardGuideBox{
     width:80%;
     height:80%;
-    border:1px solid rgba(0,0,0,0.2);
     display:flex;
     justify-content: space-around;
     align-items: center;
 }
 .cardGuideBoxLeft{
-    border:1px solid black;
+ 
     display: flex;
     flex-direction: column;
     justify-content: space-around;

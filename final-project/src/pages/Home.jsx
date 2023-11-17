@@ -7,6 +7,7 @@ import CardFunctionMiddle from '../features/ui/card/components/CardFunctionMiddl
 import CardFunctionBottom from '../features/ui/card/components/CardFunctionBottom'
 
 const Home = () => {
+
   return (
     <main>
 
