@@ -1,32 +1,63 @@
+@font-face {
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes cardBoxAnimationEffect {
+  0% {
+    transform: translateY(300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .cardMiddle {
   width: 100%;
   height: auto;
-  margin-top: 100px;
+  margin-top: 150px;
   margin-bottom: 100px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
+.cardAnimation {
+  animation: 2s cardBoxAnimationEffect;
+}
+
 .cardMiddleTitle {
-  width: 70%;
+  font-family: "Cafe24Ssurround";
+  width: 55%;
   margin: 10px;
   height: 50px;
   display: flex;
   justify-content: space-between;
 }
-
 .cardMiddleTitle span {
-  font-size: 25px;
-}
-
-.cardMiddleTitle h2 {
+  color: #FFC478;
   font-size: 30px;
+  transform: translateY(5%);
+}
+.cardMiddleTitle h2 {
+  font-size: 40px;
 }
 
 .cardMiddleBox {
   width: 50%;
-  height: 350px;
+  height: 450px;
   margin: 30px;
   border: 1px solid rgb(123, 0, 0);
+  background-size: cover;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+}
+
+.cardMiddleBox::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 20%;
 }/*# sourceMappingURL=CardFunctionMiddle.module.css.map */

@@ -4,18 +4,18 @@
 
 .cardBottom{
     @include CardFunction.cardBox();
-
-
 }
+
+.cardAnimation{
+    @include CardFunction.cardBoxAnimation();
+}
+
 .cardBottomTitle{
     @include CardFunction.cardTitle();
 }
-.cardBottomTitle>span{
-    font-size: 25px;
-}
-.cardBottomTitle>h2{
-    font-size: 30px;
-}
+
 .cardBottomBox{
-    @include CardFunction.cardContent()
+    @include CardFunction.cardContent();
+
 }
+
