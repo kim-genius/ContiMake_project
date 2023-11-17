@@ -1,0 +1,11 @@
+.cardGiudeImg {
+  width: 200px;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.cardGuideBox {
+  border-radius: 15px;
+  padding: 30px;
+  width: 40%;
+}/*# sourceMappingURL=CardGuideCarousel.module.css.map */
