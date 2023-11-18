@@ -24,12 +24,11 @@ const s3 = new S3Client({
     }
 })
 
-
 const upload = multer({
     storage: multerS3({
         s3: s3,
         bucket: 'contistoryprompt',
-        key: function (요청, file, cb) {
+        key: function (req, file, cb) {
             cb(null, Date.now().toString()) //업로드시 파일명 변경가능
         }
     }),

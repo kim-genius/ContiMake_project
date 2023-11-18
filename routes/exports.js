@@ -15,10 +15,6 @@ app.use(session({
     saveUninitialized: false
 }))
 
-// router.get('/', (req, res) => {
-//     res.send('welcome to my forma');
-// });
-
 router.post('/api/forma', (req, res) => {
     console.log('hi', req.body.email);
     let data = req.body;
@@ -34,18 +30,16 @@ router.post('/api/forma', (req, res) => {
 
     let mailOptions = {
         from: data.email,
-        to: 'hsring23@gmail.com',
-        subject: `Message from ${data.name}`,
+        to: data.email,
+        // subject: `Message from ${data.name}`,
         html: `
             <h3>Informations</h3>
             <ul>
-                <li>Name : ${data.name}</li>
-                <li>Name : ${data.lastname}</li>
                 <li>Name : ${data.email}</li>
             </ul>
             <h3>Message</h3>
-            <img src='https://newsimg.sedaily.com/2022/02/10/26237A7W2N_2.jpg'></img>
             <p>${data.message}</p>
+            <img src='https://newsimg.sedaily.com/2022/02/10/26237A7W2N_2.jpg'></img>
         `,
     };
 

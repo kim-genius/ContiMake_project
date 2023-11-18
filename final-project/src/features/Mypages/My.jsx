@@ -125,7 +125,7 @@ const My = () => {
         </div>
       </div>
 
-      {modal && <FileUpload setModal={setModal}></FileUpload>}
+      {modal && <FileUpload setModal={setModal} location={location}></FileUpload>}
 
       <div>
         <div className={styles.list}>

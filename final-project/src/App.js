@@ -14,6 +14,7 @@ import Generatepage from './pages/Generatepage';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
 import Editpage from './pages/Editpage';
+import Save from './features/Save/Save'
 import { GoogleOAuthProvider } from "@react-oauth/google";
 const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 
@@ -37,6 +38,8 @@ function App() {
         <Route path='/join' element={<Join />}></Route>
         <Route path='/generate' element={<Generatepage />}></Route>
         <Route path='/edit' element={<Editpage />}></Route>
+        <Route path='/save' element={<Save />}></Route>
+
       </Routes>
       <Footer></Footer>
 

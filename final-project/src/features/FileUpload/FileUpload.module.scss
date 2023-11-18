@@ -17,10 +17,10 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.45);
-    img {
+    .profile {
       @include uploadModal;
       z-index: 1;
-      width: 9vw;
+      width: 19vw;
       height: 18vh;
       border-radius: 50%;
       top:33%; 
@@ -34,21 +34,21 @@
       height:38vh; 
       padding:10px;
       top:35%;   
-        // label태그
-        .imgLabel {
-          margin-top: 18vh;
-          font-weight: bold;
-          font-size: 1.2em;
-          color: #0095f6;
-          display: inline-block;
-          cursor: pointer;
-          &:hover {
-            color : white;
-          }
-        }
+        // // label태그
+        // .imgLabel {
+        //   margin-top: 18vh;
+        //   font-weight: bold;
+        //   font-size: 1.2em;
+        //   color: #0095f6;
+        //   display: inline-block;
+        //   cursor: pointer;
+        //   &:hover {
+        //     color : white;
+        //   }
+        // }
         // input태그
         input {
-          display: none;
+          // display: none;
         }
         .close{
           display: flex;
