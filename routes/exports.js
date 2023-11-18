@@ -49,7 +49,7 @@ router.post('/api/forma', (req, res) => {
             res.status(500).send('Email sending failed');
         } else {
             console.log('성공');
-            
+
             res.send('Success');
         }
     });
@@ -58,13 +58,5 @@ router.post('/api/forma', (req, res) => {
 });
 
 const { TIMEOUT } = require('dns');
-
-// router.get('/myconti/:id', async (req, res) => {
-//     // 1번~5번글을 찾아서 result변수에 저장
-//     let result = await db.collection('post').find().skip((req.params.id - 1)*5).limit(5).toArray()
-//     res.render('myconti.jsx', { posts: result })
-//     console.log(result)
-// })np
-
 
 module.exports = router; 

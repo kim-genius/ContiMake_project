@@ -39,6 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/save', saveRouter);
 app.use('/userJoin', userJoinRouter);
 app.use('/kakao', kakaoRouter);
 app.use('/google', googleRouter);

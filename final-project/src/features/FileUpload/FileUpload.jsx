@@ -4,7 +4,6 @@ import styles from './FileUpload.module.css'
 
 const FileUpload = ({ setModal, location }) => {
 
-    const [profile, setProfile] = useState([]);
     const [image, setImage] = useState({
         preview:
         "",
@@ -38,9 +37,14 @@ const FileUpload = ({ setModal, location }) => {
                     },
                 },
             ).then((res) => {
-                console.log(res.data, '요기!!!');
-                sessionStorage.setItem('location',JSON.stringify(res.data));
-                setImage(res.data);
+                console.log(res, '요기!!!');
+
+                sessionStorage.setItem('location',
+                    JSON.stringify(
+                        res.data
+                    )
+
+                )
             }
             );
         }

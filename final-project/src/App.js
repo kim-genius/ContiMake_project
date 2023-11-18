@@ -13,6 +13,7 @@ import Footer from './features/ui/footer/Footer';
 import Generatepage from './pages/Generatepage';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
+import Save from './features/Save/Save';
 import Editpage from './pages/Editpage';
 import Save from './features/Save/Save'
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -40,6 +41,7 @@ function App() {
         <Route path='/edit' element={<Editpage />}></Route>
         <Route path='/save' element={<Save />}></Route>
 
+        <Route path='/save' element={<Save />}></Route>
       </Routes>
       <Footer></Footer>
 

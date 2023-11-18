@@ -17,7 +17,7 @@ const My = () => {
   const nickNameRef = useRef();
   const passwordRef = useRef();
   const samePasswordRef = useRef();
-  let [imagepath, setImagepath] = useState()
+  let location = JSON.parse(sessionStorage.getItem("location"))
 
   const changeMyPage = () => {
     console.log('email', sessionStorage.getItem("email"), 'nick', nickName)
@@ -31,7 +31,7 @@ const My = () => {
         if (res.data == 'success') {
           sessionStorage.setItem('nickname', nickName)
           alert('변경이 완료됐습니다.')
-          window.location.href='/'
+          window.location.href = '/'
         } else {
           alert('오류입니다')
         }
@@ -56,8 +56,7 @@ const My = () => {
   const removeImg = () => {
 
   };
-  
-  let location = JSON.parse(sessionStorage.getItem("location"))
+
 
 
   const Withdrawal = () => {

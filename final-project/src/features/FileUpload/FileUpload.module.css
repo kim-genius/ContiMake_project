@@ -3,17 +3,20 @@
   z-index: 1;
   left: 0;
   top: 0;
+  margin-top: 9vh;
   width: 100%;
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
 }
 .modal img {
   position: absolute;
   text-align: center;
-  background-color: #FFC478;
+  background-color: #ffffff;
   border-radius: 10px;
-  border: 1px solid rgba(200, 200, 200, 0.2);
+  border: 1px solid rgba(166, 130, 130, 0.2);
   transform: translateY(-50%);
   z-index: 1;
   width: 9vw;
@@ -26,11 +29,10 @@
 .modal .modalContent {
   position: absolute;
   text-align: center;
-  background-color: #FFC478;
+  background-color: #ffffff;
   border-radius: 10px;
-  border: 1px solid rgba(200, 200, 200, 0.2);
+  border: 1px solid rgba(166, 130, 130, 0.2);
   transform: translateY(-50%);
-  left: 43%;
   width: 20vw;
   height: 38vh;
   padding: 10px;
@@ -45,7 +47,7 @@
   cursor: pointer;
 }
 .modal .modalContent .imgLabel:hover {
-  color: white;
+  color: rgb(2, 2, 2);
 }
 .modal .modalContent input {
   display: none;
@@ -57,23 +59,22 @@
 }
 .modal .modalContent .closeBtn {
   border: none;
-  background-color: #FFC478;
+  background-color: white;
   font-size: 1.5em;
   font-weight: bold;
 }
 .modal .modalContent .closeBtn:hover {
-  color: white;
+  color: #FFC478;
 }
 .modal .modalContent .submitBtn {
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   height: 2rem;
-  width: 5vw;
+  width: 12vw;
   font-size: 1rem;
   font-weight: bold;
   margin-top: 2vh;
 }
 .modal .modalContent .submitBtn:hover {
-  background-color: #0095f6;
-  color: white;
+  background-color: #FFC478;
 }/*# sourceMappingURL=FileUpload.module.css.map */
