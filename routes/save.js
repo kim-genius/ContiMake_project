@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const router = express.Router();
-d
+
 // webp 확장자로 변환
 // const sharp = require('sharp');
 
@@ -35,7 +35,7 @@ d
 
 router.post('/createFile', (req, res) => {
     const data = req.body.data;
-    const fileName = req.body.fileName + '.corn' || '제목없음.corn'; // 파일명이 없으면 기본값으로 설정
+    const fileName = req.body.title + '.corn' || '제목없음.corn'; // 파일명이 없으면 기본값으로 설정
     console.log(data)
     console.log(fileName, '제목')
 

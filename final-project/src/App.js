@@ -15,7 +15,6 @@ import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
 import Save from './features/Save/Save';
 import Editpage from './pages/Editpage';
-import Save from './features/Save/Save'
 import { GoogleOAuthProvider } from "@react-oauth/google";
 const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 

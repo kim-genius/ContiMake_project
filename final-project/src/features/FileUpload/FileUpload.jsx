@@ -63,7 +63,6 @@ const FileUpload = ({ setModal, location }) => {
                     <button className={styles.closeBtn} onClick={() => { setModal() }}>X</button><br></br>
                 </div>
                     <img src={image.preview} alt=""/>                 
-                    {/* <img src={location} alt=""/>                  */}
                 <input
                     type="file"
                     onChange={(e)=>{
@@ -79,6 +78,10 @@ const FileUpload = ({ setModal, location }) => {
                 // multiple //여러장업로드 할 때
                 >
                 </input>
+
+
+
+
                         <label className={styles.imgLabel} htmlFor="profileImg">
                             프로필 이미지 선택</label>
                 <button onClick={submit} className={styles.submitBtn}>확인</button>

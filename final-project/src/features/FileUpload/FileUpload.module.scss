@@ -20,10 +20,11 @@
     background-color: rgba(0, 0, 0, 0.45);
     display: flex;
     justify-content: center;
+
     img {
       @include uploadModal;
       z-index: 1;
-      width: 19vw;
+      width: 9vw;
       height: 18vh;
       border-radius: 50%;
       top:33%; 
@@ -45,12 +46,12 @@
           display: inline-block;
           cursor: pointer;
           &:hover {
-            color : white;
+            color : gray;
           }
         }
         // input태그
         input {
-          // display: none;
+          display: none;
         }
         .close{
           display: flex;

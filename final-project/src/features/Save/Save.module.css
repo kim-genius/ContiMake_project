@@ -49,9 +49,6 @@
 .modal .modalContent .imgLabel:hover {
   color: gray;
 }
-.modal .modalContent input {
-  display: none;
-}
 .modal .modalContent .close {
   display: flex;
   justify-content: flex-end;
@@ -77,4 +74,4 @@
 }
 .modal .modalContent .submitBtn:hover {
   background-color: #FFC478;
-}/*# sourceMappingURL=FileUpload.module.css.map */
+}/*# sourceMappingURL=Save.module.css.map */

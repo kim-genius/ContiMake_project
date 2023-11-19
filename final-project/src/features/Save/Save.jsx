@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from '../../axios';
 
 const Save = () => {
     const [data, setData] = useState(['John Doe,30', 'Jane Doe,25']);
+
+    const title = useRef();
+
     // const [data, setData] = useState(['']);
 
     // const createFile = () => {
@@ -17,8 +20,8 @@ const Save = () => {
 
     const createFile = () => {
         // const fileName = 'yourFileName.corn'; // 원하는 파일명으로 변경
-        const fileName = '파일'; // 원하는 파일명으로 변경
-        axios.post('/save/createFile', { data, fileName })
+        axios.post('/save/createFile', { data, 
+            title : title.current.value })
           .then(response => {
             console.log(response.data);
           })
@@ -41,6 +44,7 @@ const Save = () => {
     return (
         <div>
             <button onClick={createFile}>Create File</button>
+            <input ref={title}></input>
             <button onClick={readFile}>Read File</button>
             <div>{data}</div>
         </div>
