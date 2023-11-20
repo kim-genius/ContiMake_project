@@ -13,7 +13,7 @@
     padding: 20px;
     width: 450px;
     height: 600px;
-    background-color: rgb(255, 255, 255);
+    background-color: girgb(255, 255, 255);
     border-radius: 10px;
     display: flex;
     justify-content: space-evenly;
