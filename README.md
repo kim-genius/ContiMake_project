@@ -1,6 +1,6 @@
 # contiStoryPrompt PROJECT
 
-![logo](https://github.com/FinalProject-5G/contiStoryPrompt/assets/138184932/b99fdd22-8346-4024-8c4f-e0e213f98129)
+![logo](./final-project/public/images/consouplogo.png)
 
 
 ## 🖥 프로젝트 소개

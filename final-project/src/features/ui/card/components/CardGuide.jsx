@@ -17,7 +17,7 @@ const Cardguide = () => {
             <div className={styles.cardGuideBoxLeft}>
                 <h1>생성형 AI로 만드는 자동 콘티</h1>
                 <p>인물과 스토리만 입력하면 인공지능이 <br></br>스토리보드 이미지를 만들어줍니다</p>
-                <Link to='/generate'>{Button('콘티 생성하기')}</Link>
+                <Link className={styles.linkGenerate}to='/generate'>{Button('콘티 생성하기')}</Link>
             </div>
           <CardGuideCarousel></CardGuideCarousel>
           

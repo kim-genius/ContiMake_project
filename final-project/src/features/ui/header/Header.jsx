@@ -36,6 +36,8 @@ function onScroll() {
 
 
   return (
+    <>
+    <div className={styles.blank}></div>
     <header className={styles.header} ref={headerRef}>
       <div className={styles.headerBox}>
         <Link to='/'><img className={styles.logo} src='images/logo.png' alt='logo' /></Link>
@@ -58,6 +60,7 @@ function onScroll() {
         </div>
       </div>
     </header>
+    </>
 
   )
 }

@@ -104,8 +104,8 @@ const My = () => {
           <br></br>
           <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>
         </div>
-            <hr className={styles.boxhr}></hr>
-        <div className={styles.mynameBox}> 
+        <hr className={styles.boxhr}></hr>
+        <div className={styles.mynameBox}>
           <input
             ref={nickNameRef}
             className={styles.myname}
@@ -149,9 +149,9 @@ const My = () => {
           >
             수정
           </div>
-            <hr></hr>
+          <hr></hr>
         </div>
-          <hr className={styles.hr}></hr>
+        <hr className={styles.hr}></hr>
         <div className={styles.list}>
           <div className={styles.drop}>변경 비밀번호 재확인</div>
           <input
@@ -184,7 +184,7 @@ const My = () => {
         <hr className={styles.hr}></hr>
 
         <div className={styles.bottomBtn}>
-          <button className={styles.btnDown} onClick={()=> window.location.href = '/mypassword'}>나가기</button>
+          <button className={styles.btnDown} onClick={() => window.location.href = '/mypassword'}>나가기</button>
           <button className={styles.btncomplete} onClick={changeMyPage}>
             내정보수정하기
           </button>

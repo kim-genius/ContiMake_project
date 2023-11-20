@@ -10,6 +10,7 @@ import OutputImgs from '../features/inpainting/components/OutputImgs'
 import { useDispatch, useSelector } from 'react-redux'
 import { setBrushState } from '../store/canvasSlice'
 import { BedrockRuntime } from 'aws-sdk'
+import InpaintingTutorial from "../features/tutorial/EditTutorial"
 
 const Editpage = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const Editpage = () => {
   
   return (
     <div className={styles.Wrapper}>
+      <InpaintingTutorial/>
       <nav className={styles.navBar}>
         <HeaderNav />
       </nav>
