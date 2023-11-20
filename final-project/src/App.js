@@ -20,8 +20,8 @@ const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googl
 function App() {
   return (
     <div>
-      <Header></Header>
-      <div className='blank'></div>
+      {/* <Header></Header> */}
+      {/* <div className='blank'></div> */}
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/exportemail' element={<ExportEmail></ExportEmail>}></Route>
@@ -38,7 +38,7 @@ function App() {
         <Route path='/generate' element={<Generatepage />}></Route>
         <Route path='/edit' element={<Editpage />}></Route>
       </Routes>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
 
     </div>
   );

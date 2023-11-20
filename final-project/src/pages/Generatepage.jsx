@@ -16,7 +16,7 @@ const Generatepage = () => {
 const dispatch = useDispatch();
 const [loading, setLoading] = useState(false);
 const promptsList = useSelector((state) => state.cur_project.prompts);
-const pormptsNum = useSelector((state) => state.cur_project.imgNums);
+const promptsNum = useSelector((state) => state.cur_project.imgNums);
 const image = useSelector((state)=> state.cur_project.images);
 
   const generate = async ({ prompt, promptLen }) => {
