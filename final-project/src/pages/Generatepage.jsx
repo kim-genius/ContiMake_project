@@ -33,43 +33,46 @@ const image = useSelector((state)=> state.cur_project.images);
   };
 
   return (
-    <div className={styles.Wrapper}>
-      <nav className={styles.navBar}>
-        <HeaderNav />
-      </nav>
-      <div className={styles.contentsWrapper}>
-        <section className={styles.designTab}>
-          <ToggleBtn tab1={"생성"} tab2={"편집"} />
-          <BoxItem title={"생성할 컷 수 지정"} />
-          <CutsNumber />
-          <BoxItem title={"콘티 내용 입력"} />
-          <div className={styles.promptsBox}>
-            <Prompts />
-          </div>
-          <ColorButton style={{backgroundColor: 'gray'}} text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading}/>
-        </section>
-        <section className={styles.canvas}>
-          {loading ?
-          <div className={styles.loading_bar}>
-            <BarLoader color="#36d7b7" loading={loading} width={200} height={20}/>
-          </div>
-          : image ?
-            image.map((img, idx) => {
-              return (
-                <img
-                  key={`img-${idx}`}
-                  className={styles.images}
-                  src={`data:image/png;base64,${img}`}
-                  alt="표시"
-                />
-              );
-            })
-          : null
-          }
-        </section>
-        <section className={styles.designTab}>
-          <OutputImgs/>
-        </section>
+    <div>
+      <GenerateTutorial />
+      <div className={styles.Wrapper}>
+        <nav className={styles.navBar}>
+          <HeaderNav />
+        </nav>
+        <div className={styles.contentsWrapper}>
+          <section className={styles.designTab}>
+            <ToggleBtn tab1={"생성"} tab2={"편집"} />
+            <BoxItem title={"생성할 컷 수 지정"} />
+            <CutsNumber />
+            <BoxItem title={"콘티 내용 입력"} />
+            <div className={styles.promptsBox}>
+              <Prompts />
+            </div>
+            <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: pormptsNum }} />
+          </section>
+          <section className={styles.canvas}>
+            {loading ?
+              <div className={styles.loading_bar}>
+                <BarLoader color="#36d7b7" loading={loading} width={200} height={20} />
+              </div>
+              : image ?
+                image.map((img, idx) => {
+                  return (
+                    <img
+                      key={`img-${idx}`}
+                      className={styles.images}
+                      src={`data:image/png;base64,${img}`}
+                      alt="표시"
+                    />
+                  );
+                })
+                : null
+            }
+          </section>
+          <section className={styles.designTab}>
+            <OutputImgs />
+          </section>
+        </div>
       </div>
     </div>
   );

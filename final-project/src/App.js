@@ -43,12 +43,11 @@ function App() {
         <Route path='/mypage' element={<Mypage></Mypage>}></Route>
         <Route path='/myconti' element={<Myconti></Myconti>}></Route>
         <Route path='/edit' element={<Editpage></Editpage>}></Route>
+        
         <Route path='/login' element={<GoogleOAuthProvider clientId={`${googleClientId}`}><Login /></GoogleOAuthProvider>}></Route>
         <Route path='/login/oauth/callback/kakao' element={<OAuthRedirectHandler provider='kakao' />}></Route>
         <Route path='/login/oauth/callback/google' element={<OAuthRedirectHandler provider='google' />}></Route>
         <Route path='/join' element={<Join />}></Route>
-        <Route path='/generate' element={<Generatepage />}></Route>
-        <Route path='/edit' element={<Editpage />}></Route>
       </Routes>
 
       <Routes>
@@ -63,6 +62,7 @@ function App() {
         <Route path='/join' element={<Footer></Footer>}></Route>
       </Routes>
       
+
 
     </div>
   );
