@@ -17,7 +17,7 @@ const My = () => {
   const nickNameRef = useRef();
   const passwordRef = useRef();
   const samePasswordRef = useRef();
-  let location = sessionStorage.getItem("location")
+  let location = sessionStorage.getItem("location");
 
   const changeMyPage = () => {
     console.log('email', sessionStorage.getItem("email"), 'nick', nickName)

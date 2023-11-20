@@ -5,7 +5,7 @@ import FileUpload from "../FileUpload/FileUpload";
 
 const Nav = () => {
 
-  let location = sessionStorage.getItem("location")
+  let location = sessionStorage.getItem("location");
   const [modal, setModal] = useState(false);
 
   return (

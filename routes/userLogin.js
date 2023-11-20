@@ -21,7 +21,7 @@ router.post('/login',(req,res)=>{
                     msg : 'success', 
                     nickname : rows[0].user_nickname, 
                     email : rows[0].user_email,
-                    location: rows[0].user_profilepath
+                    location:rows[0].user_profilepath
                 })
             }
             })
