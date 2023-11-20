@@ -38,6 +38,7 @@ const Login = () => {
         if (res.data.msg == 'success') {
           sessionStorage.setItem('email', res.data.email);
           sessionStorage.setItem('nickname', res.data.nickname)
+          sessionStorage.setItem('location',res.data.location)
           swal('로그인이 완료됐습니다.')
           window.location.href = '/'
           // alert('로그인이 완료됐습니다.')
