@@ -19,9 +19,21 @@ const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googl
 
 function App() {
   return (
+
     <div>
-      {/* <Header></Header> */}
-      {/* <div className='blank'></div> */}
+      
+      <Routes>
+      <Route path='/' element={<Header></Header>}></Route>
+        <Route path='/exportemail' element={<Header></Header>}></Route>
+        <Route path='/mypassword' element={<Header></Header>}></Route>
+        <Route path='/fileupload' element={<Header></Header>}></Route>
+        <Route path='/mypage' element={<Header></Header>}></Route>
+        <Route path='/myconti' element={<Header></Header>}></Route>   
+        <Route path='/login/oauth/callback/kakao' element={<Header></Header>}></Route>
+        <Route path='/login/oauth/callback/google' element={<Header></Header>}></Route>
+        <Route path='/join' element={<Header></Header>}></Route>
+      </Routes>
+ 
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/exportemail' element={<ExportEmail></ExportEmail>}></Route>
@@ -38,7 +50,19 @@ function App() {
         <Route path='/generate' element={<Generatepage />}></Route>
         <Route path='/edit' element={<Editpage />}></Route>
       </Routes>
-      {/* <Footer></Footer> */}
+
+      <Routes>
+      <Route path='/' element={<Footer></Footer>}></Route>
+        <Route path='/exportemail' element={<Footer></Footer>}></Route>
+        <Route path='/mypassword' element={<Footer></Footer>}></Route>
+        <Route path='/fileupload' element={<Footer></Footer>}></Route>
+        <Route path='/mypage' element={<Footer></Footer>}></Route>
+        <Route path='/myconti' element={<Header></Header>}></Route>   
+        <Route path='/login/oauth/callback/kakao' element={<Footer></Footer>}></Route>
+        <Route path='/login/oauth/callback/google' element={<Footer></Footer>}></Route>
+        <Route path='/join' element={<Footer></Footer>}></Route>
+      </Routes>
+      
 
     </div>
   );

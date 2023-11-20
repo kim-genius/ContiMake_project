@@ -105,7 +105,7 @@ const My = () => {
           <br></br>
           <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>
         </div>
-        <div>
+        <div className={styles.userBoxRight}>
           <input
             ref={nickNameRef}
             className={styles.myname}
