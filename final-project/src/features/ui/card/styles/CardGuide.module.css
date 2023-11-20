@@ -39,4 +39,10 @@
 }
 .cardGuideBoxLeft a {
   transform: translateY(20%);
+}
+
+.linkGenerate > button {
+  transform: translateY(30%);
+  width: 280px;
+  height: 2.3em;
 }/*# sourceMappingURL=CardGuide.module.css.map */
