@@ -26,7 +26,7 @@ const Canvas = (props) => {
         ? prediction.output[prediction.output.length - 1]
         : null;
         return prediction;
-    });
+    });                                                                                                                                                          
     
     const predicting = predictions.some((prediction) => !prediction.output);
     const lastPrediction = predictions[predictions.length - 1];
