@@ -59,9 +59,12 @@ const Login = () => {
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
         <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} /></div>
 
-        <div style={{ position: 'relative', overflow: 'hidden' }}>
-          <AuthButton text='구글 로그인' provider='google' style={{ position: 'absolute' }}  >
-            <GoogleLogin style={{opacity:0}}
+        <div style={{ position: 'relative'}}>
+          <AuthButton text='구글 로그인' provider='google'> </AuthButton>
+            <div style={{position:'absolute',opacity:'0', transform:'translateY(-150%)',overFlow:'hidden'}}> 
+            <GoogleLogin 
+              width={300}
+              height
               clientId={googleClientId}
               onSuccess={(res) => {
                 // console.log(res)
@@ -100,8 +103,9 @@ const Login = () => {
               }}
               onFailure={(res) => console.log(res, '실패')}
             />
+            </div>
 
-          </AuthButton></div>
+         </div>
 
 
         <hr style={{ width: '99%', border: 'solid 1px #E7E7E7', margin: '5px' }} />
