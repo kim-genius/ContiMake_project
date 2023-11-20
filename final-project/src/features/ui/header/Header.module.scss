@@ -1,11 +1,9 @@
-// @media screen and (max-width : 1200px) { //1200px 아래에선 이걸 적용
-//     .header{
-//        width:10%;
-//     }
-//   } 
-// @media screen and (max-width : 768px) { //768px아래에서 이걸 적용
-//         .header{width:10%}
-//   }
+
+.blank{
+    width:100%;
+    height:100px;
+    position:relative;
+}
 
 a{
     text-decoration: none;
@@ -16,13 +14,11 @@ a{
     border-bottom: 1px solid rgba(0,0,0,0.2);
     display: flex;
     position:fixed;
+    top:0;
     z-index: 100;
     justify-content:center;
     align-items: center;
     background-color: white;
-    
-
-
 }
 .headerBox{
     width:70%;
@@ -50,8 +46,8 @@ a{
 }
 
 .loginBtn{
-    font-size: 23px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 400;
     color:black;
     text-align: center;
 }
@@ -68,4 +64,21 @@ a{
     border-radius: 50%;
 }
 
+
+@media screen and (max-width : 1200px) { //1200px 아래에선 이걸 적용
+    .headerBox{
+        width:60%;
+    }
+    .loginBtn{
+       font-size:15px;
+    }
+  } 
+@media screen and (max-width : 768px) { //768px아래에서 이걸 적용
+    .headerBox{
+        width:50%;
+    }
+    .loginBtn{
+        font-size:10px;
+     }
+  }
 

@@ -33,11 +33,16 @@
 }
 
 .userBox {
-  width: 11vw;
+  width: 18vw;
   height: 35vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.userBoxRight {
+  width: 100%;
+  transform: translateX(-6%);
 }
 
 .userflex {

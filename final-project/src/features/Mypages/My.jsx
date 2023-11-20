@@ -104,8 +104,12 @@ const My = () => {
           <br></br>
           <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>
         </div>
+<<<<<<< HEAD
             <hr className={styles.boxhr}></hr>
         <div className={styles.mynameBox}> 
+=======
+        <div className={styles.userBoxRight}>
+>>>>>>> a62d8659cf3907c7bec27b1051844aa53b1dbeee
           <input
             ref={nickNameRef}
             className={styles.myname}
