@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from './Generatepage.module.scss'
 import HeaderNav from '../features/generate/components/HeaderNav'
 import ToggleBtn from '../features/ui/toggleBtn/ToggleBtn'
@@ -11,13 +11,13 @@ import ColorButton from '../features/ui/button/ColorButton/ColorButton';
 import OutputImgs from '../features/inpainting/components/OutputImgs';
 import BarLoader from 'react-spinners/BarLoader'
 import { setImages } from '../store';
-
+import GenerateTutorial from '../features/tutorial/GenerateTutorial'
 const Generatepage = () => {
-const dispatch = useDispatch();
-const [loading, setLoading] = useState(false);
-const promptsList = useSelector((state) => state.cur_project.prompts);
-const promptsNum = useSelector((state) => state.cur_project.imgNums);
-const image = useSelector((state)=> state.cur_project.images);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const promptsList = useSelector((state) => state.cur_project.prompts);
+  const promptsNum = useSelector((state) => state.cur_project.imgNums);
+  const image = useSelector((state) => state.cur_project.images);
 
   const generate = async ({ prompt, promptLen }) => {
     setLoading(true)
@@ -26,7 +26,7 @@ const image = useSelector((state)=> state.cur_project.images);
       const result = await axios.get(
         `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20sketch,%20cartoon,%20fast%20sketch`
       );
-      newImages=[...newImages, result.data];
+      newImages = [...newImages, result.data];
     }
     dispatch(setImages(newImages));
     setLoading(false)
@@ -48,7 +48,7 @@ const image = useSelector((state)=> state.cur_project.images);
             <div className={styles.promptsBox}>
               <Prompts />
             </div>
-            <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: pormptsNum }} />
+            <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading} />
           </section>
           <section className={styles.canvas}>
             {loading ?
