@@ -16,7 +16,8 @@ const CardGuideCarousel = () => {
     className={styles.cardGuideBox}
     spaceBetween={2}
     slidesPerView={1}
-    FreeMode={true}
+    freemode={true}
+    pagination={true}
 
      >
     <SwiperSlide><img  className={styles.cardGiudeImg} src ='https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/dqCU/image/STIfcjkS_-0ws4xGiUaQCiMytRk.png'></img></SwiperSlide>
