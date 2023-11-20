@@ -1,0 +1,87 @@
+@mixin uploadModal {
+    position:absolute;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius:10px; 
+    border:1px solid rgba(166, 130, 130, 0.2);  
+    transform:translateY(-50%);
+  }
+  
+  
+  .modal {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      margin-top: 9vh;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.45);
+      display: flex;
+      justify-content: center;
+  
+      img {
+        @include uploadModal;
+        z-index: 1;
+        width: 9vw;
+        height: 18vh;
+        border-radius: 50%;
+        top:33%; 
+        right:28%;
+        background: white;
+      }
+      .modalContent {
+        @include uploadModal;
+        width:20vw;  
+        height:38vh; 
+        padding:10px;
+        top:35%;   
+          // label태그
+          .imgLabel {
+            margin-top: 18vh;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #0095f6;
+            display: inline-block;
+            cursor: pointer;
+            &:hover {
+              color : gray;
+            }
+          }
+          // input태그
+          input {
+            // display: none;
+          }
+          .close{
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 0.5vw;
+          }
+          .closeBtn{
+            border: none;
+            background-color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            &:hover{
+              color: #FFC478;
+            }
+          }
+          .submitBtn{
+            border: none;
+            border-radius: 10px;
+            height: 2rem;
+            width: 12vw;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 2vh;
+            &:hover {
+              background-color:#FFC478;
+            }
+          }
+      }
+  
+    }  
+    
+  
+  

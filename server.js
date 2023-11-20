@@ -10,7 +10,8 @@ const userLoginRouter = require('./routes/userLogin');
 const contiRouter = require('./routes/userMyConti')
 const exportsRouter = require('./routes/exports');
 const uploadRouter = require('./routes/upload');
-const session = require('express-session')
+const saveRouter = require('./routes/save');
+const session = require('express-session');
 const fileStore = require('session-file-store')(session)
 
 const path = require('path');
@@ -38,12 +39,14 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/save', saveRouter);
 app.use('/userJoin', userJoinRouter);
 app.use('/kakao', kakaoRouter);
 app.use('/google', googleRouter);
 app.use('/userLogin', userLoginRouter);
 app.use('/exports', exportsRouter);
 app.use('/upload', uploadRouter);
+app.use('/save', saveRouter);
 app.use('/conti', contiRouter);
 app.use('/userpage', userMyPageRouter);
 app.use(express.static(path.join(__dirname, 'final-project', 'build')));
