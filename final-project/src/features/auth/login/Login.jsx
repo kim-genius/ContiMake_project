@@ -30,11 +30,6 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const childRef = useRef();
-
-
-
-
 
   /**일반로그인 */
   const vaildLogin = () => {
@@ -54,7 +49,9 @@ const Login = () => {
         console.log(error.toJSON());
       });
   }
+  const test = (()=>{
 
+  })
   return (
     <div className={styles.loginBackground}>
       <div className={styles.loginBox}>
@@ -62,8 +59,8 @@ const Login = () => {
         <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} /></div>
 
         <div style={{ position: 'relative', overflow: 'hidden' }}>
-          <AuthButton text='구글 로그인' provider='google' style={{ position: 'absolute' }} >
-            <GoogleLogin style={{size : 'large'}}
+          <AuthButton text='구글 로그인' provider='google' style={{ position: 'absolute' }}  >
+            <GoogleLogin style={{opacity:0}}
               clientId={googleClientId}
               onSuccess={(res) => {
                 // console.log(res)
@@ -101,15 +98,6 @@ const Login = () => {
                 }
               }}
               onFailure={(res) => console.log(res, '실패')}
-            // render={(renderProps) => (
-            //   <div className='social_login_box google' onClick={renderProps.onClick}>
-            //     <div className='social_login_image_box'>
-            //       <img src={googleIcon} alt='google_login' />
-            //     </div>
-            //     <div className='social_login_text_box'>구글로 시작하기</div>
-            //     <div className='social_login_blank_box'> </div>
-            //   </div>
-            // )}
             />
 
           </AuthButton></div>
