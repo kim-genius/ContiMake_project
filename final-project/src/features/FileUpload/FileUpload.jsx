@@ -6,14 +6,14 @@ const FileUpload = ({ setModal, location }) => {
 
     const [image, setImage] = useState({
         preview:
-        "",
+            "",
         data: ""
     });
-    
+
     const submit = async (e) => {
         e.preventDefault();
 
-        
+
         let formData = new FormData();
         let email = sessionStorage.getItem("email");
         formData.append("file", image.data);
@@ -55,17 +55,17 @@ const FileUpload = ({ setModal, location }) => {
     };
 
     return (
-        <div className={styles.modal} onSubmit={(e) => 
+        <div className={styles.modal} onSubmit={(e) =>
             e.preventDefault
-            }>
+        }>
             <div className={styles.modalContent}>
                 <div className={styles.close}>
                     <button className={styles.closeBtn} onClick={() => { setModal() }}>X</button><br></br>
                 </div>
-                    <img src={image.preview} alt=""/>                 
+                <img src={image.preview} alt="" />
                 <input
                     type="file"
-                    onChange={(e)=>{
+                    onChange={(e) => {
                         const img = {
                             preview: URL.createObjectURL(e.target.files[0]),
                             data: e.target.files[0],
@@ -78,12 +78,8 @@ const FileUpload = ({ setModal, location }) => {
                 // multiple //여러장업로드 할 때
                 >
                 </input>
-
-
-
-
-                        <label className={styles.imgLabel} htmlFor="profileImg">
-                            프로필 이미지 선택</label>
+                <label className={styles.imgLabel} htmlFor="profileImg">
+                    프로필 이미지 선택</label>
                 <button onClick={submit} className={styles.submitBtn}>확인</button>
             </div>
         </div>
