@@ -17,7 +17,7 @@ const My = () => {
   const nickNameRef = useRef();
   const passwordRef = useRef();
   const samePasswordRef = useRef();
-  let location = JSON.parse(sessionStorage.getItem("location"))
+  let location = sessionStorage.getItem("location");
 
   const changeMyPage = () => {
     console.log('email', sessionStorage.getItem("email"), 'nick', nickName)
@@ -104,12 +104,8 @@ const My = () => {
           <br></br>
           <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>
         </div>
-<<<<<<< HEAD
-            <hr className={styles.boxhr}></hr>
-        <div className={styles.mynameBox}> 
-=======
-        <div className={styles.userBoxRight}>
->>>>>>> a62d8659cf3907c7bec27b1051844aa53b1dbeee
+        <hr className={styles.boxhr}></hr>
+        <div className={styles.mynameBox}>
           <input
             ref={nickNameRef}
             className={styles.myname}
@@ -153,9 +149,9 @@ const My = () => {
           >
             수정
           </div>
-            <hr></hr>
+          <hr></hr>
         </div>
-          <hr className={styles.hr}></hr>
+        <hr className={styles.hr}></hr>
         <div className={styles.list}>
           <div className={styles.drop}>변경 비밀번호 재확인</div>
           <input
@@ -188,7 +184,7 @@ const My = () => {
         <hr className={styles.hr}></hr>
 
         <div className={styles.bottomBtn}>
-          <button className={styles.btnDown} onClick={()=> window.location.href = '/mypassword'}>나가기</button>
+          <button className={styles.btnDown} onClick={() => window.location.href = '/mypassword'}>나가기</button>
           <button className={styles.btncomplete} onClick={changeMyPage}>
             내정보수정하기
           </button>
