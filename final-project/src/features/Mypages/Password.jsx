@@ -18,6 +18,10 @@ const Password = () => {
       }
 
       )
+      .catch((error) => {
+        console.error('Error during update:', error);
+        alert('An error occurred during the update.');
+      });
   }
   return (
 

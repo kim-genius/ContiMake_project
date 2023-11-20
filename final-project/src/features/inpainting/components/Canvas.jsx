@@ -15,7 +15,7 @@ const Canvas = (props) => {
     const onChange = async () => {
         const paths = await canvasRef.current.exportPaths();
         if (paths.length) {
-            const data = await canvasRef.current.exportImage("svg");
+            const data = await canvasRef.current.exportImage("png");
             props.onDraw(data);
             console.log(data)
         }
@@ -26,7 +26,7 @@ const Canvas = (props) => {
         ? prediction.output[prediction.output.length - 1]
         : null;
         return prediction;
-    });
+    });                                                                                                                                                          
     
     const predicting = predictions.some((prediction) => !prediction.output);
     const lastPrediction = predictions[predictions.length - 1];
@@ -50,6 +50,7 @@ const Canvas = (props) => {
               />
             ))}
             <ReactSketchCanvas
+                className={styles.sketchCanvas}
                 onChange={onChange}
                 ref={canvasRef}
                 style={style}
@@ -57,8 +58,9 @@ const Canvas = (props) => {
                 height="500px"
                 strokeWidth={15}
                 strokeColor="black"
+                exportWithBackgroundImage="true"
                 allowOnlyPointerType={brushState.allowType}
-                backgroundImage = '/desktop.jpg'
+                // backgroundImage='/testimage.png'
             />
         </div>
     )

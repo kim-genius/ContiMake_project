@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import styles from './Generatepage.module.scss'
 import HeaderNav from '../features/generate/components/HeaderNav'
 import ToggleBtn from '../features/ui/toggleBtn/ToggleBtn'
@@ -10,24 +10,25 @@ import axios from 'axios'
 import ColorButton from '../features/ui/button/ColorButton/ColorButton';
 import OutputImgs from '../features/inpainting/components/OutputImgs';
 import BarLoader from 'react-spinners/BarLoader'
-import GenerateTutorial from '../features/tutorial/GenerateTutorial';
+import { setImages } from '../store';
 
 const Generatepage = () => {
-  const [image, updateImage] = useState([])
-  const [loading, setLoading] = useState();
-  const promptsList = useSelector((state) => state.cur_project.prompts);
-  const pormptsNum = useSelector((state) => state.cur_project.imgNums);
+const dispatch = useDispatch();
+const [loading, setLoading] = useState(false);
+const promptsList = useSelector((state) => state.cur_project.prompts);
+const promptsNum = useSelector((state) => state.cur_project.imgNums);
+const image = useSelector((state)=> state.cur_project.images);
 
   const generate = async ({ prompt, promptLen }) => {
-    updateImage([])
     setLoading(true)
+    let newImages = []
     for (let i = 0; i < promptLen; i++) {
       const result = await axios.get(
-        `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20sketch,%20cartoon%20storyboard,%20fast%20sketch,%20gray%20color`
+        `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20sketch,%20cartoon,%20fast%20sketch`
       );
-      image.push(result.data);
-      updateImage([...image]);
+      newImages=[...newImages, result.data];
     }
+    dispatch(setImages(newImages));
     setLoading(false)
   };
 

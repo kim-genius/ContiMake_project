@@ -3,19 +3,23 @@
 .cardMiddle{
  @include CardFunction.cardBox();
 }
+
+.cardAnimation{
+    @include CardFunction.cardBoxAnimation();
+}
 .cardMiddleTitle{
 @include CardFunction.cardTitle();
+
 }
-.cardMiddleTitle{
-    span{
-    font-size: 25px;
-}
-}
-.cardMiddleTitle{
-    h2{
-    font-size: 30px;
-}
-}
+
 .cardMiddleBox{
-@include CardFunction.cardContent()
+@include CardFunction.cardContent();
+
 }
+
+.cardMiddleBox::before{
+    content:'';
+    position:absolute;
+    width: 50%;
+    height: 20%;
+  }
