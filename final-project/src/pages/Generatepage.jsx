@@ -24,7 +24,7 @@ const image = useSelector((state)=> state.cur_project.images);
     let newImages = []
     for (let i = 0; i < promptLen; i++) {
       const result = await axios.get(
-        `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20sketch,%20cartoon%20storyboard,%20fast%20sketch`
+        `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20sketch,%20cartoon,%20fast%20sketch`
       );
       newImages=[...newImages, result.data];
     }
@@ -46,7 +46,7 @@ const image = useSelector((state)=> state.cur_project.images);
           <div className={styles.promptsBox}>
             <Prompts />
           </div>
-          <ColorButton style={{backgroundColor: 'gray'}} text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: pormptsNum }}/>
+          <ColorButton style={{backgroundColor: 'gray'}} text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: pormptsNum }} generate={loading}/>
         </section>
         <section className={styles.canvas}>
           {loading ?
