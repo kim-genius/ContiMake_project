@@ -1,7 +1,7 @@
 .myBox {
   position: relative;
   width: 55vw;
-  height: 80vh;
+  height: 83vh;
   margin: 5% 13%;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -98,7 +98,7 @@
   color: black;
 }
 .btnDown:hover {
-  background-color: #FFC478;
+  background-color: black;
   color: white;
 }
 
@@ -189,8 +189,8 @@
 }
 
 .bottomBtn {
-  width: 49vw;
-  margin: 8vh;
+  width: 50vw;
+  margin: 5vh;
   display: flex;
   justify-content: flex-end;
 }/*# sourceMappingURL=My.module.css.map */
