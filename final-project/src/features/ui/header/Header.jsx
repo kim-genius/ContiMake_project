@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import HeaderModal from '../modal/HeaderModal'
 
 const Header = () => {
-  let location = JSON.parse(sessionStorage.getItem("location"))
+  let location = (sessionStorage.getItem("location"))
   const headerRef = useRef()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [position, setPosition] = useState(0);

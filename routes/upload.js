@@ -38,12 +38,12 @@ const upload = multer({
 router.post("/submit", upload.single("file"), (req, res) => {
     console.log(req.file, "파일");
     console.log(req.body.email)
-    const user_profilpath = req.file.location;
+    const user_profilepath = req.file.location;
     const user_email = req.body.email
 
-    let sql = 'UPDATE t_user SET user_profilpath = ? WHERE user_email = ?'
+    let sql = 'UPDATE t_user SET user_profilepath = ? WHERE user_email = ?'
     let sql2 = 'SELECT * FROM t_user WHERE user_email=?'
-    conn.query(sql, [user_profilpath, user_email], (err, result) => {
+    conn.query(sql, [user_profilepath, user_email], (err, result) => {
         if (err) {
             console.log(err);
             res.
@@ -52,7 +52,7 @@ router.post("/submit", upload.single("file"), (req, res) => {
             conn.query(sql2, [user_email], (err, rows) => {
                 if (rows) {
                     console.log(rows)
-                    res.json(rows[0].user_profilpath)
+                    res.json(rows[0].user_profilepath)
                 } else if (err) {
                     console.log(err)
                     res.status(500).send("err")
