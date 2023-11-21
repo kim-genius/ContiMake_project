@@ -5,33 +5,33 @@ import TutorialBtn from './components/TutorialBtn'
 const tutContents = [
     {
         title: '생성 / 편집',
-        text: '생성화면/ 편집화면으로 전환할 수 있습니다.',
+        text: '생성화면 / 편집화면으로 전환할 수 있습니다.',
         position: { left: '20%', top: '5%' },
         linePosition: 'leftTop'
     },
     {
         title: '프롬프트',
-        text: '제작할 콘티의 컷수를 지정합니다. 최소 1컷~ 최대 20컷까지 가능합니다. 직접 입력도 가능합니다.',
+        text: '생성 시 작성한 프롬프트 텍스트를 수정할 수 있습니다.',
         position: { left: '20%', top: '13%' },
         linePosition: 'leftTop'
     },
     {
         title: '인페인팅',
-        text: '제작할 콘티의 컷수를 지정합니다. 최소 1컷~ 최대 20컷까지 가능합니다. 직접 입력도 가능합니다.',
+        text: '펜 툴을 이용하여 이미지 영역을 선택하세요. 일부분만 재생성할 수 있습니다.',
         position: { left: '20%', top: '45%' },
         linePosition: 'leftTop'
     },
     {
         title: '텍스트',
-        text: '제작할 콘티의 컷수를 지정합니다. 최소 1컷~ 최대 20컷까지 가능합니다. 직접 입력도 가능합니다.',
+        text: '이미지 위에 텍스트를 작성할 수 있습니다. 말풍선, 도형, 텍스트 세가지 툴이 있습니다. 재생성 버튼을 누를 시 이미지로 저장됩니다.',
         position: { left: '20%', top: '45%' },
-        linePosition: 'leftBottom'
+        linePosition: 'leftTop'
     },
     {
         title: '재생성',
-        text: '생성 하기 버튼을 누릅니다. 생성이 완료되면, 해당 버튼이 초기화 버튼으로 바뀌게 됩니다.결과가 마음에 들지 않을 경우 전체 내용을 초기화 할 수 있습니다.',
+        text: '재생성 버튼을 누릅니다. 생성이 완료된 후 다시 ',
         position: { left: '20%', top: '51%' },
-        linePosition: 'leftBottom'
+        linePosition: 'leftTop'
     },
     {
         title: '컷 선택',
@@ -60,7 +60,7 @@ const EditTutorial = () => {
             onClick={() => { setDisplay(false) }}
             style={{ position: 'absolute' }} >
             <div
-                style={{ position: 'relative', left: tutContents[index].position.left, top: tutContents[index].position.top }}
+                style={{ left: tutContents[index].position.left, top: tutContents[index].position.top }}
                 onClick={(e) => {
                     e.stopPropagation();
                     if (index < tutContents.length - 1) {

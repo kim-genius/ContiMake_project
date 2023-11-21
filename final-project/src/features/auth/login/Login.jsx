@@ -38,6 +38,7 @@ const Login = () => {
         if (res.data.msg == 'success') {
           sessionStorage.setItem('email', res.data.email);
           sessionStorage.setItem('nickname', res.data.nickname)
+          sessionStorage.setItem('location',res.data.location)
           swal('로그인이 완료됐습니다.')
           window.location.href = '/'
           // alert('로그인이 완료됐습니다.')
@@ -58,9 +59,12 @@ const Login = () => {
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
         <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} logo='images/kakaoLogo.png'/></div>
 
-        <div style={{ position: 'relative', overflow: 'hidden' }}>
-          <AuthButton text='구글 로그인' provider='google' style={{ position: 'absolute' }} logo='images/googleLogo.png'  >
-            <GoogleLogin style={{opacity:0}}
+        <div style={{ position: 'relative'}}>
+          <AuthButton text='구글 로그인' provider='google' logo='images/googleLogo.png'> </AuthButton>
+            <div style={{position:'absolute',opacity:'0', transform:'translateY(-150%)',overFlow:'hidden'}} > 
+            <GoogleLogin 
+              width={300}
+              height
               clientId={googleClientId}
               onSuccess={(res) => {
                 // console.log(res)
@@ -99,8 +103,9 @@ const Login = () => {
               }}
               onFailure={(res) => console.log(res, '실패')}
             />
+            </div>
 
-          </AuthButton></div>
+         </div>
 
 
         <hr style={{ width: '99%', border: 'solid 1px #E7E7E7', margin: '5px' }} />

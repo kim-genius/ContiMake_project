@@ -32,7 +32,7 @@ function App() {
         <Route path='/myconti' element={<Header></Header>}></Route>
         {/* <Route path='/login/oauth/callback/kakao' element={<Header></Header>}></Route> */}
         <Route path='/login/oauth/callback/google' element={<Header></Header>}></Route>
-        <Route path='/join' element={<Header></Header>}></Route>
+
       </Routes>
 
       <Routes>
@@ -63,7 +63,7 @@ function App() {
         <Route path='/myconti' element={<Header></Header>}></Route>
         <Route path='/login/oauth/callback/kakao' element={<Footer></Footer>}></Route>
         <Route path='/login/oauth/callback/google' element={<Footer></Footer>}></Route>
-        <Route path='/join' element={<Footer></Footer>}></Route>
+
       </Routes>
 
 
