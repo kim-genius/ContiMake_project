@@ -14,7 +14,7 @@
 .myBox{
     position: relative;
     width: 55vw;
-    height: 83vh;
+    height: auto;
     margin: 5% 13%;
     // border:1px solid rgba(0,0,0,0.2);
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.100);
@@ -161,8 +161,7 @@
 }
 
 .bottomBtn{
-    width: 50vw;
-    margin: 5vh;
+    width: 45vw;
     display: flex;
     justify-content: flex-end ;
 }

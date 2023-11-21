@@ -10,3 +10,14 @@
     font-size: 20px;
 }
 
+@media screen and (max-width : 1200px) { //1200px 아래에선 이걸 적용
+     a{
+        font-size:0.9rem;
+     }
+  } 
+
+  @media screen and (max-width : 900px) { //1200px 아래에선 이걸 적용
+    .button{
+       font-size:0.5rem;
+    }
+ } 

@@ -50,9 +50,7 @@ const Login = () => {
         console.log(error.toJSON());
       });
   }
-  const test = (()=>{
 
-  })
   return (
     <div className={styles.loginBackground}>
       <div className={styles.loginBox}>
@@ -91,6 +89,7 @@ const Login = () => {
                       alert(`${nickname}님 google 계정으로 로그인 완료되었습니다`);
                       sessionStorage.setItem('email', email)
                       sessionStorage.setItem('nickname', nickname)
+                      
                       window.location.href = '/'
                     } else {
                       window.location.href = '/'

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import styles from "./My.module.css";
+import styles from "./My.module.scss";
 import VaildPassword from "../auth/join/components/VaildPassword";
 import axios from "../../axios";
 import FileUpload from "../FileUpload/FileUpload";
