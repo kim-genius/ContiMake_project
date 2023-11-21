@@ -9,12 +9,12 @@ const canvasState = createSlice({
     
     reducers : {
         setBrushState : (state,action) => {
-            // state.allowType = action.payload;
-                if (state.allowType == 'touch') {
-                  state.allowType = 'all'
-                } else {
-                  state.allowType = 'touch'
-                }
+            state.allowType = action.payload;
+                // if (state.allowType == 'touch') {
+                //   state.allowType = 'all'
+                // } else {
+                //   state.allowType = 'touch'
+                // }
         },
     }
 })

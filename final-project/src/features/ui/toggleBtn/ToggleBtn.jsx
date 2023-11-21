@@ -1,13 +1,14 @@
 import React from 'react'
 import styles from './ToggleBtn.module.scss'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 const ToggleBtn = (props) => {
   return (
     <ul className={styles.tab}>
       <NavLink to="/generate">
         {({ isActive, isPending }) => (
           <li className={isActive ? `${styles.active}` : "" }>{props.tab1}</li>
-        )}
+        )
+        }
       </NavLink>
       <NavLink to="/edit">
       {({ isActive, isPending, isTransitioning }) => (

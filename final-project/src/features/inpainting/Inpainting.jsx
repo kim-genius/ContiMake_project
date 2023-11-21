@@ -7,6 +7,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const Inpainting = () => {
   const [predictions, setPredictions] = useState([]); 
   const [error, setError] = useState(null); 
+  // 이거 한개 redux에서 관리하도록 만들기이이이이... ?
   const [maskImage, setMaskImage] = useState(null); 
   const [userUploadedImage, setUserUploadedImage] = useState(null);
   useEffect(()=> {

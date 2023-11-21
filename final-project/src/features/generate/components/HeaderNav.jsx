@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentTitle } from '../../../store/index';
 import ColorButton from '../../ui/button/ColorButton/ColorButton';
 import { current } from '@reduxjs/toolkit';
-
+import { Link } from 'react-router-dom'
 
 const HeaderNav = (props) => {
     const inputRef = useRef();
@@ -19,16 +19,16 @@ const HeaderNav = (props) => {
         setShowEditIcon(false)
     }
 
-    useEffect(()=>{
-        console.log(cur_project)
-    },)
     return (
         <div className={styles.wrapper}>
+            <Link to='/' >
+                <img src='/images/home_icon.svg' width={25} className={styles.homeBtn} alt='homeBtn'/>
+            </Link>
             <div className={styles.inputArea}>
                     <button
                         className={styles.editBtn}
                         onClick={() => editTitle()}>
-                        <img src='/images/edit_icon.png' alt='titleEditBtn' />
+                        <img src='/images/edit_icon.png' alt='titleEditBtn' width={16} />
                     </button>
                 <input
                     onChange={(e)=> dispatch(setCurrentTitle(e.target.value))}
