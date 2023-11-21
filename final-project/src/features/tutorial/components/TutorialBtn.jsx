@@ -33,7 +33,7 @@ const TutorialBtn = ({ title, text, index, position, linePosition }) => {
             }
             {/**내용부분 */}
             <div style={{ width: '20%' }}><button className={styles.button} style={{ margin: '-1px' }} >
-                {parseInt(index) + 1} {title}
+                <strong>{parseInt(index) + 1} {title}</strong>
                 <hr className={styles.line} />
                 {text}
             </button></div>

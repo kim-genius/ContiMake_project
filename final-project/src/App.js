@@ -30,7 +30,7 @@ function App() {
         <Route path='/fileupload' element={<Header></Header>}></Route>
         <Route path='/mypage' element={<Header></Header>}></Route>
         <Route path='/myconti' element={<Header></Header>}></Route>
-        <Route path='/login/oauth/callback/kakao' element={<Header></Header>}></Route>
+        {/* <Route path='/login/oauth/callback/kakao' element={<Header></Header>}></Route> */}
         <Route path='/login/oauth/callback/google' element={<Header></Header>}></Route>
         <Route path='/join' element={<Header></Header>}></Route>
       </Routes>

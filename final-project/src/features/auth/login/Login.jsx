@@ -56,10 +56,10 @@ const Login = () => {
     <div className={styles.loginBackground}>
       <div className={styles.loginBox}>
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
-        <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} /></div>
+        <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} logo='images/kakaoLogo.png'/></div>
 
         <div style={{ position: 'relative', overflow: 'hidden' }}>
-          <AuthButton text='구글 로그인' provider='google' style={{ position: 'absolute' }}  >
+          <AuthButton text='구글 로그인' provider='google' style={{ position: 'absolute' }} logo='images/googleLogo.png'  >
             <GoogleLogin style={{opacity:0}}
               clientId={googleClientId}
               onSuccess={(res) => {
