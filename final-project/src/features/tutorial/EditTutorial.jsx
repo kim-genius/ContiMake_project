@@ -24,13 +24,13 @@ const tutContents = [
     {
         title: '텍스트',
         text: '제작할 콘티의 컷수를 지정합니다. 최소 1컷~ 최대 20컷까지 가능합니다. 직접 입력도 가능합니다.',
-        position: { left: '20%', top: '45%' },
+        position: { left: '20%', top: '60%' },
         linePosition: 'leftBottom'
     },
     {
         title: '재생성',
         text: '생성 하기 버튼을 누릅니다. 생성이 완료되면, 해당 버튼이 초기화 버튼으로 바뀌게 됩니다.결과가 마음에 들지 않을 경우 전체 내용을 초기화 할 수 있습니다.',
-        position: { left: '20%', top: '51%' },
+        position: { left: '20%', top: '70%' },
         linePosition: 'leftBottom'
     },
     {

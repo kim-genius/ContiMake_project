@@ -8,4 +8,15 @@
   color: black;
   font-weight: 500;
   font-size: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  a {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .button {
+    font-size: 0.5rem;
+  }
 }/*# sourceMappingURL=Button.module.css.map */

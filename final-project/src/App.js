@@ -15,6 +15,7 @@ import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
 import Save from './features/Save/Save';
 import Editpage from './pages/Editpage';
+import SpeechBubble from './features/speechbubble/components/SpeechBubble';
 import { GoogleOAuthProvider } from "@react-oauth/google";
 const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 
@@ -36,6 +37,7 @@ function App() {
       </Routes>
 
       <Routes>
+        <Route path='/speechbubble' element={<SpeechBubble></SpeechBubble>}></Route>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/exportemail' element={<ExportEmail></ExportEmail>}></Route>
         <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
