@@ -2,13 +2,16 @@
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 0em;
 }
 
 .dummyImges {
-  margin: auto;
+  border: none;
   margin-bottom: 0.5em;
   width: 70%;
-  height: 15em;
+  height: 12em;
   border: 1px solid black;
 }/*# sourceMappingURL=OutputImgs.module.css.map */
