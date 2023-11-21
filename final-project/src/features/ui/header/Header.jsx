@@ -7,6 +7,7 @@ import HeaderModal from '../modal/HeaderModal'
 
 const Header = () => {
   let location = sessionStorage.getItem("location");
+  console.log(location,'뭐가뜨냐')
   const headerRef = useRef();
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [position, setPosition] = useState(0);

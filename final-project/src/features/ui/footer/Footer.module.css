@@ -4,7 +4,9 @@
   color: #37373a;
   padding: 4vh 10vw;
   background-color: #f3f4f5;
-  height: 40vh;
+  height: auto;
+  position: relative;
+  z-index: 2;
 }
 .footer nav {
   display: flex;
