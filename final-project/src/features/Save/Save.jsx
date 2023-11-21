@@ -1,93 +1,89 @@
-// import React, { useState, useRef } from 'react';
-// import axios from '../../axios';
-
-// const Save = () => {
-//     const [data, setData] = useState(['John Doe,30', 'Jane Doe,25']);
-
-//     const title = useRef();
-
-//     const createFile = () => {
-//         // const fileName = 'yourFileName.corn'; // 원하는 파일명으로 변경
-//         axios.post('/upload/createFile', {
-//             data,
-//             title: title.current.value
-//         })
-//             .then(response => {
-//                 console.log(response.data);
-//             })
-//             .catch(error => {
-//                 console.error(error);
-//             });
-//     };
-
-//     const readFile = () => {
-//         axios.get('/upload/readFile')
-//             .then(response => {
-//                 console.log(response.data);
-//                 setData(response.data);
-//             })
-//             .catch(error => {
-//                 console.error(error);
-//             });
-//     };
-
-//     return (
-//         <div>
-//             <button onClick={createFile}>Create File</button>
-//             <input ref={title}></input>
-//             <img></img>
-//             <button onClick={readFile}>Read File</button>
-//             <div>{data}</div>
-//         </div>
-//     );
-// };
-
-// export default Save;
-
-
-
 import React, { useState, useRef } from 'react';
 import axios from '../../axios';
+import { Link } from 'react-router-dom';
 
 const Save = () => {
-    const [data, setData] = useState(['John Doe,30', 'Jane Doe,25']);
-
+    const [data, setData] = useState(['']);
+    const [conti, setConti] = useState(['']);
+    const [uploadedFile, setUploadedFile] = useState(null);
     const title = useRef();
+    const image = useRef();
 
     const createFile = () => {
-        // const fileName = 'yourFileName.corn'; // 원하는 파일명으로 변경
+
         axios.post('/upload/createFile', {
             data,
             title: title.current.value
         })
-            .then(response => {
-                console.log(response.data);
+            .then(res => {
+                console.log(res.data);
             })
-            .catch(error => {
-                console.error(error);
+            .catch(err => {
+                console.error(err);
             });
-    };
+    }
+
+    const handleFileChange = (e) => {
+        setUploadedFile(e.target.files[0]);
+    }
+
+    let formData = new FormData();
+    let email = sessionStorage.getItem("email");
+    formData.append("file", image.data);
+
+    axios.post(
+        "/upload/submit",
+        formData,
+        {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        },
+    ).then((res) => {
+        console.log(res, '요기!!!');
+        sessionStorage.setItem('location',
+            JSON.stringify(
+                res.data))
+    })
+
 
     const readFile = () => {
         axios.get('/upload/readFile')
-            .then(response => {
-                console.log(response.data);
-                setData(response.data);
+            .then(res => {
+                console.log(res.data);
+                setData(res.data);
             })
-            .catch(error => {
-                console.error(error);
+            .catch(err => {
+                console.error(err);
             });
     };
 
     return (
         <div>
-            <button onClick={createFile}>Create File</button>
             <input ref={title}></input>
-            <img></img>
+            <img src={image.preview} alt="" />
+            <input
+                type="file"
+                onChange={handleFileChange}
+                accept="Images/*"
+                id="profileImg"
+                name="file"
+                multiple //여러장업로드 할 때
+                ref={image}
+            />
+            <button onClick={createFile}>Create File</button>
+
+            {uploadedFile && (
+                <a href={URL.createObjectURL(uploadedFile)} download={uploadedFile.name}>
+                    다운로드
+                </a>
+            )}
             <button onClick={readFile}>Read File</button>
             <div>{data}</div>
+            <div>{uploadedFile && uploadedFile.name}</div>
         </div>
     );
-};
+}
+
 
 export default Save;
