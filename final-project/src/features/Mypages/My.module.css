@@ -40,11 +40,6 @@
   align-items: center;
 }
 
-.userBoxRight {
-  width: 100%;
-  transform: translateX(-6%);
-}
-
 .userflex {
   display: flex;
 }

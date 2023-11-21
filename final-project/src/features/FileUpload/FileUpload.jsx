@@ -13,7 +13,6 @@ const FileUpload = ({ setModal, location }) => {
     const submit = async (e) => {
         e.preventDefault();
 
-
         let formData = new FormData();
         let email = sessionStorage.getItem("email");
         formData.append("file", image.data);
@@ -23,9 +22,6 @@ const FileUpload = ({ setModal, location }) => {
         console.log(sessionStorage.getItem("email"))
         console.log(image.preview, "들어간파일");
         console.log(formData.getAll('file'))
-        // console.log(formData.getAll('file').)
-
-
 
         try {
             await axios.post(
@@ -38,12 +34,10 @@ const FileUpload = ({ setModal, location }) => {
                 },
             ).then((res) => {
                 console.log(res, '요기!!!');
-
                 sessionStorage.setItem('location',
                     JSON.stringify(
                         res.data
                     )
-
                 )
             }
             );

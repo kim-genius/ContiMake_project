@@ -58,21 +58,14 @@ router.post("/submit", upload.single("file"), (req, res) => {
 
 });
 
-// 파일 저장
-router.post('/createFile', upload.single('file'), (req, res) => {
-    const { data, title } = req.body;
-
-    // 이미지 파일 경로
-    const imagePath = req.file.path;
-    console.log(req.file.path);
-
+router.post('/createFile', (req, res) => {
+    const data = req.body.data;
+    // 파일명이 없으면 기본값으로 설정
     const fileName = (req.body.title || '제목없음') + '.corn';
     console.log(data)
     console.log(fileName, '제목')
-    // TODO: 이미지를 DB에 저장하는 로직을 추가하세요.
 
-    // 나머지 파일 생성 및 저장 로직은 이곳에 추가하세요.
-    // data, title 등 활용하여 파일 생성
+    // fs.writeFile(fileName, options, data.join('\n'), (err) => {
     fs.writeFile(fileName, data.join('\n'), (err) => {
         if (err) {
             console.error(err);
@@ -80,12 +73,10 @@ router.post('/createFile', upload.single('file'), (req, res) => {
         } else {
             console.log('File created successfully');
             res.send('File created successfully');
-            res.json({ message: 'File created successfully' });
         }
     });
-});
+})
 
-// 파일 읽기
 router.get('/readFile', (req, res) => {
     const parsedUrl = new URL(`http://localhost:3000${req.url}`);
     const queryData = parsedUrl.searchParams;
@@ -101,22 +92,13 @@ router.get('/readFile', (req, res) => {
             return;
         }
 
+        // 파일 읽기
         fs.readFile(filePath, 'utf8', (err, data) => {
             if (err) {
                 res.send('파일을 읽는 중 오류가 발생했습니다');
                 console.error(err);
                 return;
             }
-
-            // <h2> 태그 다음에 오는 <p> 태그에서 내용만 잘라내서 본문 내용으로 설정
-            const startH2Index = data.indexOf('<h2>');
-            const endH2Index = data.indexOf('</h2>');
-            const startPIndex = data.indexOf('<p>', endH2Index);
-            const endPIndex = data.indexOf('</p>', startPIndex);
-
-            const title = data.substring(startH2Index + 4, endH2Index).trim();
-            const bodyContent = data.substring(endH2Index + 5, startPIndex) +
-                data.substring(endPIndex + 4);
 
             const template = `
                 <!DOCTYPE html>
@@ -131,19 +113,16 @@ router.get('/readFile', (req, res) => {
                     <ol>
                         <li><a href="/?id=HTML">HTML</a></li>
                         <li><a href="/?id=CSS">CSS</a></li>
-                        <li><a href="/?id=JavaScript">JavaScript</a></li>
+                        <li><a href="/?ixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                          ds=JavaScript">JavaScript</a></li>
                     </ol>
                     <h2>${title}</h2>
                     <p>${bodyContent}</p>
-                </body>
+                </body>c
                 </html>
             `;
-
             res.send(template);
-            res.json({ data: 'File content' });
         });
     });
 });
-
 
 module.exports = router;
