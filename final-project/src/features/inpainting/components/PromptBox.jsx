@@ -1,10 +1,13 @@
 import React from 'react'
 import styles from '../styles/PromptBox.module.scss'
+import { useSelector } from 'react-redux'
 const PromptBox = () => {
+  const cur_project = useSelector((state)=> state.cur_project)
+  const cur_prompt = cur_project.prompts[cur_project.curIdx]
   return (
     <div className={styles.wrapper}>
         <textarea
-          defaultValue={'생성된 이미지의 프롬프트 텍스트'}
+          defaultValue={cur_prompt}
           className={styles.textBox}
           ></textarea>
         

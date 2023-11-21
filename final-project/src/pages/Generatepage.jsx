@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import styles from './Generatepage.module.scss'
 import HeaderNav from '../features/generate/components/HeaderNav'
@@ -11,6 +11,8 @@ import ColorButton from '../features/ui/button/ColorButton/ColorButton';
 import OutputImgs from '../features/inpainting/components/OutputImgs';
 import BarLoader from 'react-spinners/BarLoader'
 import { setImages } from '../store';
+import Canvas from '../features/inpainting/components/Canvas';
+import { setBrushState } from '../store/canvasSlice';
 import GenerateTutorial from '../features/tutorial/GenerateTutorial'
 const Generatepage = () => {
   const dispatch = useDispatch();
@@ -24,14 +26,21 @@ const Generatepage = () => {
     let newImages = []
     for (let i = 0; i < promptLen; i++) {
       const result = await axios.get(
-        `http://184.145.163.125:41226/?prompt==${prompt[i]},%20pencil%20sketch,%20cartoon,%20fast%20sketch`
+        `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20style,%20cartoon,%20fast%20sketch,%20rough%20sketch,%20croquis`
       );
+      newImages = [...newImages, result.data];
       newImages = [...newImages, result.data];
     }
     dispatch(setImages(newImages));
     setLoading(false)
   };
+  console.log(image)
 
+  useEffect(()=>{
+    dispatch(setBrushState('touch'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  
   return (
     <div>
       <GenerateTutorial />
@@ -51,23 +60,15 @@ const Generatepage = () => {
             <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading} />
           </section>
           <section className={styles.canvas}>
-            {loading ?
-              <div className={styles.loading_bar}>
-                <BarLoader color="#36d7b7" loading={loading} width={200} height={20} />
-              </div>
-              : image ?
-                image.map((img, idx) => {
-                  return (
-                    <img
-                      key={`img-${idx}`}
-                      className={styles.images}
-                      src={`data:image/png;base64,${img}`}
-                      alt="표시"
-                    />
-                  );
-                })
-                : null
-            }
+              {
+              loading ?
+                <div className={styles.loading_bar}>
+                  <BarLoader color="#36d7b7" loading={loading} width={200} height={20} />
+                </div>
+                : image.length > 0 ?
+                  <Canvas /> 
+                  : null
+              }
           </section>
           <section className={styles.designTab}>
             <OutputImgs />

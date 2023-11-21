@@ -2,7 +2,7 @@
 
 .Wrapper {
     width: 100%;
-
+    background-color: #FFF;
 
 }
 
@@ -19,16 +19,12 @@
 }
 
 .designTab {
+    
     z-index: 1;
     width: 21.04vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    &:first-child {
-        height: 90vh;
-        background-color: aqua;
-    }
 
     >button:last-child {
         margin-top: 0.5em;

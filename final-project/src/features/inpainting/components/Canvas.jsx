@@ -1,70 +1,72 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { ReactSketchCanvas } from 'react-sketch-canvas'
 import styles from '../styles/Canvas.module.scss'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setMask } from '../../../store';
 const style = {
     border: '0.0625rem solid #9c9c9c',
     borderRadius: '0.25rem',
 };
 
-const Canvas = (props) => {
-    const brushState = useSelector((state) => state.canvas_slice)
-
-    // console.log(brushState)
+const Canvas = () => {
+    const brushState = useSelector((state) => state.canvas_slice);
+    const cur_project = useSelector((state) => state.cur_project);
+    const dispatch = useDispatch();
+    const curIdx = cur_project.curIdx
     const canvasRef = useRef();
+    const img = cur_project.images[curIdx]
     const onChange = async () => {
         const paths = await canvasRef.current.exportPaths();
         if (paths.length) {
             const data = await canvasRef.current.exportImage("png");
-            props.onDraw(data);
-            console.log(data)
+            dispatch(setMask(data))
         }
-        // console.log(paths)
     };
-    const predictions = props.predictions.map((prediction) => {
-        prediction.lastImage = prediction.output
-        ? prediction.output[prediction.output.length - 1]
-        : null;
-        return prediction;
-    });                                                                                                                                                          
-    
-    const predicting = predictions.some((prediction) => !prediction.output);
-    const lastPrediction = predictions[predictions.length - 1];
-    
+    //  아래의 해당 로직 대신 이미지가 재생성되면 리덕스에 저장된 해당 이미지와 프롬프트 값 바꾸는 것으로 변경하기
 
+    
+    // const predictions = props.predictions.map((prediction) => {
+    //     prediction.lastImage = prediction.output
+    //     ? prediction.output[prediction.output.length - 1]
+    //     : null;
+    //     return prediction;
+    // });                                                                                                                                                          
 
+    // const predicting = predictions.some((prediction) => !prediction.output);
+    // const lastPrediction = predictions[predictions.length - 1];
     return (
         <div className={styles.canvasWrapper}>
-            {/* PREDICTION IMAGES */}
-
-        { predictions
-            .filter((prediction) => prediction.output)
-            .map((prediction, index) => (
-              <img
-                alt={"prediction" + index}
-                key={"prediction" + index}
+            {
+                cur_project.images ?
+                <img
+                className={styles.predictImg}
+                alt={"prediction" + curIdx}
+                key={"prediction" + curIdx}
                 layout="fill"
-                // className="absolute animate-in fade-in"
-                style={{ zIndex: index }}
-                src={prediction.lastImage}
-              />
-            ))}
-            <ReactSketchCanvas
-                className={styles.sketchCanvas}
-                onChange={onChange}
-                ref={canvasRef}
-                style={style}
-                width="500px"
-                height="500px"
-                strokeWidth={15}
-                strokeColor="black"
-                exportWithBackgroundImage="true"
-                allowOnlyPointerType={brushState.allowType}
-                // backgroundImage='/testimage.png'
-            />
+                style={{ zIndex: curIdx }}
+                src={`data:image/png;base64,${img}`}
+                />
+                : null  
+            }
+            <div style={{zIndex: curIdx + 10}}
+                 className={styles.canvasBox}
+            >
+                <ReactSketchCanvas
+                    className={styles.sketchCanvas}
+                    onChange={onChange}
+                    ref={canvasRef}
+                    style={style}
+                    width="500px"
+                    height="500px"
+                    strokeWidth={15}
+                    strokeColor="black"
+                    canvasColor="transparent"
+                    exportWithBackgroundImage="true"
+                    allowOnlyPointerType={brushState.allowType}
+                />
+            </div>
         </div>
     )
 }
-
 
 export default Canvas   
