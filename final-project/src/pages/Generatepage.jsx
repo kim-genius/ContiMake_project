@@ -13,6 +13,7 @@ import BarLoader from 'react-spinners/BarLoader'
 import { setImages } from '../store';
 import Canvas from '../features/inpainting/components/Canvas';
 import { setBrushState } from '../store/canvasSlice';
+import GenerateTutorial from '../features/tutorial/GenerateTutorial'
 const Generatepage = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -28,6 +29,7 @@ const Generatepage = () => {
         `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20style,%20cartoon,%20fast%20sketch,%20rough%20sketch,%20croquis`
       );
       newImages = [...newImages, result.data];
+      newImages = [...newImages, result.data];
     }
     dispatch(setImages(newImages));
     setLoading(false)
@@ -40,34 +42,38 @@ const Generatepage = () => {
   }, [])
   
   return (
-    <div className={styles.Wrapper}>
-      <nav className={styles.navBar}>
-        <HeaderNav />
-      </nav>
-      <div className={styles.contentsWrapper}>
-        <section className={styles.designTab}>
-          <ToggleBtn tab1={"생성"} tab2={"편집"} />
-          <BoxItem title={"생성할 컷 수 지정"} />
-          <CutsNumber />
-          <BoxItem title={"콘티 내용 입력"} />
-          <div className={styles.promptsBox}>
-            <Prompts />
-          </div>
-          <ColorButton style={{ backgroundColor: 'gray' }} text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading} />
-        </section>
-        <section className={styles.canvas}>
-          {loading ?
-            <div className={styles.loading_bar}>
-              <BarLoader color="#36d7b7" loading={loading} width={200} height={20} />
+    <div>
+      <GenerateTutorial />
+      <div className={styles.Wrapper}>
+        <nav className={styles.navBar}>
+          <HeaderNav />
+        </nav>
+        <div className={styles.contentsWrapper}>
+          <section className={styles.designTab}>
+            <ToggleBtn tab1={"생성"} tab2={"편집"} />
+            <BoxItem title={"생성할 컷 수 지정"} />
+            <CutsNumber />
+            <BoxItem title={"콘티 내용 입력"} />
+            <div className={styles.promptsBox}>
+              <Prompts />
             </div>
-            : image.length > 0 ?
-              <Canvas />
-              : null
-          }
-        </section>
-        <section className={styles.designTab}>
-          <OutputImgs />
-        </section>
+            <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading} />
+          </section>
+          <section className={styles.canvas}>
+              {
+              loading ?
+                <div className={styles.loading_bar}>
+                  <BarLoader color="#36d7b7" loading={loading} width={200} height={20} />
+                </div>
+                : image.length > 0 ?
+                  <Canvas /> 
+                  : null
+              }
+          </section>
+          <section className={styles.designTab}>
+            <OutputImgs />
+          </section>
+        </div>
       </div>
     </div>
   );

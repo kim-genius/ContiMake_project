@@ -23,9 +23,10 @@ router.post("/vaildpassword", (req, res) => {
 router.post("/update", (req, res) => {
   let { email, password, nickName } = req.body;
   console.log("나오냐", email, password, nickName);
-  let sql =
-    "update t_user set user_password = ? , user_nickname =? where user_email =?;";
-  conn.query(sql, [password, nickName, email], (err, rows) => {
+  if (password == 1) {
+    let sql =
+    "update t_user set user_nickname =? where user_email =?;";
+  conn.query(sql, [nickName, email], (err, rows) => {
     console.log(rows);
     if (err) {
       res.send("err");
@@ -35,6 +36,21 @@ router.post("/update", (req, res) => {
       res.json("fail");
     }
   });
+
+  } else {
+    let sql =
+      "update t_user set user_password = ? , user_nickname =? where user_email =?;";
+    conn.query(sql, [password, nickName, email], (err, rows) => {
+      console.log(rows);
+      if (err) {
+        res.send("err");
+      } else if (rows.affectedRows > 0) {
+        res.json("success");
+      } else {
+        res.json("fail");
+      }
+    });
+  }
 });
 
 //회원탈퇴

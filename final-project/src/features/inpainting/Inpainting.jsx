@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import Canvas from "./components/Canvas";
+
 // 일정 시간동안 대기하는 함수 (ms: 밀리초)..
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 
 const Inpainting = () => {
-  const [predictions, setPredictions] = useState([]); 
-  const [error, setError] = useState(null); 
-  // 이거 한개 redux에서 관리하도록 만들기이이이이... ?
-  const [maskImage, setMaskImage] = useState(null); 
+  const [predictions, setPredictions] = useState([]);
+  const [error, setError] = useState(null);
+  const [maskImage, setMaskImage] = useState(null);
   const [userUploadedImage, setUserUploadedImage] = useState(null);
-  useEffect(()=> {
+  useEffect(() => {
     console.log(maskImage)
   }, setMaskImage)
   const handleSubmit = async (e) => {
@@ -79,17 +79,17 @@ const Inpainting = () => {
 
   return (
     <div>
-        {/* {error && <div>{error}</div>} */}
+      {/* {error && <div>{error}</div>} */}
 
-        {/* <div className="border-hairline max-w-[512px] mx-auto relative"> */}
-         
-          {/* <div> */}
-            <Canvas
-              predictions={predictions}
-              onDraw={setMaskImage}
-            />
-          {/* </div> */}
-        {/* </div> */}
+      {/* <div className="border-hairline max-w-[512px] mx-auto relative"> */}
+
+      {/* <div> */}
+      <Canvas
+        predictions={predictions}
+        onDraw={setMaskImage}
+      />
+      {/* </div> */}
+      {/* </div> */}
     </div>
   );
 }

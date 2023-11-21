@@ -3,26 +3,28 @@ import styles from './ExportEmail.module.css';
 import axios from '../../axios';
 
 export default class ExportEmail extends Component {
-
+    //     const [email, setEmail] = useState('');
+    //     const [message, setMessage] = useState('');
+    //     const [sent, setSent] = useState(false);
     state = {
-        name: '',
-        lastname: '',
+        // name: '',
+        // lastname: '',
         email: '',
         message: '',
         sent: false
     }
 
     // handle inputs
-    handleName = (e) => {
-        this.setState({
-            name: e.target.value
-        })
-    }
-    handleLastName = (e) => {
-        this.setState({
-            lastname: e.target.value
-        })
-    }
+    // handleName = (e) => {
+    //     this.setState({
+    //         name: e.target.value
+    //     })
+    // }
+    // handleLastName = (e) => {
+    //     this.setState({
+    //         lastname: e.target.value
+    //     })
+    // }
     handleEmail = (e) => {
         this.setState({
             email: e.target.value
@@ -40,8 +42,8 @@ export default class ExportEmail extends Component {
         e.preventDefault();
 
         let data = {
-            name: this.state.name,
-            lastname: this.state.lastname,
+            // name: this.state.name,
+            // lastname: this.state.lastname,
             email: this.state.email,
             message: this.state.message
         }
@@ -59,8 +61,8 @@ export default class ExportEmail extends Component {
     // for reseting initial data
     resetForm = () => {
         this.setState({
-            name: '',
-            lastname: '',
+            // name: '',
+            // lastname: '',
             email: '',
             message: ''
         })
@@ -77,37 +79,14 @@ export default class ExportEmail extends Component {
     render() {
         return (
             <div className={styles.container} >
-                <div>안</div>
-                <div>안</div>
-                <div>안</div>
-                <div>안</div>
-                <div>안</div>
-                <div>안</div>
-                <form onSubmit={this.formSubmit}>
+                <form onSubmit={this.formSubmit} className={styles.form} >
+                    <p>ContiStoryPrompt에서 보내기</p>
                     <div className={styles.singleItem}>
-                        <label htmlFor="name" className="">name</label>
-                        <input type="text"
-                            name="name"
-                            className={styles.name}
-                            placeholder='your name...'
-                            value={this.state.name}
-                            onChange={this.handleName} />
-                    </div>
-                    <div className={styles.singleItem}>
-                        <label htmlFor="lastname" className="">Lastname</label>
-                        <input type="text"
-                            name="lastname"
-                            className={styles.lastname}
-                            placeholder='your lastname...'
-                            value={this.state.lastname}
-                            onChange={this.handleLastName} />
-                    </div>
-                    <div className={styles.singleItem}>
-                        <label htmlFor="email" className="">email</label>
+                        <label htmlFor="email" className="">받는사람</label>
                         <input type="text"
                             name="email"
                             className={styles.email}
-                            placeholder='your email...'
+                            placeholder='email@gmail.com'
                             value={this.state.email}
                             onChange={this.handleEmail}
                             required />
@@ -125,24 +104,17 @@ export default class ExportEmail extends Component {
 
                         </textarea>
                     </div>
-                    {/* <div className={this.state.sent ? 'msg msgAppear' : 'msg'}>Message has been sent</div> */}
-                    <div className={styles.btn}>
-                        <button type="submit">Submit</button>
-                    </div>
+                    <button className={styles.btn} type="submit">Submit</button>
                 </form >
             </div >
         )
     }
 }
 
-
-
-
 // import React, { useState } from 'react';
 // import styles from './ExportEmail.module.css';
 // import axios from 'axios';
 
-// const ExportEmail = () => {
 //     const [name, setName] = useState('');
 //     const [lastname, setLastname] = useState('');
 //     const [email, setEmail] = useState('');

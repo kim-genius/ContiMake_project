@@ -13,6 +13,7 @@ import Canvas from '../features/inpainting/components/Canvas'
 import BarLoader from 'react-spinners/BarLoader'
 import { setImages } from '../store'
 
+import InpaintingTutorial from "../features/tutorial/EditTutorial"
 
 const Editpage = () => {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ const Editpage = () => {
 
   return (
     <div className={styles.Wrapper}>
+      <InpaintingTutorial/>
       <nav className={styles.navBar}>
         <HeaderNav />
       </nav>

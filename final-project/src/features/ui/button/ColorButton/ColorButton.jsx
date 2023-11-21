@@ -4,7 +4,7 @@ const ColorButton = ({text, func, parameter,generate}) => {
     if(generate) {
         return (
           <button className={styles.colorBtn_wait} disabled={true}>
-            generating...
+            생성중...
           </button>
         );
     } else{

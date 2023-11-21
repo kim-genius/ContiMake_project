@@ -2,6 +2,8 @@
 
 .Wrapper {
     width: 100%;
+    background-color: #FFF;
+
 }
 
 .navBar {
@@ -13,10 +15,11 @@
 
 .contentsWrapper {
     display: flex;
-    height: 94.5vh;
+    height:94.5vh;
 }
 
 .designTab {
+    
     z-index: 1;
     width: 21.04vw;
     display: flex;

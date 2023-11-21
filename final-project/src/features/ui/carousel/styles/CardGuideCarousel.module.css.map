@@ -1,1 +1,1 @@
-{"version":3,"sources":["CardGuideCarousel.module.scss","CardGuideCarousel.module.css"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,YAAA;EACA,mBAAA;ACCJ;;ADEA;EACI,mBAAA;EACA,aAAA;EACA,UAAA;ACCJ","file":"CardGuideCarousel.module.css"}
+{"version":3,"sources":["CardGuideCarousel.module.scss","CardGuideCarousel.module.css"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,WAAA;EACA,mBAAA;ACCJ;;ADEA;EACI,mBAAA;EACA,UAAA;ACCJ","file":"CardGuideCarousel.module.css"}

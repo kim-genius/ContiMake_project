@@ -30,11 +30,6 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const childRef = useRef();
-
-
-
-
 
   /**일반로그인 */
   const vaildLogin = () => {
@@ -43,6 +38,7 @@ const Login = () => {
         if (res.data.msg == 'success') {
           sessionStorage.setItem('email', res.data.email);
           sessionStorage.setItem('nickname', res.data.nickname)
+          sessionStorage.setItem('location',res.data.location)
           swal('로그인이 완료됐습니다.')
           window.location.href = '/'
           // alert('로그인이 완료됐습니다.')
@@ -59,11 +55,14 @@ const Login = () => {
     <div className={styles.loginBackground}>
       <div className={styles.loginBox}>
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
-        <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} /></div>
+        <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} logo='images/kakaoLogo.png'/></div>
 
-        <div style={{ position: 'relative', overflow: 'hidden' }}>
-          <AuthButton text='구글 로그인' provider='google' style={{ position: 'absolute' }} >
-            <GoogleLogin style={{size : 'large'}}
+        <div style={{ position: 'relative'}}>
+          <AuthButton text='구글 로그인' provider='google' logo='images/googleLogo.png'> </AuthButton>
+            <div style={{position:'absolute',opacity:'0', transform:'translateY(-150%)',overFlow:'hidden'}} > 
+            <GoogleLogin 
+              width={300}
+              height
               clientId={googleClientId}
               onSuccess={(res) => {
                 // console.log(res)
@@ -90,6 +89,7 @@ const Login = () => {
                       alert(`${nickname}님 google 계정으로 로그인 완료되었습니다`);
                       sessionStorage.setItem('email', email)
                       sessionStorage.setItem('nickname', nickname)
+                      
                       window.location.href = '/'
                     } else {
                       window.location.href = '/'
@@ -101,18 +101,10 @@ const Login = () => {
                 }
               }}
               onFailure={(res) => console.log(res, '실패')}
-            // render={(renderProps) => (
-            //   <div className='social_login_box google' onClick={renderProps.onClick}>
-            //     <div className='social_login_image_box'>
-            //       <img src={googleIcon} alt='google_login' />
-            //     </div>
-            //     <div className='social_login_text_box'>구글로 시작하기</div>
-            //     <div className='social_login_blank_box'> </div>
-            //   </div>
-            // )}
             />
+            </div>
 
-          </AuthButton></div>
+         </div>
 
 
         <hr style={{ width: '99%', border: 'solid 1px #E7E7E7', margin: '5px' }} />

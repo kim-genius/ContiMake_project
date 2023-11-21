@@ -1,0 +1,17 @@
+@import '../../styles/color.scss';
+
+.button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background-color: white;
+    position: absolute;
+    z-index: 9;
+    word-break:keep-all;
+    user-select:none;
+}
+
+.line {
+    border: 1px solid gray;
+    margin:0.5rem 0;
+}

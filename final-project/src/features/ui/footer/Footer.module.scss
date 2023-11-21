@@ -1,0 +1,35 @@
+.footer {
+    font-family: 'Noto Sans KR';
+    font-size: 16px;
+    color: #37373a;
+    padding: 4vh 10vw;
+    background-color: #f3f4f5;
+    height: auto;
+    position:relative;
+    z-index: 2;
+
+    nav{
+        display: flex;
+        justify-content: center;
+        .item{
+            width: 60vw;
+            line-height:1.8em;
+            li{
+                list-style: none;
+                color : gray;
+                font-size: 14px;
+            }
+        }
+    }
+    .bottom{
+        display: flex ;
+        justify-content: flex-start;
+        padding-left: 2vw;
+        flex-direction: column;
+        line-height:1.8em;
+        font-size: 14px;
+        .text{
+            font-size: 16px;
+        }
+    }
+}
