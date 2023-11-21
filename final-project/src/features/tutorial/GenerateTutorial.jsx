@@ -5,7 +5,7 @@ import TutorialBtn from './components/TutorialBtn'
 const tutContents = [
     {
         title: '생성 / 편집',
-        text: '생성화면/ 편집화면으로 전환할 수 있습니다.',
+        text: '생성화면 / 편집화면으로 전환할 수 있습니다.',
         position: { left: '20%', top: '5%' },
         linePosition: 'leftTop'
     },
@@ -24,7 +24,7 @@ const tutContents = [
     {
         title: '생성하기',
         text: '생성 하기 버튼을 누릅니다. 생성이 완료되면, 해당 버튼이 초기화 버튼으로 바뀌게 됩니다.결과가 마음에 들지 않을 경우 전체 내용을 초기화 할 수 있습니다.',
-        position: { left: '20%', top: '60%' },
+        position: { left: '20%', top: '46%' },
         linePosition: 'leftBottom'
     },
     {
@@ -46,7 +46,7 @@ const GenerateTutorial = () => {
         <div className={styles.tutorialWrapper}
             onClick={() => { setDisplay(false) }}
             style={{ position: 'absolute' }} >
-            <div style={{ position: 'relative', left: tutContents[index].position.left, top: tutContents[index].position.top }}
+            <div style={{ position: 'absolute', left: tutContents[index].position.left, top: tutContents[index].position.top, width:'300px', height:'200px', border:'1px solid green' }}
                 onClick={(e) => {
                     e.stopPropagation();
                     if (index < tutContents.length - 1) {

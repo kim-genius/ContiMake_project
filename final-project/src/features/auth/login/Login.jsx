@@ -55,11 +55,11 @@ const Login = () => {
     <div className={styles.loginBackground}>
       <div className={styles.loginBox}>
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
-        <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} /></div>
+        <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} logo='images/kakaoLogo.png'/></div>
 
         <div style={{ position: 'relative'}}>
-          <AuthButton text='구글 로그인' provider='google'> </AuthButton>
-            <div style={{position:'absolute',opacity:'0', transform:'translateY(-150%)',overFlow:'hidden'}}> 
+          <AuthButton text='구글 로그인' provider='google' logo='images/googleLogo.png'> </AuthButton>
+            <div style={{position:'absolute',opacity:'0', transform:'translateY(-150%)',overFlow:'hidden'}} > 
             <GoogleLogin 
               width={300}
               height
