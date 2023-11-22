@@ -5,7 +5,7 @@ import CardFunctionAnimation from "./CardFunctionAnimation";
 
 const CardFunctionMiddle = () => {
   const [animationAvctive,setAnimationActive] =useState(false)
-  CardFunctionAnimation(900,setAnimationActive)
+  CardFunctionAnimation(1400,setAnimationActive)
   return (
     <section className={`${styles.cardMiddle} ${animationAvctive ? styles.cardAnimation:null}`}>
     <div className={styles.cardMiddleTitle}>

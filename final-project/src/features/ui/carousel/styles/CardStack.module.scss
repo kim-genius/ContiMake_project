@@ -1,0 +1,76 @@
+
+.cardboxmain{
+    padding-top:100px;
+    position:relative;
+    margin-top: 200px;
+    height:600px;
+    display:flex;
+    overflow:hidden;
+    width:100vw;
+  }
+
+  .cardboxmain:hover .cardbox{
+    animation-play-state: paused;
+}
+.cardboxmain:hover .cardbox2{
+    animation-play-state: paused;
+}
+.cardbox{
+    width:100%;
+    margin:100px;
+    margin-top:170px;
+    position:absolute;
+    animation:33s cardbox linear infinite;
+   
+  }
+.cardbox2{
+    width:100%;
+    margin:100px;
+    margin-top:170px;
+    position:absolute;
+    animation:33s cardbox2 linear infinite;
+    
+  }
+  
+.cardboxcontent{
+    width:15%;
+    height:200px;
+    border:1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+ 
+  }
+  .box1{
+    transform: translateY(-50%);
+    background-size: cover;
+   
+  }
+  .box1::before{
+    content:'';
+    width:100%;
+    height:100px;
+    background-color: linear-gradient(to top,black);
+
+  }
+.cardboxtitle{
+    transform: translateY(-30%);
+    position:absolute;
+    font-size: 50px;
+    height:300px;
+    width:100%;
+    text-align: center;
+}
+  @keyframes cardbox{
+    0%{transform: translateX(0%)} 
+    50%{transform: translateX(-101%)}
+    50.01%{transform:translatex(101%)}
+    100%{transform:translateX(0%)}
+  
+  }
+  
+  @keyframes cardbox2{
+    0%{transform: translateX(101%)} 
+    50%{transform:translateX(0%)}
+    100%{transform:translateX(-101%)}
+  }
