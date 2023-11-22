@@ -73,9 +73,9 @@ function Conti() {
           <div>|</div>
           <button className={styles.searchBtn} variant="outline-dark" onClick={searchConti}>검색</button>
           <div>|</div>
-          <ButtonGroup style={{fontSize:'13px'}} className = {styles.btnGroup}> 
-            <DropdownButton className={styles.dropBtn} as={ButtonGroup} title="정렬" id="bg-nested-dropdown" variant="outline-secondary">
-              <Dropdown.Item  eventKey="1" onClick={sortContiTitle}>제목순</Dropdown.Item>
+          <ButtonGroup style={{fontSize:'0.4rem'}} className = {styles.btnGroup}> 
+            <DropdownButton  className={styles.dropBtn} as={ButtonGroup} title="정렬" id="bg-nested-dropdown" variant="outline-secondary">
+              <Dropdown.Item eventKey="1" onClick={sortContiTitle}>제목순</Dropdown.Item>
               <Dropdown.Item eventKey="2" onClick={sortCreatedAt}>만든날짜순</Dropdown.Item>
             </DropdownButton>
           </ButtonGroup>

@@ -7,7 +7,6 @@ const CutsNumber = () => {
     const inputRef = useRef([]);
     const dispatch = useDispatch();
     const cur_project = useSelector(state => state.cur_project)
-    console.log(cur_project)
     return (
             <div className={styles.inputArea}>
                 <input 

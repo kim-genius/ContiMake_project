@@ -1,0 +1,8 @@
+.tutorialWrapper {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.432);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 99;
+}/*# sourceMappingURL=Tutorial.module.css.map */

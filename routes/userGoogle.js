@@ -24,7 +24,7 @@ router.post('/googlelogin', (req, res) => {
         } else {
             /** 구글 계정으로 회원가입 */
             let password = 1234
-            let sql2 = 'insert into t_user(user_email,user_password,user_nickname, user_profilpath) values(?,?,?,?)'
+            let sql2 = 'insert into t_user(user_email,user_password,user_nickname, user_profilepath) values(?,?,?,?)'
 
             conn.query(sql2, [email, password, nickname, profileImage], (err, rows) => {
                 console.log('dd', rows, 'email', email);

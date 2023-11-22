@@ -1,12 +1,23 @@
 .button{
     border-radius: 5px;
-    width:150px;
-    height:50px;
-    padding:10px;
+    width:auto;
+    height:40px;
+    padding:0 1rem;
     border: 1px solid rgba(189, 187, 187, 0.938);
     background:white;
     color:black;
-    font-weight: 900;
+    font-weight: 500;
     font-size: 20px;
 }
 
+@media screen and (max-width : 1200px) { //1200px 아래에선 이걸 적용
+     a{
+        font-size:0.9rem;
+     }
+  } 
+
+  @media screen and (max-width : 900px) { //1200px 아래에선 이걸 적용
+    .button{
+       font-size:0.5rem;
+    }
+ } 

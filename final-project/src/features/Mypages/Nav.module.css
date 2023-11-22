@@ -7,6 +7,21 @@
   height: 18vh;
   border-radius: 50%;
   background: #FFC478;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navBox .userImg .modifyBtn {
+  position: absolute;
+  border: none;
+  height: 3vh;
+  display: none;
+}
+.navBox .userImg:hover {
+  opacity: 50%;
+}
+.navBox .userImg:hover .modifyBtn {
+  display: block;
 }
 .navBox h4 {
   display: flex;

@@ -1,8 +1,8 @@
 @use '../features/styles/color.scss' as *;
 .Wrapper {
     width: 100%;
+    background-color: #FFF;
 }
-
 .navBar {
     display: flex;
     align-items: center;
@@ -12,11 +12,11 @@
 
 .contentsWrapper {
     display: flex;
+    height: 94.5vh;
 }
 
 .designTab {
     z-index: 1;
-    height: 94.5vh;
     width: 21.04vw;
     display: flex;
     flex-direction: column;
