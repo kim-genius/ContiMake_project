@@ -7,7 +7,7 @@ const FileUpload = ({ setModal, location }) => {
     const [image, setImage] = useState({
         preview:
             "",
-        data: ""
+        data: null, // 초기값을 null로 설정
     });
 
     const submit = async (e) => {
@@ -56,7 +56,10 @@ const FileUpload = ({ setModal, location }) => {
                 <div className={styles.close}>
                     <button className={styles.closeBtn} onClick={() => { setModal() }}>X</button><br></br>
                 </div>
-                <img src={image.preview} alt="" />
+                {image.data == null ?
+                    <div className={styles.defaultProfile}></div> :
+                    <img className={styles.profile} src={image.preview} alt="" />
+                }
                 <input
                     type="file"
                     onChange={(e) => {
@@ -76,8 +79,8 @@ const FileUpload = ({ setModal, location }) => {
                     프로필 이미지 선택</label>
                 <button onClick={submit} className={styles.submitBtn}>확인</button>
             </div>
-        </div>
+        </div >
     )
 }
 
-export default FileUpload
+export default FileUpload;

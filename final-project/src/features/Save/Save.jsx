@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Save = () => {
     const [data, setData] = useState(['']);
-    const [conti, setConti] = useState(['']);
     const [uploadedFile, setUploadedFile] = useState(null);
     const title = useRef();
     const image = useRef();

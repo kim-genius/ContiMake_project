@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
 
-    img {
+    .profile {
       @include uploadModal;
       z-index: 1;
       width: 9vw;
@@ -30,6 +30,16 @@
       top:33%; 
       right:28%;
       background: white;
+    }
+    .defaultProfile{
+      @include uploadModal;
+      z-index: 1;
+      width: 9vw;
+      height: 18vh;
+      border-radius: 50%;
+      top:33%; 
+      right:28%;
+      background-image: 'url(/images/defaultImage.png)'
     }
     .modalContent {
       @include uploadModal;

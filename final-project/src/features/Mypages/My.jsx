@@ -17,7 +17,8 @@ const My = () => {
   const nickNameRef = useRef();
   const passwordRef = useRef();
   const samePasswordRef = useRef();
-  let location = sessionStorage.getItem("location");
+  const [location, setLocation] = useState(sessionStorage.getItem("location"));
+  // let location = sessionStorage.getItem("location");
 
   const changeMyPage = () => {
     console.log('email', sessionStorage.getItem("email"), 'nick', nickName)
@@ -35,7 +36,6 @@ const My = () => {
         } else {
           alert('오류입니다')
         }
-
       })
       .catch(function (error) {
         console.log(error.toJSON());
@@ -54,7 +54,7 @@ const My = () => {
   };
 
   const removeImg = () => {
-
+    setLocation(sessionStorage.setItem('location', ''))
   };
 
 
