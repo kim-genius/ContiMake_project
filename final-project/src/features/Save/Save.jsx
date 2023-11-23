@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Save = () => {
     const [data, setData] = useState(['']);
-    const [conti, setConti] = useState(['']);
+
     const [uploadedFile, setUploadedFile] = useState(null);
     const title = useRef();
     const image = useRef();
 
-    const createFile = () => {
+    const createFile = async () => {
 
-        axios.post('/upload/createFile', {
+        await axios.post('/upload/createFile', {
             data,
             title: title.current.value
         })
@@ -41,14 +41,11 @@ const Save = () => {
         },
     ).then((res) => {
         console.log(res, '요기!!!');
-        sessionStorage.setItem('location',
-            JSON.stringify(
-                res.data))
     })
 
 
-    const readFile = () => {
-        axios.get('/upload/readFile')
+    const readFile = async () => {
+        await axios.get('/upload/readFile')
             .then(res => {
                 console.log(res.data);
                 setData(res.data);

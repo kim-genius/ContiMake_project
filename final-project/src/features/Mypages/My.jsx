@@ -17,7 +17,8 @@ const My = () => {
   const nickNameRef = useRef();
   const passwordRef = useRef();
   const samePasswordRef = useRef();
-  let location = sessionStorage.getItem("location");
+  const [location, setLocation] = useState(sessionStorage.getItem("location"));
+
 
   const changeMyPage = () => {
   
@@ -35,7 +36,6 @@ const My = () => {
         } else {
           alert('오류입니다')
         }
-
       })
       .catch(function (error) {
         console.log(error.toJSON());
@@ -54,7 +54,7 @@ const My = () => {
   };
 
   const removeImg = () => {
-
+    setLocation(sessionStorage.setItem("location", 'images/defaultImage.png'))
   };
 
 
@@ -95,11 +95,12 @@ const My = () => {
     <form className={styles.myBox} onSubmit={(e) => e.preventDefault()}>
       <div className={styles.userflex}>
         <div className={styles.userBox}>
+
           <div className={styles.userImg} style={{
             backgroundImage: `url(${location})`,
             backgroundSize: 'cover',
-          }}>
-          </div>
+          }} />
+
           <button onClick={() => setModal(true)} className={styles.btnUp}>이미지업로드</button>
           <br></br>
           <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>

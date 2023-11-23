@@ -34,6 +34,7 @@ router.post("/submit", upload.single("file"), (req, res) => {
     console.log(req.file, "파일");
     console.log(req.body.email)
     const user_profilepath = req.file.location;
+    console.log(req.file.location, '로케이션몬데')
     const user_email = req.body.email
 
     let sql = 'UPDATE t_user SET user_profilepath = ? WHERE user_email = ?'
@@ -65,7 +66,6 @@ router.post('/createFile', (req, res) => {
     console.log(data)
     console.log(fileName, '제목')
 
-    // fs.writeFile(fileName, options, data.join('\n'), (err) => {
     fs.writeFile(fileName, data.join('\n'), (err) => {
         if (err) {
             console.error(err);
@@ -83,7 +83,6 @@ router.get('/readFile', (req, res) => {
 
     const fileName = queryData.get('id');
     const filePath = path.join(__dirname, 'data', `${fileName}`);
-    // const filePath = path.join(__dirname, 'data', `${fileName}.html`);
 
     // 파일 존재 여부 체크
     fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -91,7 +90,6 @@ router.get('/readFile', (req, res) => {
             res.send('파일을 찾을 수 없습니다');
             return;
         }
-
         // 파일 읽기
         fs.readFile(filePath, 'utf8', (err, data) => {
             if (err) {
