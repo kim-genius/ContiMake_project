@@ -6,7 +6,7 @@ const CardFunctionTop = () => {
 
   const [animationAvctive,setAnimationActive] =useState(false)
 
-  CardFunctionAnimation(300,setAnimationActive)
+  CardFunctionAnimation(900,setAnimationActive)
 
   return (
     <section className={`${styles.cardTop} ${animationAvctive ? styles.cardAnimation:null}`}>

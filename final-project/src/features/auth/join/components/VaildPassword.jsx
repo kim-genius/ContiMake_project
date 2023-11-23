@@ -26,7 +26,7 @@ const VaildPassword = ({password,samePassword}) => {
 
 
     const confirmSamePassword=()=>{
-      if(password == samePassword){
+      if((password == samePassword) && password ==null){
         
         return(setSamePasswordColor('#FFC478'))
       }if(password !== samePassword){
