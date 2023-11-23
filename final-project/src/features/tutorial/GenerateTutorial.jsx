@@ -46,7 +46,7 @@ const GenerateTutorial = () => {
         <div className={styles.tutorialWrapper}
             onClick={() => { setDisplay(false) }}
             style={{ position: 'absolute' }} >
-            <div style={{ position: 'absolute', left: tutContents[index].position.left, top: tutContents[index].position.top, width:'300px', height:'200px', border:'1px solid green' }}
+            <div style={{ position: 'absolute', left: tutContents[index].position.left, top: tutContents[index].position.top, width: '300px', height: '200px' }}
                 onClick={(e) => {
                     e.stopPropagation();
                     if (index < tutContents.length - 1) {
