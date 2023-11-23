@@ -90,7 +90,7 @@ const Login = () => {
 
                       alert(`${nickname}님 google 계정으로 로그인 완료되었습니다`);
                       sessionStorage.setItem('email', email)
-                      sessionStorage.setItem('nickname', nickname)
+                      sessionStorage.setItem('nickname', nickname);
                       sessionStorage.setItem('location', profileImage)
 
 
