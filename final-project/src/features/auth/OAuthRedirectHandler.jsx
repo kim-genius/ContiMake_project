@@ -116,11 +116,13 @@ const OAuthRedirectHandler = ({ provider }) => {
                             alert(`${nickname}님 ${provider} 계정으로 회원가입 완료되었습니다`);
                             sessionStorage.setItem('email', email)
                             sessionStorage.setItem('nickname', nickname)
+                            sessionStorage.setItem('location', profileImage)
                             window.location.href = '/'
                         } else if (res.data == "login") {
                             alert(`${nickname}님 ${provider} 계정으로 로그인 완료되었습니다`);
                             sessionStorage.setItem('email', email)
                             sessionStorage.setItem('nickname', nickname)
+                            sessionStorage.setItem('location', profileImage)
                             window.location.href = '/'
                         } else {
                             window.location.href = '/'

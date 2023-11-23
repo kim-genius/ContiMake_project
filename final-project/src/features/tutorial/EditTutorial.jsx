@@ -24,19 +24,19 @@ const tutContents = [
     {
         title: '텍스트',
         text: '이미지 위에 텍스트를 작성할 수 있습니다. 말풍선, 도형, 텍스트 세가지 툴이 있습니다. 재생성 버튼을 누를 시 이미지로 저장됩니다.',
-        position: { left: '20%', top: '45%' },
+        position: { left: '20%', top: '70%' },
         linePosition: 'leftTop'
     },
     {
         title: '재생성',
-        text: '재생성 버튼을 누릅니다. 생성이 완료된 후 다시 ',
-        position: { left: '20%', top: '51%' },
+        text: '재생성 버튼을 누르면 작업 내용이 이미지로 저장됩니다.',
+        position: { left: '20%', top: '80%' },
         linePosition: 'leftTop'
     },
     {
         title: '컷 선택',
-        text: '생성 하기 버튼을 누릅니다. 생성이 완료되면, 해당 버튼이 초기화 버튼으로 바뀌게 됩니다.결과가 마음에 들지 않을 경우 전체 내용을 초기화 할 수 있습니다.',
-        position: { left: '60%', top: '5%' },
+        text: '생성했던 컷 중에 재생성할 컷을 선택합니다.',
+        position: { left: '60%', top: '10%' },
         linePosition: 'rightTop'
     },
     {
@@ -60,7 +60,7 @@ const EditTutorial = () => {
             onClick={() => { setDisplay(false) }}
             style={{ position: 'absolute' }} >
             <div
-                style={{ left: tutContents[index].position.left, top: tutContents[index].position.top }}
+                style={{ position: 'absolute', left: tutContents[index].position.left, top: tutContents[index].position.top, width: '300px', height: '200px' }}
                 onClick={(e) => {
                     e.stopPropagation();
                     if (index < tutContents.length - 1) {
