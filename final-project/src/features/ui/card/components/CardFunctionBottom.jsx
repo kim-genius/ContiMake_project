@@ -6,7 +6,7 @@ import CardFunctionAnimation from "./CardFunctionAnimation";
 const CardFunctionBottom = () => {
  const [animationAvctive,setAnimationActive] =useState(false)
 
-  CardFunctionAnimation(1600,setAnimationActive)
+  CardFunctionAnimation(2300,setAnimationActive)
 
 
   return (

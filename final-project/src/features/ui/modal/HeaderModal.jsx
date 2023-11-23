@@ -25,7 +25,7 @@ const HeaderModal = ({isOpen,isClose}) => {
         <div className={styles.headerModalMiddle}>
             <Link to='/myconti' onClick={isClose}>마이콘티</Link>
             <Link to='/mypassword' onClick={isClose}>내정보 수정</Link>
-            <button onClick={()=>logOut()}>로그아웃</button>
+            <button className={styles.headerLogOutBtn}onClick={()=>logOut()}>로그아웃</button>
         </div>       
     </section>
     </>
