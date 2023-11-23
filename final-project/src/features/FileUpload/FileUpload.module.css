@@ -14,7 +14,6 @@
 .modal .profile {
   position: absolute;
   text-align: center;
-  background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid rgba(166, 130, 130, 0.2);
   transform: translateY(-50%);
@@ -24,12 +23,10 @@
   border-radius: 50%;
   top: 33%;
   right: 28%;
-  background: white;
 }
 .modal .defaultProfile {
   position: absolute;
   text-align: center;
-  background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid rgba(166, 130, 130, 0.2);
   transform: translateY(-50%);
@@ -39,15 +36,14 @@
   border-radius: 50%;
   top: 33%;
   right: 28%;
-  background-image: "url(/images/defaultImage.png)";
 }
 .modal .modalContent {
   position: absolute;
   text-align: center;
-  background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid rgba(166, 130, 130, 0.2);
   transform: translateY(-50%);
+  background-color: #ffffff;
   width: 20vw;
   height: 38vh;
   padding: 10px;

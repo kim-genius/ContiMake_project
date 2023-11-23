@@ -18,7 +18,7 @@ const My = () => {
   const passwordRef = useRef();
   const samePasswordRef = useRef();
   const [location, setLocation] = useState(sessionStorage.getItem("location"));
-  // let location = sessionStorage.getItem("location");
+
 
   const changeMyPage = () => {
     console.log('email', sessionStorage.getItem("email"), 'nick', nickName)
@@ -54,7 +54,7 @@ const My = () => {
   };
 
   const removeImg = () => {
-    setLocation(sessionStorage.setItem('location', ''))
+    setLocation(sessionStorage.setItem("location", 'images/defaultImage.png'))
   };
 
 
@@ -95,11 +95,12 @@ const My = () => {
     <form className={styles.myBox} onSubmit={(e) => e.preventDefault()}>
       <div className={styles.userflex}>
         <div className={styles.userBox}>
+
           <div className={styles.userImg} style={{
             backgroundImage: `url(${location})`,
             backgroundSize: 'cover',
-          }}>
-          </div>
+          }} />
+
           <button onClick={() => setModal(true)} className={styles.btnUp}>이미지업로드</button>
           <br></br>
           <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>
