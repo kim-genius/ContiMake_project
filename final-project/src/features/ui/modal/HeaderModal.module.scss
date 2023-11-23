@@ -2,8 +2,7 @@
     padding: 15px;
     width:230px;
     height:300px;
-    transform: translate(30%,65%);
-    
+    transform: translate(30%,65%); 
     border: 1px solid rgba(0,0,0,0.3);
     z-index: 2;
     position: absolute;
@@ -28,27 +27,28 @@ height:10px;
     width:100%;
     height:100%;
     display: flex;
+    position:relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    a + button{
+   
+    .headerLogOutBtn{
+        
         width:100%;
         margin:5px;
         padding: 10px;
+        margin-top:40px;
         background-color: transparent;
         border: 1px solid rgba(0,0,0,0.2);
         border-radius: 15px;
     }
-    button:hover{
+    .headerLogOutBtn:hover{
         background-color: rgb(234, 234, 234);
     }
     a:hover{
         background-color: rgb(234, 234, 234);
     }
-    button:nth-child(3){
-        margin-top:40px;
-        margin-bottom: 0px;
-    }
+
     a{
         width:100%;
         margin:5px;

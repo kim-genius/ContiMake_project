@@ -55,7 +55,7 @@ function Conti() {
                   </div>
                 </Card>
                 <h5>{data.project_title}</h5>
-                <p>{data.created_at}</p>
+                <p>{data.created_at.substring(0,10) +" "+ data.created_at.substring(11,16)}</p>
               </div>
             ))
 
