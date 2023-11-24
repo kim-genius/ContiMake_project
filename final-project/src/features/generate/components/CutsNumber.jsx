@@ -11,7 +11,7 @@ const CutsNumber = () => {
             <div className={styles.inputArea}>
                 <input 
                 type='range' 
-                defaultValue={1} 
+                value={cur_project.imgNums} 
                 min={1} max={20} 
                 ref={el=>inputRef.current[0] = el}
                 onChange={()=> dispatch(setCurrentImgNum(inputRef.current[0].value))}
