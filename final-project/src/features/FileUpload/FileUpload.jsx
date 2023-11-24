@@ -1,13 +1,13 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import axios from '../../axios'
 import styles from './FileUpload.module.css'
 
-const FileUpload = ({ setModal, location }) => {
-
+const FileUpload = ({ setModal }) => {
+    const [location, setLocation] = useState('images/defaultImage.png');
     const [image, setImage] = useState({
         preview:
             "",
-        data: ""
+        data: null, // 초기값을 null로 설정
     });
 
     const submit = async (e) => {
@@ -21,6 +21,7 @@ const FileUpload = ({ setModal, location }) => {
         console.log(image.data, "선택한이미지! ");
         console.log(sessionStorage.getItem("email"))
         console.log(image.preview, "들어간파일");
+        console.log(image.location, "location");
         console.log(formData.getAll('file'))
 
         try {
@@ -45,8 +46,17 @@ const FileUpload = ({ setModal, location }) => {
         catch (err) {
             console.error("Error during request:", err);
         }
-        setModal(false)
+        setModal(false);
+        setLocation(sessionStorage.getItem("location"));
     };
+
+    useEffect(() => {
+        // location이 변경될 때 수행할 동작
+        window.location.href = '/mypage'
+        console.log("Location이 변경되었습니다.", location);
+    }, [location]);
+
+
 
     return (
         <div className={styles.modal} onSubmit={(e) =>
@@ -56,7 +66,13 @@ const FileUpload = ({ setModal, location }) => {
                 <div className={styles.close}>
                     <button className={styles.closeBtn} onClick={() => { setModal() }}>X</button><br></br>
                 </div>
-                <img src={image.preview} alt="" />
+
+                {
+                    image.data !== null ?
+                        <img className={styles.profile} src={image.preview} alt="" /> :
+                        <img className={styles.defaultProfile} src='images/defaultImage.png' />
+                }
+
                 <input
                     type="file"
                     onChange={(e) => {
@@ -76,8 +92,8 @@ const FileUpload = ({ setModal, location }) => {
                     프로필 이미지 선택</label>
                 <button onClick={submit} className={styles.submitBtn}>확인</button>
             </div>
-        </div>
+        </div >
     )
 }
 
-export default FileUpload
+export default FileUpload;

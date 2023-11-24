@@ -1,1 +1,1 @@
-{"version":3,"sources":["SpeechBubble.module.scss","SpeechBubble.module.css"],"names":[],"mappings":"AAAA;;;EAGE,WAAA;EACA,YAAA;ACCF;;ADEA;EACE,SAAA;EACA,gBAAA;ACCF;;ADEA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;ACCF;;ADEA;EACE,cAAA;EACA,uBAAA;ACCF","file":"SpeechBubble.module.css"}
+{"version":3,"sources":["SpeechBubble.module.scss","SpeechBubble.module.css"],"names":[],"mappings":"AACA;EACE,WAAA;EACA,YAAA;ACAF;;ADGA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;ACAF;;ADGA;EACE,cAAA;EACA,uBAAA;ACAF","file":"SpeechBubble.module.css"}

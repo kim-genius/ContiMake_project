@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 import FileUpload from "../FileUpload/FileUpload";
 
 const Nav = () => {
-
-  let location = sessionStorage.getItem("location");
+  const [location, setLocation] = useState(sessionStorage.getItem("location"));
   const [modal, setModal] = useState(false);
 
   return (
@@ -15,6 +14,7 @@ const Nav = () => {
         backgroundImage: `url(${location})`,
         backgroundSize: 'cover',
       }}>
+
         <img className={styles.modifyBtn} src="images/Vector1.png" />
       </div>
 

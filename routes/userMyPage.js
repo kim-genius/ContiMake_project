@@ -23,7 +23,7 @@ router.post("/vaildpassword", (req, res) => {
 router.post("/update", (req, res) => {
   let { email, password, nickName } = req.body;
   console.log("나오냐", email, password, nickName);
-  if (password == 1) {
+  if (password == "") {
     let sql =
     "update t_user set user_nickname =? where user_email =?;";
   conn.query(sql, [nickName, email], (err, rows) => {

@@ -28,27 +28,25 @@
   width: 100%;
   height: 100%;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.headerModalMiddle a + button {
+.headerModalMiddle .headerLogOutBtn {
   width: 100%;
   margin: 5px;
   padding: 10px;
+  margin-top: 40px;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
-.headerModalMiddle button:hover {
+.headerModalMiddle .headerLogOutBtn:hover {
   background-color: rgb(234, 234, 234);
 }
 .headerModalMiddle a:hover {
   background-color: rgb(234, 234, 234);
-}
-.headerModalMiddle button:nth-child(3) {
-  margin-top: 40px;
-  margin-bottom: 0px;
 }
 .headerModalMiddle a {
   width: 100%;

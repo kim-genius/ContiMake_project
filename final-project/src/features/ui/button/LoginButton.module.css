@@ -9,4 +9,14 @@
   font-size: 1rem;
   cursor: pointer;
   margin: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 80px;
+}
+
+.logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }/*# sourceMappingURL=LoginButton.module.css.map */

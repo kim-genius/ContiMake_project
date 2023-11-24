@@ -1,7 +1,6 @@
 @mixin uploadModal {
   position:absolute;
   text-align: center;
-  background-color: #ffffff;
   border-radius:10px; 
   border:1px solid rgba(166, 130, 130, 0.2);  
   transform:translateY(-50%);
@@ -21,7 +20,7 @@
     display: flex;
     justify-content: center;
 
-    img {
+    .profile {
       @include uploadModal;
       z-index: 1;
       width: 9vw;
@@ -29,10 +28,19 @@
       border-radius: 50%;
       top:33%; 
       right:28%;
-      background: white;
+    }
+    .defaultProfile{
+      @include uploadModal;
+      z-index: 1;
+      width: 9vw;
+      height: 18vh;
+      border-radius: 50%;
+      top:33%; 
+      right:28%;
     }
     .modalContent {
       @include uploadModal;
+      background-color: #ffffff;
       width:20vw;  
       height:38vh; 
       padding:10px;
