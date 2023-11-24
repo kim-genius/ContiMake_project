@@ -1,10 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import axios from '../../axios';
 import { Link } from 'react-router-dom';
 
 const Save = () => {
     const [data, setData] = useState(['']);
     const [conti, setConti] = useState(['']);
+    const[titleRead,setTitleRead] = useState('')
+    const [content,setContent] = useState('')
     const [uploadedFile, setUploadedFile] = useState(null);
     const title = useRef();
     const image = useRef();
@@ -24,34 +26,43 @@ const Save = () => {
     }
 
     const handleFileChange = (e) => {
+        console.log(e.traget.files[0])
         setUploadedFile(e.target.files[0]);
+        
+        // setTitleRead(e.target.files[0].name)
     }
 
     let formData = new FormData();
     let email = sessionStorage.getItem("email");
     formData.append("file", image.data);
+    
+    // axios.post(
+    //     "/upload/submit",
+    //     formData,
+    //     {
+    //         headers: {
+    //             "Content-Type": "multipart/form-data",
+    //         },
+    //     },
+    // ).then((res) => {
+    //     console.log(res, '요기!!!');
+    //     sessionStorage.setItem('location',
+    //         JSON.stringify(
+    //             res.data))
+    // })
+    useEffect(()=>{
+        setData(
+            `https://cdn.aitimes.com/news/photo/202110/141144_143092_3153.png
+            `
 
-    axios.post(
-        "/upload/submit",
-        formData,
-        {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        },
-    ).then((res) => {
-        console.log(res, '요기!!!');
-        sessionStorage.setItem('location',
-            JSON.stringify(
-                res.data))
-    })
-
+        )
+    },[])
 
     const readFile = () => {
-        axios.get('/upload/readFile')
+        axios.get('/upload/readFile',{params:{title:titleRead}})
             .then(res => {
                 console.log(res.data);
-                setData(res.data);
+                setContent(res.data);
             })
             .catch(err => {
                 console.error(err);
@@ -60,7 +71,7 @@ const Save = () => {
 
     return (
         <div>
-            <input ref={title}></input>
+            <input ref={title} onChange={(e)=>setTitleRead(e.target.value)}></input>
             <img src={image.preview} alt="" />
             <input
                 type="file"
@@ -79,7 +90,7 @@ const Save = () => {
                 </a>
             )}
             <button onClick={readFile}>Read File</button>
-            <div>{data}</div>
+            <img src ={`${content}`}></img>
             <div>{uploadedFile && uploadedFile.name}</div>
         </div>
     );
