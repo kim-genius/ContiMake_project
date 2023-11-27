@@ -7,6 +7,7 @@ import { current } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom'
 import SaveFile from '../../Save/SaveFile';
 import ReadFile from '../../Save/ReadFile';
+import axios from '../../../axios';
 
 const HeaderNav = (props) => {
     const inputRef = useRef();
@@ -19,6 +20,15 @@ const HeaderNav = (props) => {
         inputRef.current.disabled = null;
         inputRef.current.focus();
         setShowEditIcon(false)
+    }
+
+    const saveProject = () =>{
+        axios
+          .post("/generate/save", {
+            title: cur_project.title,
+            email: sessionStorage.getItem("email"),
+            images: cur_project.images
+          }).then(res=>console.log(res.data))
     }
 
     return (
@@ -42,9 +52,8 @@ const HeaderNav = (props) => {
                 />
             </div>
             <div className={styles.btnArea}>
-                <ColorButton text={'저장'} />
-                <SaveFile ></SaveFile>
-                <ReadFile ></ReadFile>
+                <ColorButton text={'저장'}/>
+                <img src='/images/export_icon.svg'/>
             </div>
         </div>
     )

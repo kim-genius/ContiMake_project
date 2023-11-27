@@ -8,7 +8,7 @@ import FileUpload from "../FileUpload/FileUpload";
 const My = ({ location, setLocation }) => {
   const navigate = useNavigate()
   const [modal, setModal] = useState(false);
-  const [password, setPassword] = useState("1");
+  const [password, setPassword] = useState("");
   const [samePassword, setSamePassword] = useState("");
   const [nickName, setNickname] = useState(sessionStorage.getItem("nickname"));
   const [email, setEmail] = useState(sessionStorage.getItem("email"));

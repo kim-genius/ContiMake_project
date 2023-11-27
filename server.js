@@ -11,6 +11,7 @@ const userLoginRouter = require('./routes/userLogin');
 const contiRouter = require('./routes/userMyConti')
 const exportsRouter = require('./routes/exports');
 const uploadRouter = require('./routes/upload');
+const generateRouter = require('./routes/generate')
 const session = require('express-session');
 const fileStore = require('session-file-store')(session)
 
@@ -23,6 +24,11 @@ var fileStoreOptions = {
     path: "./sessions",
     reapInterval: 360000
 };
+
+// JSON 요청 본문 크기 제한 늘리기 (50MB로 설정)
+app.use(bodyParser.json({ limit: '50mb' }));
+// URL-encoded 요청 본문 크기 제한 늘리기 (50MB로 설정)
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(session({
     httpOnly: true,  //http 요청으로 온 것만 처리
@@ -51,6 +57,7 @@ app.use('/exports', exportsRouter);
 app.use('/upload', uploadRouter);
 app.use('/conti', contiRouter);
 app.use('/userpage', userMyPageRouter);
+app.use('/generate', generateRouter);
 app.use(express.static(path.join(__dirname, 'final-project', 'build')));
 
 app.listen(PORT, () => {

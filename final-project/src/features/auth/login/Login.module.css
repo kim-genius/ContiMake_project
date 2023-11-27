@@ -19,17 +19,17 @@
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.800);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.200);
 }
 
 .formItem {
     width: 300px;
     height: 55px;
     border-radius: 10px;
-    border: lightgray solid 1px;
+    border: #DBDBDB solid 1px;
     /* border:none; */
     outline: none;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.100);
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.100); */
     padding: 0 10px;
     margin: 5px;
 }

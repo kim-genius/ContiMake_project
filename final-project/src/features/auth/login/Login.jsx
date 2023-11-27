@@ -38,7 +38,7 @@ const Login = () => {
         if (res.data.msg == 'success') {
           sessionStorage.setItem('email', res.data.email);
           sessionStorage.setItem('nickname', res.data.nickname)
-          sessionStorage.setItem('location',res.data.location)
+          sessionStorage.setItem('location', res.data.location)
           swal('로그인이 완료됐습니다.')
           window.location.href = '/'
           // alert('로그인이 완료됐습니다.')
@@ -55,12 +55,12 @@ const Login = () => {
     <div className={styles.loginBackground}>
       <div className={styles.loginBox}>
         <div style={{ marginBottom: '10px' }}><img width='100px' src='images/logo.png' alt='logo' /></div>
-        <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} logo='images/kakaoLogo.png'/></div>
+        <div><AuthButton text='카카오 로그인' provider='kakao' link={kakaoLink} logo='images/kakaoLogo.png' /></div>
 
-        <div style={{ position: 'relative'}}>
+        <div style={{ position: 'relative' }}>
           <AuthButton text='구글 로그인' provider='google' logo='images/googleLogo.png'> </AuthButton>
-            <div style={{position:'absolute',opacity:'0', transform:'translateY(-150%)',overFlow:'hidden'}} > 
-            <GoogleLogin 
+          <div style={{ position: 'absolute', opacity: '0', transform: 'translateY(-150%)', overFlow: 'hidden' }} >
+            <GoogleLogin
               width={300}
               height
               clientId={googleClientId}
@@ -83,13 +83,17 @@ const Login = () => {
                       alert(`${nickname}님 google 계정으로 회원가입 완료되었습니다`);
                       sessionStorage.setItem('email', email)
                       sessionStorage.setItem('nickname', nickname)
+                      sessionStorage.setItem('location', profileImage)
+
                       window.location.href = '/'
                     } else if (res.data == "login") {
 
                       alert(`${nickname}님 google 계정으로 로그인 완료되었습니다`);
                       sessionStorage.setItem('email', email)
-                      sessionStorage.setItem('nickname', nickname)
-                      
+                      sessionStorage.setItem('nickname', nickname);
+                      sessionStorage.setItem('location', profileImage)
+
+
                       window.location.href = '/'
                     } else {
                       window.location.href = '/'
@@ -102,12 +106,12 @@ const Login = () => {
               }}
               onFailure={(res) => console.log(res, '실패')}
             />
-            </div>
+          </div>
 
-         </div>
+        </div>
 
 
-        <hr style={{ width: '99%', border: 'solid 1px #E7E7E7', margin: '5px' }} />
+        <hr style={{ width: '300px', border: 'solid 1px #DBDBDB', margin: '5px' }} />
 
         <input className={styles.formItem} placeholder='이메일' onChange={(e) => setEmail(e.target.value)}></input>
         <input className={styles.formItem} type='password' placeholder='비밀번호' onChange={(e) => setPassword(e.target.value)}></input>

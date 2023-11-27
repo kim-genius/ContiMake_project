@@ -43,7 +43,7 @@ const Header = () => {
         <div className={styles.headerBox}>
           <Link to='/'><img className={styles.logo} src='images/logo.png' alt='logo' /></Link>
           <div className={styles.headerRight}>
-            <Link to='/generate'>{Button('새 콘티 생성')}</Link>
+            <Link className={styles.headerGenerateBtn}to='/generate'>{Button('새 콘티 생성')}</Link>
             {
               sessionStorage.getItem('nickname') ?
                 <div className={styles.profileBox} onClick={openModal}>
