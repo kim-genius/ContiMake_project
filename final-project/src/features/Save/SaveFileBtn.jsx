@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import styles from './Save.module.css'
 
-const Save = () => {
+const SaveFileBtn = () => {
 
     const [readConti, setReadConti] = useState([]);
-    console.log(readConti, '콘티정보')
 
     const store = useSelector((state) => state.cur_project)
     console.log(store)
 
     const createFile = async () => {
-        await axios.post('/upload/createFile', {
+
+        await axios.post('/upload/saveFile', {
             store
         })
             .then(res => {
@@ -48,4 +48,4 @@ const Save = () => {
 }
 
 
-export default Save;
+export default SaveFileBtn;

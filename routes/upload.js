@@ -69,21 +69,19 @@ router.post("/submit", upload.single("file"), (req, res) => {
 // const filePath = path.join(__dirname, '../files', fileName);
 
 // 파일 생성하기
-router.get('/createFile', (req, res) => {
-    res.render('createFile');
-});
+// router.get('/saveFile', (req, res) => {
+//     res.render('saveFile');
+// });
 
-router.post('/createFile', (req, res) => {
+router.post('/saveFile', (req, res) => {
     console.log(req.body.store);
-    // const data = req.body.data;
-    // 파일명이 없으면 기본값으로 설정
     const fileName = (req.body.store.title || '제목없음') + '.corn';
     const store = req.body.store;
-    // console.log(data, '내용')
     console.log(fileName, '제목')
     const jsonString = JSON.stringify(store);
+    const filePath = path.join('../', fileName);
 
-    fs.writeFile(fileName, jsonString, (err) => {
+    fs.writeFile(filePath, jsonString, (err) => {
         if (err) {
             console.error(err);
             res.status(500).send('Internal Server Error');
@@ -99,15 +97,15 @@ router.post('/createFile', (req, res) => {
     });
 });
 
-router.get('/save', (req, res, next) => {
-    res.send(`
-    <img src=${fileUrl} />
-    
-    <br>
-    <br>
-    <a href="/download" download>Download</a>
-    `);
-});
+// router.get('/save', (req, res, next) => {
+//     res.send(`
+//     <img src=${fileUrl} />
+
+//     <br>
+//     <br>
+//     <a href="/download" download>Download</a>
+//     `);
+// });
 
 // 파일 다운로드
 router.get('/download', (req, res) => {
@@ -117,7 +115,7 @@ router.get('/download', (req, res) => {
         return;
     }
 
-    const filePath = path.join(__dirname, '../files', fileName);
+    const filePath = path.join('../', fileName);
 
     res.download(filePath, fileName, (err) => {
         if (err) {
@@ -129,12 +127,21 @@ router.get('/download', (req, res) => {
 
 
 // 파일 불러오기
-router.get('/readFile', (req, res) => {
-    console.log(req.query.title, '파일이름')
-    const parsedUrl = new URL(`http://localhost:${PORT}${req.url}`);
-    const queryData = parsedUrl.searchParams;
-    const fileName = (req.query.title) + '.corn';
-    const filePath = path.join(__dirname, '../files', `${fileName}`);
+router.post('/readFile', (req, res) => {
+    console.log(req.body.fileName)
+    let fullPath = req.body.fileName;
+    let pathComponents = fullPath.split("\\");
+    let fileName = pathComponents[pathComponents.length - 1];
+    console.log(fileName);
+
+    // const filePath = path.join(req.body.fileName);
+    const filePath = path.join('../', fileName);
+
+    console.log(filePath, 'filePath 뭐지')
+    // let options = {
+    //     encoding: 'utf8', // utf8 인코딩 방식으로 엽니다
+    //     flag: 'r' // 읽기 위해 엽니다
+    // }
 
     // 파일 존재 여부 체크
     fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -144,16 +151,15 @@ router.get('/readFile', (req, res) => {
         }
         // 파일 읽기
         fs.readFile(filePath, 'utf8', (err, data) => {
-            console.log(data, '데이터')
+            console.log(data, '데이터들어감')
             if (err) {
                 res.send('파일을 읽는 중 오류가 발생했습니다');
                 console.error(err);
                 return;
             }
-            // res.send(data);
+            res.send(data);
             // 파일 경로를 클라이언트에게 응답으로 보냅니다.
-            res.json({ data, filePath });
-            console.log(filePath, '파일경로')
+            // res.json({ data });
         });
     });
 });

@@ -19,11 +19,11 @@ const FileUpload = ({ setModal, location, setLocation }) => {
         formData.append("file", image.data);
         formData.append("email", email);
 
-        console.log(image.data, "선택한이미지! ");
-        console.log(sessionStorage.getItem("email"))
-        console.log(image.preview, "들어간파일");
-        console.log(image.location, "location");
-        console.log(formData.getAll('file'))
+        // console.log(image.data, "선택한이미지! ");
+        // console.log(sessionStorage.getItem("email"))
+        // console.log(image.preview, "들어간파일");
+        // console.log(image.location, "location");
+        // console.log(formData.getAll('file'))
 
         try {
             await axios.post(
@@ -34,6 +34,7 @@ const FileUpload = ({ setModal, location, setLocation }) => {
                         "Content-Type": "multipart/form-data",
                     },
                 },
+                
             ).then((res) => {
                 console.log(res, '요기!!!');
                 sessionStorage.setItem('location',

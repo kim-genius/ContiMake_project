@@ -5,7 +5,12 @@ import FileUpload from "../FileUpload/FileUpload";
 
 const Nav = ({ location, setLocation }) => {
   const [modal, setModal] = useState(false);
+  const [click, setClick] = useState(true);
 
+  const clicked = () => {
+    setClick(!click);
+    
+  }
 
   return (
     <nav className={styles.navBox}>
@@ -22,9 +27,21 @@ const Nav = ({ location, setLocation }) => {
         {sessionStorage.getItem('nickname')}
       </h4>
       <div className={styles.navList}>
-        <div><Link to='/mypassword'><img src='images/icon1.png'></img> 내정보수정</Link></div>
-        <div><Link to='/myconti'><img style={{ width: '35px' }} src='images/icon2.png'></img> 마이 콘티</Link></div>
-      </div>
+
+        <div>
+          <Link to='/mypassword' onClick={clicked}>
+            <img src={'images/icon1.png'} alt="myInfo icon" /> 내정보수정
+          </Link>
+        </div>
+
+        <div>
+          <Link to='/myconti' onClick={clicked}>
+            <img style={{ width: '35px' }} src={'images/icon2.png'} alt="myConti icon" /> 마이 콘티
+          </Link>
+        </div>
+
+      </div >
+
       {modal && <FileUpload setModal={setModal}></FileUpload>}
     </nav >
   )

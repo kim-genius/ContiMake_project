@@ -5,8 +5,8 @@ import { setCurrentTitle } from '../../../store/index';
 import ColorButton from '../../ui/button/ColorButton/ColorButton';
 import { current } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom'
-import SaveFile from '../../Save/SaveFile';
-import ReadFile from '../../Save/ReadFile';
+import SaveFileBtn from '../../Save/SaveFileBtn';
+import ReadFileBtn from '../../Save/ReadFileBtn';
 import axios from '../../../axios';
 
 const HeaderNav = (props) => {
@@ -22,13 +22,13 @@ const HeaderNav = (props) => {
         setShowEditIcon(false)
     }
 
-    const saveProject = () =>{
+    const saveProject = () => {
         axios
-          .post("/generate/save", {
-            title: cur_project.title,
-            email: sessionStorage.getItem("email"),
-            images: cur_project.images
-          }).then(res=>console.log(res.data))
+            .post("/generate/save", {
+                title: cur_project.title,
+                email: sessionStorage.getItem("email"),
+                images: cur_project.images
+            }).then(res => console.log(res.data))
     }
 
     return (
@@ -52,8 +52,9 @@ const HeaderNav = (props) => {
                 />
             </div>
             <div className={styles.btnArea}>
-                <ColorButton text={'저장'}/>
-                <img src='/images/export_icon.svg'/>
+                <ColorButton text={'저장'} />
+                <SaveFileBtn></SaveFileBtn>
+                <ReadFileBtn></ReadFileBtn>
             </div>
         </div>
     )

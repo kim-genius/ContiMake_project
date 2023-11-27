@@ -13,8 +13,6 @@ import Footer from './features/ui/footer/Footer';
 import Generatepage from './pages/Generatepage';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
-import SaveFile from './features/Save/SaveFile';
-import ReadFile from './features/Save/ReadFile';
 import Editpage from './pages/Editpage';
 import SpeechBubble from './features/speechbubble/components/SpeechBubble';
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -54,8 +52,6 @@ function App() {
         <Route path='/join' element={<Join />}></Route>
         <Route path='/generate' element={<Generatepage />}></Route>
         <Route path='/edit' element={<Editpage />}></Route>
-        <Route path='/SaveFile' element={<SaveFile />}></Route>
-        <Route path='/ReadFile' element={<ReadFile />}></Route>
       </Routes>
 
       <Routes>
