@@ -5,6 +5,7 @@ import { setCurrentTitle } from '../../../store/index';
 import ColorButton from '../../ui/button/ColorButton/ColorButton';
 import { current } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom'
+import axios from '../../../axios';
 
 const HeaderNav = (props) => {
     const inputRef = useRef();
@@ -17,6 +18,15 @@ const HeaderNav = (props) => {
         inputRef.current.disabled = null;
         inputRef.current.focus();
         setShowEditIcon(false)
+    }
+
+    const saveProject = () =>{
+        axios
+          .post("/generate/save", {
+            title: cur_project.title,
+            email: sessionStorage.getItem("email"),
+            images: cur_project.images
+          }).then(res=>console.log(res.data))
     }
 
     return (
@@ -40,7 +50,7 @@ const HeaderNav = (props) => {
                 />
             </div>
             <div className={styles.btnArea}>
-                <ColorButton text={'저장'}/>
+                <ColorButton text={'저장'} func={saveProject} generate={false}/>
                 <img src='/images/export_icon.svg'/>
             </div>
         </div>
