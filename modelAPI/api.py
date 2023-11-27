@@ -37,27 +37,50 @@ def generate(prompt: str):
     return Response(content=result, media_type="text/plain")
 
 
-pipe = StableDiffusionInpaintPipeline.from_pretrained(
+pipe2 = StableDiffusionInpaintPipeline.from_pretrained(
     "runwayml/stable-diffusion-inpainting", torch_dtype=torch.float16
 ).to(device)
 
 # inpainting 기능
+# @app.get('/inpainting')
+# def inpainting(prompt, mask_data, image_data):
+
+#     # "data:image/png;base64," 부분을 제외한 Base64 인코딩된 문자열 추출
+#     mask_img_base64_string = mask_data.split(",")[1]
+#     init_image = PIL.Image.open(BytesIO(base64.b64decode(image_data))).convert("RGB")
+
+
+#     open_mask_image = PIL.Image.open(BytesIO(base64.b64decode(mask_img_base64_string))).convert("RGB")
+
+#     mask_image = PIL.ImageOps.invert(open_mask_image)
+#     open_mask_image.show()
+#     mask_image.save('test_mask.png')
+
+#     with autocast(device):
+#         inpainting_image = pipe(prompt = prompt, image = init_image, mask_image = open_mask_image).images[0]
+#         inpainting_image.save("test_inpainting.png")
+#         buffer = BytesIO()
+#         inpainting_image.save(buffer, format="PNG")
+#         imgstr = base64.b64encode(buffer.getvalue())
+#         result = imgstr.decode('ascii')
+
+#     return Response(content=result, media_type="text/plain")
+
+# inpainting 기능
 @app.get('/inpainting')
-def inpainting(prompt, mask_data, image_data):
+def inpainting(prompt: str, mask_data: str, image_data: str):
 
-    # "data:image/png;base64," 부분을 제외한 Base64 인코딩된 문자열 추출
-    mask_img_base64_string = mask_data.split(",")[1]
     init_image = PIL.Image.open(BytesIO(base64.b64decode(image_data))).convert("RGB")
+    print(init_image)
 
-
-    open_mask_image = PIL.Image.open(BytesIO(base64.b64decode(mask_img_base64_string))).convert("RGB")
+    open_mask_image = PIL.Image.open(BytesIO(base64.b64decode(mask_data))).convert("RGB")
 
     mask_image = PIL.ImageOps.invert(open_mask_image)
     open_mask_image.show()
     mask_image.save('test_mask.png')
 
     with autocast(device):
-        inpainting_image = pipe(prompt = prompt, image = init_image, mask_image = open_mask_image).images[0]
+        inpainting_image = pipe2(prompt = prompt, image = init_image, mask_image = mask_image).images[0]
         inpainting_image.save("test_inpainting.png")
         buffer = BytesIO()
         inpainting_image.save(buffer, format="PNG")

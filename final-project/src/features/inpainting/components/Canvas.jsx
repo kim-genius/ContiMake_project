@@ -19,7 +19,9 @@ const Canvas = () => {
         const paths = await canvasRef.current.exportPaths();
         if (paths.length) {
             const data = await canvasRef.current.exportImage("png");
-            dispatch(setMask(data))
+            const temp = data.split(",");
+            const splited_data = temp[1]
+            dispatch(setMask(splited_data))
         }
     };
     //  아래의 해당 로직 대신 이미지가 재생성되면 리덕스에 저장된 해당 이미지와 프롬프트 값 바꾸는 것으로 변경하기
@@ -58,7 +60,7 @@ const Canvas = () => {
                     style={style}
                     width="500px"
                     height="500px"
-                    strokeWidth={15}
+                    strokeWidth={30}
                     strokeColor="black"
                     canvasColor="transparent"
                     exportWithBackgroundImage="true"

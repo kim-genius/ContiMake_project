@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import styles from "../styles/Joinbox.module.scss";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../../../../axios";
 import VaildPassword from "./VaildPassword";
 
@@ -11,38 +11,38 @@ const Joinbox = () => {
   const [password, setPassword] = useState("1");
   const [samePassword, setSamePassword] = useState("");
   const [nickname, setNickname] = useState("");
-  
+
 
   const sendJoin = () => {
-    if(email!=''&&password!=''&&nickname!=''){
-    axios
-      .post("/userJoin/join", {
-        email: email,
-        password: password,
-        nickname: nickname,
-      })
-      .then((res) => {
-        if (res.data == "success") {
-          navigate("/login");
-          alert("회원가입 완료되었습니다");        
-        }else{
-          alert('입력을 확인해주세요')
-        }
-      })
-      .catch(function (error) {
-        console.log(error.toJSON());
-      });
+    if (email != '' && password != '' && nickname != '') {
+      axios
+        .post("/userJoin/join", {
+          email: email,
+          password: password,
+          nickname: nickname,
+        })
+        .then((res) => {
+          if (res.data == "success") {
+            navigate("/login");
+            alert("회원가입 완료되었습니다");
+          } else {
+            alert('입력을 확인해주세요')
+          }
+        })
+        .catch(function (error) {
+          console.log(error.toJSON());
+        });
     }
-      
-      else{
-        alert('모든항목 입력해주세요')
-      }
+
+    else {
+      alert('모든항목 입력해주세요')
+    }
   }
   const vaildEmail = () => {
     axios.post("/userJoin/vaildEmail", { email: email }).then((res) => {
       if (res.data == "invaild") {
-        window.location.href='/join'
-        alert("중복된 아이디가 존재합니다.");    
+        window.location.href = '/join'
+        alert("중복된 아이디가 존재합니다.");
       } else {
         alert("가입 가능한 아이디입니다.");
       }
