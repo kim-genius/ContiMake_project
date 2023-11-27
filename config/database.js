@@ -5,8 +5,10 @@ const conn = mysql.createConnection({
     user: 'Insa4_JSB_final_2',
     password: 'aishcool2',
     port: 3307,
-    database: 'Insa4_JSB_final_2'
+    database: 'Insa4_JSB_final_2',
+    connectionLimit: 10, // 최대 연결 수
 });
 conn.connect();
+
 
 module.exports = conn;

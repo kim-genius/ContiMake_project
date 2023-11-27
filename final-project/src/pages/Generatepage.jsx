@@ -26,9 +26,8 @@ const Generatepage = () => {
     let newImages = []
     for (let i = 0; i < promptLen; i++) {
       const result = await axios.get(
-        `http://154.20.254.95:50095/?prompt==${prompt[i]},%20pencil%20style,%20cartoon,%20fast%20sketch,%20rough%20sketch,%20croquis`
+        `http://114.110.130.45:5000/?prompt==${prompt[i]},%20pencil%20style,%20cartoon,%20fast%20sketch,%20rough%20sketch,%20croquis`
       );
-      newImages = [...newImages, result.data];
       newImages = [...newImages, result.data];
     }
     dispatch(setImages(newImages));
@@ -36,11 +35,11 @@ const Generatepage = () => {
   };
   console.log(image)
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(setBrushState('touch'))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  
+
   return (
     <div>
       <GenerateTutorial />
@@ -60,15 +59,15 @@ const Generatepage = () => {
             <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading} />
           </section>
           <section className={styles.canvas}>
-              {
+            {
               loading ?
                 <div className={styles.loading_bar}>
                   <BarLoader color="#36d7b7" loading={loading} width={200} height={20} />
                 </div>
                 : image.length > 0 ?
-                  <Canvas /> 
+                  <Canvas />
                   : null
-              }
+            }
           </section>
           <section className={styles.designTab}>
             <OutputImgs />

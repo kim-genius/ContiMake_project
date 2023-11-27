@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import styles from "./My.module.scss";
 import VaildPassword from "../auth/join/components/VaildPassword";
 import axios from "../../axios";
 import FileUpload from "../FileUpload/FileUpload";
 
-const My = () => {
+const My = ({ location, setLocation }) => {
   const navigate = useNavigate()
   const [modal, setModal] = useState(false);
   const [password, setPassword] = useState("1");
@@ -16,11 +16,11 @@ const My = () => {
   const [isPasswordNameEdit, setIsPasswordNameEdit] = useState(false);
   const nickNameRef = useRef();
   const passwordRef = useRef();
+  const profile = useRef();
   const samePasswordRef = useRef();
-  const [location, setLocation] = useState(sessionStorage.getItem("location"));
 
 
-  const changeMyPage = () => {
+  const changeMyPage = ({ location, setLocation }) => {
     console.log('email', sessionStorage.getItem("email"), 'nick', nickName)
     axios
       .post("/userpage/update", {
@@ -48,6 +48,7 @@ const My = () => {
       ref.current.blur();
     }
   };
+
   const changeInput = (ref, setState) => {
     ref.current.focus();
     setState(true);
@@ -56,8 +57,6 @@ const My = () => {
   const removeImg = () => {
     setLocation(sessionStorage.setItem("location", 'images/defaultImage.png'))
   };
-
-
 
   const Withdrawal = () => {
     console.log('회원탈퇴')
@@ -88,18 +87,21 @@ const My = () => {
       console.log('탈퇴취소');
     }
   }
-
-
+  useEffect(() => {
+    setLocation(sessionStorage.getItem('location'))
+  }, [setLocation])
 
   return (
     <form className={styles.myBox} onSubmit={(e) => e.preventDefault()}>
       <div className={styles.userflex}>
         <div className={styles.userBox}>
 
-          <div className={styles.userImg} style={{
-            backgroundImage: `url(${location})`,
-            backgroundSize: 'cover',
-          }} />
+          <div className={styles.userImg}
+            ref={profile}
+            style={{
+              backgroundImage: `url(${location})`,
+              backgroundSize: 'cover',
+            }} />
 
           <button onClick={() => setModal(true)} className={styles.btnUp}>이미지업로드</button>
           <br></br>
@@ -126,7 +128,8 @@ const My = () => {
         </div>
       </div>
 
-      {modal && <FileUpload setModal={setModal} location={location}></FileUpload>}
+      {modal && <FileUpload setModal={setModal} location={location} setLocation={setLocation}></FileUpload>}
+
       <div>
         <div className={styles.list}>
           <div className={styles.drop}>이메일(아이디)</div>

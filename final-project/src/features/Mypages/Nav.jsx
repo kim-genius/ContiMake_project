@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from "./Nav.module.css"
 import { Link } from 'react-router-dom'
 import FileUpload from "../FileUpload/FileUpload";
 
-const Nav = () => {
-  const [location, setLocation] = useState(sessionStorage.getItem("location"));
+const Nav = ({ location, setLocation }) => {
   const [modal, setModal] = useState(false);
+
 
   return (
     <nav className={styles.navBox}>
@@ -21,10 +21,10 @@ const Nav = () => {
       <h4>
         {sessionStorage.getItem('nickname')}
       </h4>
-      <ul>
-        <Link to='/mypassword'><div><img src='images/icon1.png'></img>내정보수정</div></Link>
-        <Link to='/myconti'><div><img src='images/icon2.png'></img>마이콘티</div></Link>
-      </ul>
+      <div className={styles.navList}>
+        <div><Link to='/mypassword'><img src='images/icon1.png'></img> 내정보수정</Link></div>
+        <div><Link to='/myconti'><img style={{ width: '35px' }} src='images/icon2.png'></img> 마이 콘티</Link></div>
+      </div>
       {modal && <FileUpload setModal={setModal}></FileUpload>}
     </nav >
   )
