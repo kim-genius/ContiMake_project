@@ -45,6 +45,11 @@
     background-repeat: no-repeat;
     
     }
+    @mixin cardText{
+        font-family: 'Cafe24Ssurround';
+        margin-top: 30px;  
+        font-size:30px;
+    }
 
     @mixin cardBoxAnimation{
         animation:2s cardBoxAnimationEffect

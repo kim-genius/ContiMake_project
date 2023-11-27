@@ -17,5 +17,8 @@
     @include CardFunction.cardContent();
     
 }
+.cardText{
+    @include CardFunction.cardText()
+}
 
 
