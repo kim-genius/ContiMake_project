@@ -37,34 +37,51 @@ const tutContents = [
 
 const GenerateTutorial = () => {
     const [index, setIndex] = useState(0);
-    const [display, setDisplay] = useState(true);
+    const [display, setDisplay] = useState(false);
     // console.log(index, tutContents.length)
-    if (!display) {
-        return null; // display가 false면 아무것도 렌더링하지 않음
-    }
+
     return (
-        <div className={styles.tutorialWrapper}
-            onClick={() => { setDisplay(false) }}
-            style={{ position: 'absolute' }} >
-            <div style={{ position: 'absolute', left: tutContents[index].position.left, top: tutContents[index].position.top, width: '300px', height: '200px' }}
-                onClick={(e) => {
-                    e.stopPropagation();
-                    if (index < tutContents.length - 1) {
-                        setIndex(index + 1)
-                    } else {
-                        setDisplay(false);
-                        setIndex(0)
-                    }
-                }}>
-                <TutorialBtn
-                    index={index}
-                    title={tutContents[index].title}
-                    text={tutContents[index].text}
-                    position={tutContents[index].position}
-                    linePosition={tutContents[index].linePosition}
-                />
-            </div>
-        </div>
+        <>
+            {/* 튜토리얼 온오프 토글 버튼 */}
+            <button
+                className={styles.tutToggleBtn}
+                onClick={() => {
+                    setDisplay(!display)
+                    setIndex(0)
+                }
+                }>?</button>
+            <div className={styles.tutText}>사용방법</div>
+            {/* <button>◀</button>
+            <button>▶</button> */}
+
+            {display && ( //display가 true일 때만 tutorialWrapper를 렌더
+                <div className={styles.tutorialWrapper}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                    }}
+                    style={{ position: 'absolute' }} >
+                    <div style={{ position: 'absolute', left: tutContents[index].position.left, top: tutContents[index].position.top, width: '300px', height: '200px' }}
+                        onClick={() => {
+                            if (index < tutContents.length - 1) {
+                                setIndex(index + 1)
+                            } else {
+                                setIndex(0)
+                                setDisplay(false)
+
+                            }
+                        }}>
+                        <TutorialBtn
+                            index={index}
+                            title={tutContents[index].title}
+                            text={tutContents[index].text}
+                            position={tutContents[index].position}
+                            linePosition={tutContents[index].linePosition}
+                        />
+                    </div>
+                </div>
+            )
+            }
+        </>
     )
 }
 

@@ -11,7 +11,7 @@ a{
 
 .headerGenerateBtn button{    
     width:120px;   
-    font-size: 1rem;
+    font-size: 0.8rem;
  }
 
 .header{
@@ -85,11 +85,11 @@ a{
      }
 
      .headerGenerateBtn button{       
-        font-size: 1rem;
+        font-size: 0.8rem;
         transform: translateX(-20%);
      }
      .logo{
-        width:100px;
+        width:150px;
         height:50px;
      }
   } 
@@ -107,7 +107,7 @@ a{
         transform: translateX(-60%);
      }
      .logo{
-        width:90px;
+        width:120px;
         height:40px;
      }
   }
@@ -115,20 +115,19 @@ a{
   @media screen and (max-width : 700px) { //768px아래에서 이걸 적용
     .loginBtn{
         font-size:0.5rem;
-        
      }
      .profileBox{
         width:100%;
         font-size:0.5rem;
      }
      .headerGenerateBtn button{       
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         transform: translateX(-60%);
      }
      .logo{
-        transform: translateX(-300%);
-        width:70px;
-        height:40px;
+        transform: translateX(-200%);
+        width:90px;
+        height:30px;
      }
   }
 

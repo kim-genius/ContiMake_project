@@ -17,15 +17,15 @@ import InpaintingTutorial from "../features/tutorial/EditTutorial"
 
 const Editpage = () => {
   const dispatch = useDispatch();
-  const cur_project = useSelector((state)=> state.cur_project)
-  const brushState = useSelector((state)=> state.canvas_slice)
+  const cur_project = useSelector((state) => state.cur_project)
+  const brushState = useSelector((state) => state.canvas_slice)
   const btnRef = useRef([]);
   const [loading, setLoading] = useState(false);
   const [gray, setGray] = useState(['#fff', '#fff', '#fff', '#fff']);
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     dispatch(setBrushState('touch'))
-    
+
   }, [])
 
   /** 툴버튼 활성화/비활성화 */
@@ -50,7 +50,7 @@ const Editpage = () => {
     console.log("init:", init_data)
     if (mask_data.length > 0) {
       const result = await axios.get(
-      `http://114.110.130.45:5000/inpainting?edited_prompt==${prompt[idx]}&mask_data==${mask_data}&image_data==${init_data[idx]}`)
+        `http://114.110.130.45:5000/inpainting?edited_prompt==${prompt[idx]}&mask_data==${mask_data}&image_data==${init_data[idx]}`)
       dispatch(setImages(result.data))
       setLoading(false)
     } else {
@@ -58,10 +58,28 @@ const Editpage = () => {
     }
   }
 
+  const [tutorial, setTutorial] = useState('none');
 
   return (
     <div className={styles.Wrapper}>
-      <InpaintingTutorial/>
+
+      {/* 튜토리얼 on/off버튼 */}
+      {/* <button
+        style={{ border: 'none', borderRadius: '50%', width: '2rem', height: '2rem', bottom: '2rem', left: '2rem' }}
+        onClick={() => {
+          if (tutorial === 'none') {
+            setTutorial('inline')
+          } else {
+            setTutorial('none')
+
+          }
+        }}>?
+      </button> */}
+
+      {/* <div style={{ display: tutorial }}> */}
+      {/* </div> */}
+      <InpaintingTutorial />
+
       <nav className={styles.navBar}>
         <HeaderNav />
       </nav>
@@ -78,7 +96,7 @@ const Editpage = () => {
               ref={el => btnRef.current[0] = el}
               style={{ backgroundColor: gray[0] }}
               onClick={() => {
-                if(brushState.allowType == 'touch') {
+                if (brushState.allowType == 'touch') {
                   dispatch(setBrushState('all'));
                 } else {
                   dispatch(setBrushState('touch'));
@@ -115,14 +133,16 @@ const Editpage = () => {
                 <img src={'/images/text.svg'} ></img>
               </button>
             </div>
-            <ColorButton 
-            text={"재생성"} 
-            func={regenerate} 
-            parameter={{ prompt: cur_project.prompts, 
-              mask_data: cur_project.mask, 
-              init_data: cur_project.images, 
-              idx: cur_project.curIdx }} 
-              generate={loading}/>
+            <ColorButton
+              text={"재생성"}
+              func={regenerate}
+              parameter={{
+                prompt: cur_project.prompts,
+                mask_data: cur_project.mask,
+                init_data: cur_project.images,
+                idx: cur_project.curIdx
+              }}
+              generate={loading} />
           </section>
         </div>
         <section className={styles.canvas}>
