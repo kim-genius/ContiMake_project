@@ -13,7 +13,6 @@ import Footer from './features/ui/footer/Footer';
 import Generatepage from './pages/Generatepage';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
-import Save from './features/Save/Save';
 import Editpage from './pages/Editpage';
 import SpeechBubble from './features/speechbubble/components/SpeechBubble';
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -43,7 +42,7 @@ function App() {
         <Route path='/mypassword' element={<Mypassword></Mypassword>}></Route>
         <Route path='/fileupload' element={<FileUpload></FileUpload>}></Route>
         <Route path='/generate' element={<Generatepage></Generatepage>}></Route>
-        <Route path='/mypage' element={<Mypage></Mypage>}></Route>
+        <Route path='/mypage' element={<Mypage ></Mypage>}></Route>
         <Route path='/myconti' element={<Myconti></Myconti>}></Route>
         <Route path='/edit' element={<Editpage></Editpage>}></Route>
 
@@ -53,7 +52,6 @@ function App() {
         <Route path='/join' element={<Join />}></Route>
         <Route path='/generate' element={<Generatepage />}></Route>
         <Route path='/edit' element={<Editpage />}></Route>
-        <Route path='/save' element={<Save />}></Route>
       </Routes>
 
       <Routes>

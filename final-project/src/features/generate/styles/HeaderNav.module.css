@@ -9,9 +9,9 @@
 }
 
 .btnArea {
-  width: 7em;
+  width: 9em;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .inputArea {

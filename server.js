@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const app = express();
 const indexRouter = require('./routes');
 const kakaoRouter = require('./routes/userKakao');
@@ -38,6 +38,10 @@ app.use(session({
     cookie: { maxAge: 360000 }
 }))
 
+// JSON 요청 본문 크기 제한 늘리기 (50MB로 설정)
+app.use(bodyParser.json({ limit: '50mb' }));
+// URL-encoded 요청 본문 크기 제한 늘리기 (50MB로 설정)
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(cors());
 app.use(express.json());
@@ -53,7 +57,7 @@ app.use('/exports', exportsRouter);
 app.use('/upload', uploadRouter);
 app.use('/conti', contiRouter);
 app.use('/userpage', userMyPageRouter);
-app.use('/generate',generateRouter);
+app.use('/generate', generateRouter);
 app.use(express.static(path.join(__dirname, 'final-project', 'build')));
 
 app.listen(PORT, () => {

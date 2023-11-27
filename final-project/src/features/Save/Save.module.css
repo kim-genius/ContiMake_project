@@ -1,1 +1,8 @@
-/*# sourceMappingURL=Save.module.css.map */
+.btn {
+  border: none;
+  background-color: white;
+}
+
+.readFile {
+  display: none;
+}/*# sourceMappingURL=Save.module.css.map */

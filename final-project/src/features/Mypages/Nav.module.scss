@@ -8,7 +8,7 @@ $main : #FFC478;
         width: 9vw;
         height: 18vh;
         border-radius: 50%;
-        background:$main;
+        background:white;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -32,8 +32,8 @@ $main : #FFC478;
         justify-content: center;
         margin-bottom: 10vh;
     }
-    ul {
-        margin-left: 1.2vw;
+    .navList {
+        padding-left: 4vw;
         line-height: 6vh;
         a{
             text-decoration: none;

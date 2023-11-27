@@ -2,14 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
-const router = express.Router()
-const path = require('path')
+const router = express.Router();
+const path = require('path');
 const conn = require('../config/database');
 router.use(express.static("Images"));
-const multer = require('multer')
-const multerS3 = require('multer-s3')
-const { S3Client } = require('@aws-sdk/client-s3')
-require("dotenv").config()
+const multer = require('multer');
+const multerS3 = require('multer-s3');
+const { S3Client } = require('@aws-sdk/client-s3');
+require("dotenv").config();
+const PORT = process.env.PORT || 3001;
 
 const s3 = new S3Client({
     region: 'ap-northeast-2',
@@ -34,7 +35,7 @@ router.post("/submit", upload.single("file"), (req, res) => {
     console.log(req.file, "파일");
     console.log(req.body.email)
     const user_profilepath = req.file.location;
-    console.log(req.file.location, '로케이션몬데')
+    console.log(req.file.location)
     const user_email = req.body.email
 
     let sql = 'UPDATE t_user SET user_profilepath = ? WHERE user_email = ?'
@@ -42,6 +43,7 @@ router.post("/submit", upload.single("file"), (req, res) => {
     conn.query(sql, [user_profilepath, user_email], (err, result) => {
         if (err) {
             console.log(err);
+
             res.
                 status(500).send("Internal Server Error");
         } else {
@@ -55,34 +57,91 @@ router.post("/submit", upload.single("file"), (req, res) => {
                 }
             })
         }
+
     });
 
 });
 
-router.post('/createFile', (req, res) => {
-    const data = req.body.data;
-    // 파일명이 없으면 기본값으로 설정
-    const fileName = (req.body.title || '제목없음') + '.corn';
-    console.log(data)
-    console.log(fileName, '제목')
+// data:image/png;base64,
 
-    fs.writeFile(fileName, data.join('\n'), (err) => {
+// const fileName = 'test.jpg';
+// const fileUrl = `http://localhost:${PORT}/${fileName}`;
+// const filePath = path.join(__dirname, '../files', fileName);
+
+// 파일 생성하기
+// router.get('/saveFile', (req, res) => {
+//     res.render('saveFile');
+// });
+
+router.post('/saveFile', (req, res) => {
+    console.log(req.body.store);
+    const fileName = (req.body.store.title || '제목없음') + '.corn';
+    const store = req.body.store;
+    console.log(fileName, '제목')
+    const jsonString = JSON.stringify(store);
+    const filePath = path.join('../', fileName);
+
+    fs.writeFile(filePath, jsonString, (err) => {
         if (err) {
             console.error(err);
             res.status(500).send('Internal Server Error');
         } else {
-            console.log('File created successfully');
-            res.send('File created successfully');
+            console.log('파일이 성공적으로 생성되었습니다');
+
+            // 클라이언트에게 파일 다운로드 링크를 제공
+            const downloadLink = {
+                downloadLink: `/upload/download?fileName=${encodeURIComponent(fileName)}`
+            };
+            res.json(downloadLink);
         }
     });
-})
+});
 
-router.get('/readFile', (req, res) => {
-    const parsedUrl = new URL(`http://localhost:3000${req.url}`);
-    const queryData = parsedUrl.searchParams;
+// router.get('/save', (req, res, next) => {
+//     res.send(`
+//     <img src=${fileUrl} />
 
-    const fileName = queryData.get('id');
-    const filePath = path.join(__dirname, 'data', `${fileName}`);
+//     <br>
+//     <br>
+//     <a href="/download" download>Download</a>
+//     `);
+// });
+
+// 파일 다운로드
+router.get('/download', (req, res) => {
+    const fileName = req.query.fileName;
+    if (!fileName) {
+        res.status(400).send('파일 이름이 누락되었습니다');
+        return;
+    }
+
+    const filePath = path.join('../', fileName);
+
+    res.download(filePath, fileName, (err) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('내부 서버 오류');
+        }
+    });
+});
+
+
+// 파일 불러오기
+router.post('/readFile', (req, res) => {
+    console.log(req.body.fileName)
+    let fullPath = req.body.fileName;
+    let pathComponents = fullPath.split("\\");
+    let fileName = pathComponents[pathComponents.length - 1];
+    console.log(fileName);
+
+    // const filePath = path.join(req.body.fileName);
+    const filePath = path.join('../', fileName);
+
+    console.log(filePath, 'filePath 뭐지')
+    // let options = {
+    //     encoding: 'utf8', // utf8 인코딩 방식으로 엽니다
+    //     flag: 'r' // 읽기 위해 엽니다
+    // }
 
     // 파일 존재 여부 체크
     fs.access(filePath, fs.constants.F_OK, (err) => {
@@ -92,33 +151,15 @@ router.get('/readFile', (req, res) => {
         }
         // 파일 읽기
         fs.readFile(filePath, 'utf8', (err, data) => {
+            console.log(data, '데이터들어감')
             if (err) {
                 res.send('파일을 읽는 중 오류가 발생했습니다');
                 console.error(err);
                 return;
             }
-
-            const template = `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <title>WEB1 - ${title}</title>
-                </head>
-                <body>
-                    <h1><a href="/">WEB</a></h1>
-                    <ol>
-                        <li><a href="/?id=HTML">HTML</a></li>
-                        <li><a href="/?id=CSS">CSS</a></li>
-                        <li><a href="/?ixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                          ds=JavaScript">JavaScript</a></li>
-                    </ol>
-                    <h2>${title}</h2>
-                    <p>${bodyContent}</p>
-                </body>c
-                </html>
-            `;
-            res.send(template);
+            res.send(data);
+            // 파일 경로를 클라이언트에게 응답으로 보냅니다.
+            // res.json({ data });
         });
     });
 });

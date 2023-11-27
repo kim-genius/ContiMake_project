@@ -35,11 +35,11 @@ const Generatepage = () => {
   };
   console.log(image)
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(setBrushState('touch'))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  
+
   return (
     <div>
       <GenerateTutorial />
@@ -59,15 +59,15 @@ const Generatepage = () => {
             <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading} />
           </section>
           <section className={styles.canvas}>
-              {
+            {
               loading ?
                 <div className={styles.loading_bar}>
                   <BarLoader color="#36d7b7" loading={loading} width={200} height={20} />
                 </div>
                 : image.length > 0 ?
-                  <Canvas /> 
+                  <Canvas />
                   : null
-              }
+            }
           </section>
           <section className={styles.designTab}>
             <OutputImgs />
