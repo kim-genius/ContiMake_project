@@ -6,7 +6,7 @@ const conn = mysql.createConnection({
   password: "aishcool2",
   port: 3307,
   database: "Insa4_JSB_final_2",
-  connectionLimit: 10
+  connectionLimit: 100
 });
 conn.connect();
 
