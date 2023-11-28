@@ -21,11 +21,13 @@ const HeaderNav = (props) => {
     }
 
     const saveProject = () =>{
+        console.log('왜 두번실해오디냐')
         axios
           .post("/generate/save", {
             title: cur_project.title,
             email: sessionStorage.getItem("email"),
-            images: cur_project.images
+            images: cur_project.images,
+            prompts: cur_project.prompts
           }).then(res=>console.log(res.data))
     }
 
