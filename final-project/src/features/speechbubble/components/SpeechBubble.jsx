@@ -35,7 +35,6 @@ const SpeechBubble = () => {
 
 const textChange=(e)=>{
   
-  textbox.set('text','hihi')
   const test = canvas.getObjects('textbox');
   setContent(textbox.get('text',test))
   console.log(test)
@@ -160,7 +159,7 @@ const textChange=(e)=>{
        canvas.add(poly, rect, poly2, textbox);
        canvas.add(handle).setActiveObject(handle);}}> 클릭클릭</button>
     <button style={{margin:'200px'}} onClick={textChange}>입력</button>
-    {content}
+  
     </>
   )
 };

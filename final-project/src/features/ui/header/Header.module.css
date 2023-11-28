@@ -9,8 +9,8 @@ a {
 }
 
 .headerGenerateBtn button {
-  width: 120px;
-  font-size: 1rem;
+  width: 140px;
+  font-size: 0.8rem;
 }
 
 .header {
@@ -45,8 +45,8 @@ a {
 }
 
 .logo {
-  width: 150px;
-  height: 50px;
+  width: 8.5rem;
+  height: 3rem;
   right: 50%;
 }
 
@@ -55,6 +55,7 @@ a {
   font-weight: 400;
   color: black;
   text-align: center;
+  text-wrap: nowrap;
 }
 
 .profileBox {
@@ -83,12 +84,12 @@ a {
     font-size: 0.6rem;
   }
   .headerGenerateBtn button {
-    font-size: 1rem;
+    font-size: 0.8rem;
     transform: translateX(-20%);
   }
   .logo {
-    width: 100px;
-    height: 50px;
+    width: 8.5rem;
+    height: 3rem;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -105,8 +106,8 @@ a {
     transform: translateX(-60%);
   }
   .logo {
-    width: 90px;
-    height: 40px;
+    width: 8.5rem;
+    height: 3rem;
   }
 }
 @media screen and (max-width: 700px) {
@@ -123,7 +124,7 @@ a {
   }
   .logo {
     transform: translateX(-300%);
-    width: 70px;
-    height: 40px;
+    width: 5.5rem;
+    height: 3rem;
   }
 }/*# sourceMappingURL=Header.module.css.map */
