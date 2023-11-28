@@ -3,6 +3,7 @@ import projectReducer from './index.js';
 import sessionReducer from './session.js'
 import canvasReducer from './canvasSlice.js'
 import predictionReducer from './PredictionSlice.js'
+
 export const store = configureStore({
   reducer: {
     cur_project: projectReducer,

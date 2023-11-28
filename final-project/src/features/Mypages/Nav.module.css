@@ -6,7 +6,7 @@
   width: 9vw;
   height: 18vh;
   border-radius: 50%;
-  background: #FFC478;
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,16 +28,16 @@
   justify-content: center;
   margin-bottom: 10vh;
 }
-.navBox ul {
-  margin-left: 1.2vw;
+.navBox .navList {
+  padding-left: 4vw;
   line-height: 6vh;
 }
-.navBox ul a {
+.navBox .navList a {
   text-decoration: none;
   color: black;
   font-weight: bold;
 }
-.navBox ul a div img {
+.navBox .navList a div img {
   width: 1.5vw;
   height: 3vh;
 }

@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { configureStore, createSlice } from '@reduxjs/toolkit'
+import { useSelector } from 'react-redux';
 
 // generate, edit
 const projectState = createSlice({
@@ -53,9 +54,9 @@ const projectState = createSlice({
 }
 )
 
-export const { 
-  setCurrentTitle, setCurrentImgNum, setPrompt, setImages, 
-  setMask, setCurIdx, setPrediction, setLastPrediction, setCurPrompt
- } = projectState.actions;
+export const {
+  setCurrentTitle, setCurrentImgNum, setPrompt, setImages,
+  setMask, setCurIdx, setPrediction, setLastPrediction, setCurPrompt, setConti
+} = projectState.actions;
 
 export default projectState.reducer;

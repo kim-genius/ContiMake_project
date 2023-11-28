@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from 'react'
 import axios from '../../axios'
 import styles from './FileUpload.module.css'
 
-const FileUpload = ({ setModal }) => {
-    const [location, setLocation] = useState('images/defaultImage.png');
+const FileUpload = ({ setModal, location, setLocation }) => {
+
+    const profile = useRef();
     const [image, setImage] = useState({
         preview:
             "",
@@ -18,11 +19,11 @@ const FileUpload = ({ setModal }) => {
         formData.append("file", image.data);
         formData.append("email", email);
 
-        console.log(image.data, "선택한이미지! ");
-        console.log(sessionStorage.getItem("email"))
-        console.log(image.preview, "들어간파일");
-        console.log(image.location, "location");
-        console.log(formData.getAll('file'))
+        // console.log(image.data, "선택한이미지! ");
+        // console.log(sessionStorage.getItem("email"))
+        // console.log(image.preview, "들어간파일");
+        // console.log(image.location, "location");
+        // console.log(formData.getAll('file'))
 
         try {
             await axios.post(
@@ -33,6 +34,7 @@ const FileUpload = ({ setModal }) => {
                         "Content-Type": "multipart/form-data",
                     },
                 },
+                
             ).then((res) => {
                 console.log(res, '요기!!!');
                 sessionStorage.setItem('location',
@@ -47,16 +49,10 @@ const FileUpload = ({ setModal }) => {
             console.error("Error during request:", err);
         }
         setModal(false);
-        setLocation(sessionStorage.getItem("location"));
+        setLocation(sessionStorage.getItem("location", profile.current.value));
+        // const storedLocation = sessionStorage.getItem("location");
+        // setLocation(storedLocation !== null ? storedLocation : profile.current.value);
     };
-
-    useEffect(() => {
-        // location이 변경될 때 수행할 동작
-        window.location.href = '/mypage'
-        console.log("Location이 변경되었습니다.", location);
-    }, [location]);
-
-
 
     return (
         <div className={styles.modal} onSubmit={(e) =>
@@ -69,11 +65,13 @@ const FileUpload = ({ setModal }) => {
 
                 {
                     image.data !== null ?
-                        <img className={styles.profile} src={image.preview} alt="" /> :
-                        <img className={styles.defaultProfile} src='images/defaultImage.png' />
+                        <img className={styles.profile} src={image.preview} alt="" />
+                        : <img className={styles.defaultProfile} src={location}
+                        />
                 }
 
                 <input
+                    ref={profile}
                     type="file"
                     onChange={(e) => {
                         const img = {
