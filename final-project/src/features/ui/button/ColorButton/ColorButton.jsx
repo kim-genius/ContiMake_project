@@ -3,7 +3,12 @@ import styles from './ColorButton.module.scss'
 const ColorButton = ({ text, func, parameter, generate }) => {
   const handleClick = (event) => {
     event.stopPropagation();
-    func(parameter);
+    if(parameter === null){
+      func()
+    }else{
+      func(parameter);
+    }
+
   };
 
   if (generate) {

@@ -54,7 +54,7 @@ const HeaderNav = (props) => {
                 />
             </div>
             <div className={styles.btnArea}>
-                <ColorButton text={'저장'} />
+                <ColorButton text={'저장'} func={saveProject}/>
                 <SaveFileBtn></SaveFileBtn>
                 <ReadFileBtn></ReadFileBtn>
             </div>
