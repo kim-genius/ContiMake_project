@@ -3,14 +3,14 @@ import styles from "./Nav.module.css"
 import { Link } from 'react-router-dom'
 import FileUpload from "../FileUpload/FileUpload";
 
-const Nav = ({ location, setLocation }) => {
+const Nav = () => {
   const [modal, setModal] = useState(false);
   const [click, setClick] = useState(true);
+  const [location, setLocation] = useState(sessionStorage.getItem('location'));
 
-  const clicked = () => {
-    setClick(!click);
-    
-  }
+  useEffect(() => {
+    setLocation(sessionStorage.getItem('location'))
+  }, [setLocation])
 
   return (
     <nav className={styles.navBox}>
@@ -19,7 +19,6 @@ const Nav = ({ location, setLocation }) => {
         backgroundImage: `url(${location})`,
         backgroundSize: 'cover',
       }}>
-
         <img className={styles.modifyBtn} src="images/Vector1.png" />
       </div>
 
@@ -29,20 +28,21 @@ const Nav = ({ location, setLocation }) => {
       <div className={styles.navList}>
 
         <div>
-          <Link to='/mypassword' onClick={clicked}>
+          <Link to='/mypassword'>
             <img src={'images/icon1.png'} alt="myInfo icon" /> 내정보수정
           </Link>
         </div>
 
         <div>
-          <Link to='/myconti' onClick={clicked}>
+          <Link to='/myconti'>
             <img style={{ width: '35px' }} src={'images/icon2.png'} alt="myConti icon" /> 마이 콘티
           </Link>
         </div>
 
       </div >
 
-      {modal && <FileUpload setModal={setModal}></FileUpload>}
+      {modal && <FileUpload setModal={setModal} location={location} setLocation={setLocation}></FileUpload>}
+
     </nav >
   )
 }

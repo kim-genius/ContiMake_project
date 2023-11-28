@@ -158,7 +158,6 @@ router.post('/readFile', (req, res) => {
                 return;
             }
             res.send(data);
-            // 파일 경로를 클라이언트에게 응답으로 보냅니다.
             // res.json({ data });
         });
     });
