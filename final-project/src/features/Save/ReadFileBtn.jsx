@@ -29,7 +29,6 @@ const ReadFileBtn = () => {
                 dispatch(setLastPrediction(res.data.lastPrediction));
                 dispatch(setCurPrompt(res.data.curPrompt));
                 dispatch(setPrompt(res.data.prompts));
-                // title이 변경이 안돼요... help me...
                 dispatch(setCurrentTitle(res.data.title));
                 navigate('/edit');
             })
@@ -49,7 +48,7 @@ const ReadFileBtn = () => {
                 id="profileImg"
             ></input>
             <label htmlFor="profileImg">
-                <img src='/images/readFile.png' />
+                <img className={styles.readFileIcon} src='/images/export_icon.svg' />
             </label>
         </button>
     );

@@ -71,9 +71,10 @@
 .contiViewImg .contiImgAdd {
   width: 6vw;
   height: 12vh;
+  margin-top: 10%;
 }
 .contiViewImg:hover {
-  background: gray;
+  background: #FFC478;
 }
 .contiViewImg:hover .contiImgAdd {
   display: none;

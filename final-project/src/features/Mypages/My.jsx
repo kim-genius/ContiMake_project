@@ -4,7 +4,6 @@ import styles from "./My.module.scss";
 import VaildPassword from "../auth/join/components/VaildPassword";
 import axios from "../../axios";
 import FileUpload from "../FileUpload/FileUpload";
-import { setSession } from '../../store';
 
 const My = () => {
   const navigate = useNavigate()
@@ -19,6 +18,7 @@ const My = () => {
   const passwordRef = useRef();
   const samePasswordRef = useRef();
   const [location, setLocation] = useState(sessionStorage.getItem('location'));
+
 
   useEffect(() => {
     setLocation(sessionStorage.getItem('location'))
@@ -60,7 +60,9 @@ const My = () => {
 
   const removeImg = () => {
     setLocation(sessionStorage.setItem("location", 'images/defaultImage.png'))
+    window.location.href = "/mypage"
   };
+
 
   const Withdrawal = () => {
     console.log('회원탈퇴')

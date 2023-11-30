@@ -13,10 +13,6 @@ const Header = () => {
   const exitModal = () => {
     setIsModalOpen(false)
   }
-  const openModal = () => {
-    setIsModalOpen(true)
-  }
-
   function onScroll() {
     setPosition(window.scrollY);
   }
@@ -44,14 +40,13 @@ const Header = () => {
             <Link className={styles.headerGenerateBtn} to='/generate'>{Button('새 콘티 생성')}</Link>
             {
               sessionStorage.getItem('nickname') ?
-                <div className={styles.profileBox} onClick={openModal}>
-
+                <div className={styles.profileBox} onClick={() => setIsModalOpen(!isModalOpen)}>
                   <div className={styles.profile} style={{
                     backgroundImage: `url(${sessionStorage.getItem("location")})`,
                     backgroundSize: 'cover',
-                  }}></div>
-
-                  <p>{sessionStorage.getItem('nickname')}님</p>
+                  }}>
+                  </div>
+                  <img style={{ width: '12px' }} src='/images/arrow.png' />
                 </div>
                 :
                 <Link to='/login'><span className={styles.loginBtn}>로그인</span></Link>
@@ -59,7 +54,7 @@ const Header = () => {
             <HeaderModal isOpen={isModalOpen} isClose={exitModal}></HeaderModal>
           </div>
         </div>
-      </header>
+      </header >
     </>
 
   )

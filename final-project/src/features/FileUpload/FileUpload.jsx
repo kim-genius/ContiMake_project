@@ -13,14 +13,11 @@ const FileUpload = ({ setModal, location, setLocation }) => {
         data: null, // 초기값을 null로 설정
     });
 
-    const submit = async (e) => {
-        e.preventDefault();
-
+    const submit = async () => {
         let formData = new FormData();
         let email = sessionStorage.getItem("email");
         formData.append("file", image.data);
         formData.append("email", email);
-
         try {
             await axios.post(
                 "/upload/submit",
