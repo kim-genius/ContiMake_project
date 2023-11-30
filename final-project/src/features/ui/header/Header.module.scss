@@ -10,7 +10,7 @@ a{
 }
 
 .headerGenerateBtn button{    
-    width:120px;   
+    width:140px;   
     font-size: 0.8rem;
  }
 
@@ -45,8 +45,8 @@ a{
   }
 
 .logo{
-    width:150px;
-    height:50px;
+    width:8.5rem;
+    height:3rem;
     right:50%;
 }
 
@@ -55,6 +55,7 @@ a{
     font-weight: 400;
     color:black;
     text-align: center;
+    text-wrap: nowrap;
 }
 .profileBox{
     margin-left:50px;
@@ -91,8 +92,8 @@ a{
         transform: translateX(-20%);
      }
      .logo{
-        width:150px;
-        height:50px;
+        width:8.5rem;
+        height:3rem;
      }
   } 
 @media screen and (max-width : 1000px) { //768px아래에서 이걸 적용
@@ -109,8 +110,8 @@ a{
         transform: translateX(-60%);
      }
      .logo{
-        width:120px;
-        height:40px;
+        width:8.5rem;
+        height:3rem;
      }
   }
 
@@ -127,9 +128,9 @@ a{
         transform: translateX(-60%);
      }
      .logo{
-        transform: translateX(-200%);
-        width:90px;
-        height:30px;
+        transform: translateX(-300%);
+        width:5.5rem;
+        height:3rem;
      }
   }
 

@@ -45,6 +45,12 @@
   font-size: 40px;
 }
 
+.cardText {
+  font-family: "Cafe24Ssurround";
+  margin-top: 30px;
+  font-size: 30px;
+}
+
 .cardBottomBox {
   width: 50%;
   height: 450px;
