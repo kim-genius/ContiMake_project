@@ -32,6 +32,7 @@ const HeaderModal = ({ isOpen, isClose }) => {
 
           <Link to='/myconti' onClick={isClose}>마이콘티</Link>
           <Link to='/mypassword' onClick={isClose}>내정보 수정</Link>
+          <p>ContiStoryPrompt</p>
           <button className={styles.headerLogOutBtn} onClick={() => logOut()}>로그아웃 <img src='/images/export_icon.svg' /></button>
         </div>
       </section>

@@ -35,13 +35,10 @@ a {
 }
 
 .headerRight {
-  width: 10%;
   display: flex;
-  justify-content: space-around;
-  right: 5%;
+  right: 3%;
   position: absolute;
   align-items: center;
-  margin: 10px;
 }
 
 .logo {
@@ -51,20 +48,19 @@ a {
 }
 
 .loginBtn {
+  margin-left: 20px;
   font-size: 1rem;
-  font-weight: 400;
   color: black;
-  text-align: center;
 }
 
 .profileBox {
-  margin-left: 50px;
+  margin-left: 40px;
   width: 100%;
   display: flex;
   align-items: center;
 }
 .profileBox img {
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .profile {
@@ -89,7 +85,7 @@ a {
     transform: translateX(-20%);
   }
   .logo {
-    width: 100px;
+    width: 150px;
     height: 50px;
   }
 }
@@ -107,7 +103,7 @@ a {
     transform: translateX(-60%);
   }
   .logo {
-    width: 90px;
+    width: 120px;
     height: 40px;
   }
 }
@@ -124,8 +120,8 @@ a {
     transform: translateX(-60%);
   }
   .logo {
-    transform: translateX(-300%);
-    width: 70px;
-    height: 40px;
+    transform: translateX(-200%);
+    width: 90px;
+    height: 30px;
   }
 }/*# sourceMappingURL=Header.module.css.map */

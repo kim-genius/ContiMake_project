@@ -1,4 +1,5 @@
 $main : #FFC478;
+$gray : #91969D;
 
 .navBox{
     border-right:1px solid rgba(200, 200, 200, 0.2);
@@ -38,7 +39,7 @@ $main : #FFC478;
         line-height: 6vh;
         .active{
             border-radius: 5px;
-            background-color:#FCF5EA;
+            background-color:$gray
         }
         a{
             padding-left: 4vw;
@@ -46,7 +47,7 @@ $main : #FFC478;
             color : black;
             font-weight: bold; 
             &:hover{
-                background-color:#FCF5EA;
+                background-color:$gray
             }
             div{
                 img {

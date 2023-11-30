@@ -35,7 +35,7 @@
 }
 .navBox .navList .active {
   border-radius: 5px;
-  background-color: #FCF5EA;
+  background-color: #91969D;
 }
 .navBox .navList a {
   padding-left: 4vw;
@@ -44,7 +44,7 @@
   font-weight: bold;
 }
 .navBox .navList a:hover {
-  background-color: #FCF5EA;
+  background-color: #91969D;
 }
 .navBox .navList a div img {
   width: 1.5vw;

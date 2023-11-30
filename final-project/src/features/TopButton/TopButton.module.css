@@ -14,6 +14,8 @@
   outline: none;
 }
 .scroll button:hover {
-  background-color: #FCF5EA;
-  color: #FFC478;
+  background-color: #FFC478;
+}
+.scroll .upArrow {
+  width: 25px;
 }/*# sourceMappingURL=TopButton.module.css.map */

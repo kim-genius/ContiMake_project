@@ -13,9 +13,11 @@
       border-radius: 50%;
       outline: none;
       &:hover {
-        background-color:#FCF5EA;
-        color: #FFC478;
+        background-color: #FFC478;
       };
     }  
+    .upArrow{
+      width: 25px;
+    }
   
   }

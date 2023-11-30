@@ -24,7 +24,7 @@ function TopButton() {
     return (
         showButton && (
             <div className={styles.scroll}>
-                <button onClick={scrollToTop}>Top</button>
+                <button onClick={scrollToTop}><img className={styles.upArrow} src={'/images/uparrow.png'}></img></button>
             </div>
         )
     );

@@ -36,27 +36,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+}
+.headerModalMiddle p {
+  margin: 5px;
 }
 .headerModalMiddle .headerLogOutBtn {
-  background-color: #FCF5EA;
+  margin-top: 4px;
   width: 100%;
-  margin: 5px;
   padding: 10px;
-  margin-top: 40px;
-  background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: none;
+  background-color: #FFC478;
   border-radius: 10px;
-  font-weight: bold;
 }
 .headerModalMiddle .headerLogOutBtn img {
   transform: rotate(90deg);
 }
 .headerModalMiddle .headerLogOutBtn:hover {
-  background-color: #F7F8FA;
+  border: 1px solid #FFC478;
+  background-color: white;
 }
 .headerModalMiddle a:hover {
-  background-color: #F7F8FA;
+  background-color: #91969D;
 }
 .headerModalMiddle a {
   width: 100%;
@@ -64,7 +64,6 @@
   padding: 10px;
   text-align: center;
   color: black;
-  background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid #91969D;
   border-radius: 10px;
 }/*# sourceMappingURL=HeaderModal.module.css.map */

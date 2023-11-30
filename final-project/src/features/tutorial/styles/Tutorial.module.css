@@ -5,4 +5,31 @@
   height: 100vh;
   overflow: hidden;
   z-index: 99;
+}
+
+.tutToggleBtn {
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 999;
+}
+
+.tutText {
+  padding: 5px 10px;
+  background-color: lightgray;
+  border-radius: 5px;
+  color: black;
+  display: none;
+  position: fixed;
+  left: 1rem;
+  bottom: 3rem;
+  font-size: 1rem;
+}
+
+.tutToggleBtn:hover + .tutText {
+  display: block;
 }/*# sourceMappingURL=Tutorial.module.css.map */
