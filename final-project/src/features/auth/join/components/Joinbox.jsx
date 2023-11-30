@@ -10,11 +10,12 @@ const Joinbox = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("1");
   const [samePassword, setSamePassword] = useState("");
+  const [vaildPasswordAlert,setVaildPasswordAlert] = useState(false)
   const [nickname, setNickname] = useState("");
 
 
   const sendJoin = () => {
-    if (email != '' && password != '' && nickname != '') {
+    if (email != '' && password != '' && nickname != '' && password == samePassword) {
       axios
         .post("/userJoin/join", {
           email: email,
@@ -46,7 +47,10 @@ const Joinbox = () => {
       } else {
         alert("가입 가능한 아이디입니다.");
       }
-    });
+    })
+    .catch(function (error) {
+      console.log(error.toJSON());
+    });;
   };
 
   return (
@@ -87,6 +91,7 @@ const Joinbox = () => {
         <VaildPassword
           password={password}
           samePassword={samePassword}
+          vaild={setVaildPasswordAlert}
         ></VaildPassword>
         <input
           className={styles.formItem}

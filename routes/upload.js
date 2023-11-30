@@ -62,87 +62,35 @@ router.post("/submit", upload.single("file"), (req, res) => {
 
 });
 
-// data:image/png;base64,
-
-// const fileName = 'test.jpg';
-// const fileUrl = `http://localhost:${PORT}/${fileName}`;
-// const filePath = path.join(__dirname, '../files', fileName);
-
-// 파일 생성하기
-// router.get('/saveFile', (req, res) => {
-//     res.render('saveFile');
-// });
-
-router.post('/saveFile', (req, res) => {
-    console.log(req.body.store);
-    const fileName = (req.body.store.title || '제목없음') + '.corn';
-    const store = req.body.store;
+router.post('/createFile', (req, res) => {
+    const data = req.body.data;
+    // 파일명이 없으면 기본값으로 설정
+    const fileName = (req.body.title || '제목없음') + '.corn';
+    console.log('데이터 출력',data)
     console.log(fileName, '제목')
     const jsonString = JSON.stringify(store);
     const filePath = path.join('../', fileName);
 
-    fs.writeFile(filePath, jsonString, (err) => {
+    // fs.writeFile(fileName, options, data.join('\n'), (err) => {
+    fs.writeFile(fileName, data, (err) => {
         if (err) {
             console.error(err);
             res.status(500).send('Internal Server Error');
         } else {
-            console.log('파일이 성공적으로 생성되었습니다');
-
-            // 클라이언트에게 파일 다운로드 링크를 제공
-            const downloadLink = {
-                downloadLink: `/upload/download?fileName=${encodeURIComponent(fileName)}`
-            };
-            res.json(downloadLink);
+            console.log('File created successfully');
+            res.send('File created successfully');
         }
     });
-});
+})
 
-// router.get('/save', (req, res, next) => {
-//     res.send(`
-//     <img src=${fileUrl} />
-
-//     <br>
-//     <br>
-//     <a href="/download" download>Download</a>
-//     `);
-// });
-
-// 파일 다운로드
-router.get('/download', (req, res) => {
-    const fileName = req.query.fileName;
-    if (!fileName) {
-        res.status(400).send('파일 이름이 누락되었습니다');
-        return;
-    }
-
-    const filePath = path.join('../', fileName);
-
-    res.download(filePath, fileName, (err) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('내부 서버 오류');
-        }
-    });
-});
-
-
-// 파일 불러오기
-router.post('/readFile', (req, res) => {
-    console.log(req.body.fileName)
-    let fullPath = req.body.fileName;
-    let pathComponents = fullPath.split("\\");
-    let fileName = pathComponents[pathComponents.length - 1];
-    console.log(fileName);
-
-    // const filePath = path.join(req.body.fileName);
-    const filePath = path.join('../', fileName);
-
-    console.log(filePath, 'filePath 뭐지')
-    // let options = {
-    //     encoding: 'utf8', // utf8 인코딩 방식으로 엽니다
-    //     flag: 'r' // 읽기 위해 엽니다
-    // }
-
+router.get('/readFile', (req, res) => {
+    const parsedUrl = new URL(`http://localhost:3000${req.url}`);
+    const queryData = parsedUrl.searchParams;
+    console.log(req.query.title)
+    const fileName = queryData.get('id');
+    const filePath = path.join(__dirname, '../', `${req.query.title}.corn`);
+    // const filePath = path.join(__dirname, 'data', `${fileName}.html`);
+    console.log('파일경로',filePath)
     // 파일 존재 여부 체크
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err) {
@@ -151,14 +99,35 @@ router.post('/readFile', (req, res) => {
         }
         // 파일 읽기
         fs.readFile(filePath, 'utf8', (err, data) => {
-            console.log(data, '데이터들어감')
+            console.log(data)
+            res.send(data)
             if (err) {
                 res.send('파일을 읽는 중 오류가 발생했습니다');
                 console.error(err);
                 return;
             }
-            res.send(data);
-            // res.json({ data });
+
+            // const template = `
+            //     <!DOCTYPE html>
+            //     <html lang="en">
+            //     <head>
+            //         <meta charset="UTF-8" />
+            //         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            //         <title>WEB1 - ${title}</title>
+            //     </head>
+            //     <body>
+            //         <h1><a href="/">WEB</a></h1>
+            //         <ol>
+            //             <li><a href="/?id=HTML">HTML</a></li>
+            //             <li><a href="/?id=CSS">CSS</a></li>
+            //             <li><a href="/?ixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                          ds=JavaScript">JavaScript</a></li>
+            //         </ol>
+            //         <h2>${title}</h2>
+            //         <p>${bodyContent}</p>
+            //     </body>c
+            //     </html>
+            // `;
+            // res.send(template);
         });
     });
 });

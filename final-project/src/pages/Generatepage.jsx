@@ -62,7 +62,7 @@ const Generatepage = () => {
             {
               loading ?
                 <div className={styles.loading_bar}>
-                  <BarLoader color="#36d7b7" loading={loading} width={200} height={20} />
+                  <img style={{transform:'translateY(150px)',width:'200px',height:'200px'}}src = '/images/consoupLoadingLogo.gif'></img>
                 </div>
                 : image.length > 0 ?
                   <Canvas />
