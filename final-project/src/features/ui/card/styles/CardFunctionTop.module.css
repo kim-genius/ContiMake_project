@@ -53,4 +53,10 @@
   background-size: cover;
   border-radius: 20px;
   background-repeat: no-repeat;
+}
+
+.cardText {
+  font-family: "Cafe24Ssurround";
+  margin-top: 30px;
+  font-size: 30px;
 }/*# sourceMappingURL=CardFunctionTop.module.css.map */

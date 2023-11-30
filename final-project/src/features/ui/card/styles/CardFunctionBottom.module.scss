@@ -13,7 +13,9 @@
 .cardBottomTitle{
     @include CardFunction.cardTitle();
 }
-
+.cardText{
+    @include CardFunction.cardText()
+}
 .cardBottomBox{
     @include CardFunction.cardContent();
 

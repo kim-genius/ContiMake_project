@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react'
 import styles from '../styles/VaildPassword.module.scss'
 
 
-const VaildPassword = ({password,samePassword}) => {
+const VaildPassword = ({password,samePassword,vaild}) => {
     const [eightPassword,setEightPassword] = useState('rgba(0,0,0,0.2)')
     const [samePasswordColor,setSamePasswordColor] = useState('rgba(0,0,0,0.2)');
     const isNumberEightPassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+=])[A-Za-z\d!@#$%^&*()_+=]{8,}$/
@@ -26,10 +26,10 @@ const VaildPassword = ({password,samePassword}) => {
 
 
     const confirmSamePassword=()=>{
-      if((password == samePassword) && password ==null){
+      if((password == samePassword) && !!password == true){
         
         return(setSamePasswordColor('#FFC478'))
-      }if(password !== samePassword){
+      }if(password !== samePassword ){
        
         return(setSamePasswordColor('rgba(0,0,0,0.2)'))
       }
