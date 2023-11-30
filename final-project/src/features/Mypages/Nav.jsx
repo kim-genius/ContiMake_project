@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import styles from "./Nav.module.css"
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import FileUpload from "../FileUpload/FileUpload";
 
-const Nav = ({ location, setLocation }) => {
+const Nav = () => {
   const [modal, setModal] = useState(false);
-  const [click, setClick] = useState(true);
+  const [location, setLocation] = useState(sessionStorage.getItem('location'));
+  const navLists = [' 내정보 수정', ' 마이 콘티']
 
-  const clicked = () => {
-    setClick(!click);
-    
-  }
+  useEffect(() => {
+    setLocation(sessionStorage.getItem('location'))
+  }, [setLocation])
 
   return (
     <nav className={styles.navBox}>
@@ -19,30 +19,37 @@ const Nav = ({ location, setLocation }) => {
         backgroundImage: `url(${location})`,
         backgroundSize: 'cover',
       }}>
-
         <img className={styles.modifyBtn} src="images/Vector1.png" />
       </div>
 
-      <h4>
-        {sessionStorage.getItem('nickname')}
-      </h4>
+      <h5>
+        {sessionStorage.getItem('nickname')}님
+      </h5>
       <div className={styles.navList}>
 
-        <div>
-          <Link to='/mypassword' onClick={clicked}>
-            <img src={'images/icon1.png'} alt="myInfo icon" /> 내정보수정
-          </Link>
-        </div>
+        <NavLink
+          to='/mypassword'
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? `${styles.active}` : ""
+          }
+        >
+          <img style={{ width: '22px' }} src={'images/icon1.png'} alt="myInfo icon" />
+          {navLists[0]}
+        </NavLink>
 
-        <div>
-          <Link to='/myconti' onClick={clicked}>
-            <img style={{ width: '35px' }} src={'images/icon2.png'} alt="myConti icon" /> 마이 콘티
-          </Link>
-        </div>
+        <NavLink
+          to='/myconti'
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? `${styles.active}` : ""
+          }
+        >
+          <img style={{ width: '22px' }} src={'images/icon2.png'} alt="myConti icon" /> {navLists[1]}
+        </NavLink>
 
       </div >
 
-      {modal && <FileUpload setModal={setModal}></FileUpload>}
+      {modal && <FileUpload setModal={setModal} location={location} setLocation={setLocation}></FileUpload>}
+
     </nav >
   )
 }

@@ -69,7 +69,7 @@ const Footer = () => {
         </nav>
         <div className={styles.bottom}>
           <strong className={styles.text}>(주)콘스프</strong>
-          <p>사업자 등록번호 : 120-87-61465 | 대표:김영재 | 주소 : 광주광역시 동구 제봉로 92</p>
+          <p>사업자 등록번호 : 20230607-1207 | 대표:김영재 | 주소 : 광주광역시 동구 제봉로 92</p>
         </div>
       </div>
     </div>

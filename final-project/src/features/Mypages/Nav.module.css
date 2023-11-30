@@ -23,19 +23,28 @@
 .navBox .userImg:hover .modifyBtn {
   display: block;
 }
-.navBox h4 {
+.navBox h5 {
   display: flex;
   justify-content: center;
   margin-bottom: 10vh;
 }
 .navBox .navList {
-  padding-left: 4vw;
+  display: flex;
+  flex-direction: column;
   line-height: 6vh;
 }
+.navBox .navList .active {
+  border-radius: 5px;
+  background-color: #FCF5EA;
+}
 .navBox .navList a {
+  padding-left: 4vw;
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+.navBox .navList a:hover {
+  background-color: #FCF5EA;
 }
 .navBox .navList a div img {
   width: 1.5vw;

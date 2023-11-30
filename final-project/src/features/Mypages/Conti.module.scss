@@ -81,19 +81,16 @@ $main:#FFC478;
     width: 16vw;
     height: 38vh;
     position: relative;
-    // transition: all 0.2s linear;
-    // &:hover img {
-    //     transform: scale(1.4);
-    // }
     display: flex;
     justify-content: center;
     align-items: center;
     .contiImgAdd{
         width: 6vw;
         height: 12vh;
+        margin-top: 10%;
     }
     &:hover {
-        background: gray;
+        background: $main;
         .contiImgAdd {
             display: none;
         }

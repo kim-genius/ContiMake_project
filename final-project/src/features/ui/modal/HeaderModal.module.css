@@ -1,13 +1,18 @@
 .headerModalBox {
   padding: 15px;
   width: 230px;
-  height: 300px;
-  transform: translate(30%, 65%);
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  height: 350px;
+  transform: translate(5%, 62%);
   z-index: 2;
   position: absolute;
-  border-radius: 3px;
+  border-radius: 10px;
   background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.headerModalBox .profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .headerModalTop {
@@ -20,33 +25,38 @@
   background-color: transparent;
   position: relative;
   border: none;
-  width: 10px;
-  height: 10px;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
 }
 
 .headerModalMiddle {
-  width: 100%;
-  height: 100%;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
 }
 .headerModalMiddle .headerLogOutBtn {
+  background-color: #FCF5EA;
   width: 100%;
   margin: 5px;
   padding: 10px;
   margin-top: 40px;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.headerModalMiddle .headerLogOutBtn img {
+  transform: rotate(90deg);
 }
 .headerModalMiddle .headerLogOutBtn:hover {
-  background-color: rgb(234, 234, 234);
+  background-color: #F7F8FA;
 }
 .headerModalMiddle a:hover {
-  background-color: rgb(234, 234, 234);
+  background-color: #F7F8FA;
 }
 .headerModalMiddle a {
   width: 100%;
@@ -56,5 +66,5 @@
   color: black;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+  border-radius: 10px;
 }/*# sourceMappingURL=HeaderModal.module.css.map */

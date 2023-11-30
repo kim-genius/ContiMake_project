@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
 import axios from '../../axios'
 import styles from './FileUpload.module.css'
+import { useNavigate } from 'react-router-dom';
 
 const FileUpload = ({ setModal, location, setLocation }) => {
-
+    const navigate = useNavigate();
+    // const [location, setLocation] = useState(sessionStorage.getItem('location'));
     const profile = useRef();
     const [image, setImage] = useState({
         preview:
@@ -11,20 +13,11 @@ const FileUpload = ({ setModal, location, setLocation }) => {
         data: null, // 초기값을 null로 설정
     });
 
-    const submit = async (e) => {
-        e.preventDefault();
-
+    const submit = async () => {
         let formData = new FormData();
         let email = sessionStorage.getItem("email");
         formData.append("file", image.data);
         formData.append("email", email);
-
-        // console.log(image.data, "선택한이미지! ");
-        // console.log(sessionStorage.getItem("email"))
-        // console.log(image.preview, "들어간파일");
-        // console.log(image.location, "location");
-        // console.log(formData.getAll('file'))
-
         try {
             await axios.post(
                 "/upload/submit",
@@ -34,7 +27,7 @@ const FileUpload = ({ setModal, location, setLocation }) => {
                         "Content-Type": "multipart/form-data",
                     },
                 },
-                
+
             ).then((res) => {
                 console.log(res, '요기!!!');
                 sessionStorage.setItem('location',
@@ -49,9 +42,15 @@ const FileUpload = ({ setModal, location, setLocation }) => {
             console.error("Error during request:", err);
         }
         setModal(false);
-        setLocation(sessionStorage.getItem("location", profile.current.value));
-        // const storedLocation = sessionStorage.getItem("location");
-        // setLocation(storedLocation !== null ? storedLocation : profile.current.value);
+    };
+
+    const handleInputChange = (e) => {
+        setLocation(URL.createObjectURL(e.target.files[0]))
+        const img = {
+            preview: URL.createObjectURL(e.target.files[0]),
+            data: e.target.files[0],
+        };
+        setImage(img);
     };
 
     return (
@@ -63,23 +62,17 @@ const FileUpload = ({ setModal, location, setLocation }) => {
                     <button className={styles.closeBtn} onClick={() => { setModal() }}>X</button><br></br>
                 </div>
 
-                {
-                    image.data !== null ?
-                        <img className={styles.profile} src={image.preview} alt="" />
-                        : <img className={styles.defaultProfile} src={location}
-                        />
-                }
+                <div className={styles.profile}
+                    style={{
+                        backgroundImage: `url(${location})`,
+                        backgroundSize: 'cover',
+                    }}
+                ></div>
 
                 <input
                     ref={profile}
                     type="file"
-                    onChange={(e) => {
-                        const img = {
-                            preview: URL.createObjectURL(e.target.files[0]),
-                            data: e.target.files[0],
-                        };
-                        setImage(img);
-                    }}
+                    onChange={handleInputChange}
                     accept="Images/*"
                     id="profileImg"
                     name="file"
