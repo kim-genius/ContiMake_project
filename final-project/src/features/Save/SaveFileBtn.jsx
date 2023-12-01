@@ -1,19 +1,16 @@
 import React, { useState, useRef } from 'react';
 import axios from '../../axios';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import styles from './Save.module.css'
 
 const SaveFileBtn = () => {
 
-    const [readConti, setReadConti] = useState([]);
-
     const store = useSelector((state) => state.cur_project)
-    console.log(store)
+    console.log(store, '스토어')
 
     const createFile = async () => {
 
-        await axios.post('/upload/saveFile', {
+        await axios.post('/upload/createFile', {
             store
         })
             .then(res => {
