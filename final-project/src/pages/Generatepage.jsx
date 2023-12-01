@@ -26,7 +26,7 @@ const Generatepage = () => {
     let newImages = []
     for (let i = 0; i < promptLen; i++) {
       const result = await axios.get(
-        `http://114.110.130.45:5000/?prompt==${prompt[i]},%20pencil%20style,%20cartoon,%20fast%20sketch,%20rough%20sketch,%20croquis`
+        `http://114.110.130.45:5000/?prompt==${prompt[i]},%20pencil%20style,%20cartoon,%conti,%20fast%20sketch,%20rough%20sketch,%20croquis,%20fastsketch,%20NarrativeSequencing,%Comic Book Elements,%20Cartoon Storyboard Style,%20 the single cut,single image`
       );
       newImages = [...newImages, result.data];
     }
