@@ -1,5 +1,5 @@
 
-const conn = require('../config/database')
+const {conn} = require('../config/database')
 const express = require('express');
 const router = express.Router();
 

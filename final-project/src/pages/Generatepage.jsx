@@ -50,13 +50,13 @@ const Generatepage = () => {
         <div className={styles.contentsWrapper}>
           <section className={styles.designTab}>
             <ToggleBtn tab1={"드로잉"} tab2={"리터칭"} />
-            <BoxItem title={"생성할 컷 수 지정"} />
+            <BoxItem title={"드로잉 컷 수 지정"} />
             <CutsNumber />
             <BoxItem title={"콘티 내용 입력"} />
             <div className={styles.promptsBox}>
               <Prompts />
             </div>
-            <ColorButton text={"생성하기"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading} />
+            <ColorButton text={"드로잉"} func={generate} parameter={{ prompt: promptsList, promptLen: promptsNum }} generate={loading} />
           </section>
           <section className={styles.canvas}>
             {

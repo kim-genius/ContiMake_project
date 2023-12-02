@@ -2,9 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
-const router = express.Router();
-const path = require('path');
-const conn = require('../config/database');
+const router = express.Router()
+const path = require('path')
+const {conn} = require('../config/database');
 router.use(express.static("Images"));
 const multer = require('multer');
 const multerS3 = require('multer-s3');
