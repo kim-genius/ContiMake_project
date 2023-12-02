@@ -10,7 +10,7 @@ a{
 }
 
 .headerGenerateBtn button{    
-    width:120px;   
+    width:140px;   
     font-size: 0.8rem;
  }
 
@@ -35,33 +35,32 @@ a{
 }
 
 .headerRight{
-    width:18%;
     display:flex;
-    justify-content: space-around;
-    right:5%;
+    right:3%;
     position:absolute;
     align-items: center;
-    margin:10px;
   }
 
 .logo{
-    width:150px;
-    height:50px;
+    width:8.5rem;
+    height:3rem;
     right:50%;
 }
 
 .loginBtn{
+    margin-left: 20px;
     font-size: 1rem;
-    font-weight: 400;
     color:black;
-    text-align: center;
 }
+
 .profileBox{
-    transform: translateY(15%);
+    margin-left:40px;
     width:100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    img{
+        margin-left:20px;
+    }
 }
 
 .profile{
@@ -89,8 +88,8 @@ a{
         transform: translateX(-20%);
      }
      .logo{
-        width:150px;
-        height:50px;
+        width:8.5rem;
+        height:3rem;
      }
   } 
 @media screen and (max-width : 1000px) { //768px아래에서 이걸 적용
@@ -107,8 +106,8 @@ a{
         transform: translateX(-60%);
      }
      .logo{
-        width:120px;
-        height:40px;
+        width:8.5rem;
+        height:3rem;
      }
   }
 
@@ -121,13 +120,13 @@ a{
         font-size:0.5rem;
      }
      .headerGenerateBtn button{       
-        font-size: 0.7rem;
+        font-size: 0.5rem;
         transform: translateX(-60%);
      }
      .logo{
-        transform: translateX(-200%);
-        width:90px;
-        height:30px;
+        transform: translateX(-300%);
+        width:5.5rem;
+        height:3rem;
      }
   }
 

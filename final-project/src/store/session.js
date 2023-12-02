@@ -4,17 +4,17 @@ import { createSlice } from '@reduxjs/toolkit'
 // session관리
 
 const sessionState = createSlice({
-    name:'session',
-    initialState:{
-      email:'',
-      nickName:''
-    },
-    reducers :{
-      setSession:(state,action) =>{
-        state.email = action.payload.email;
-        state.nickName = action.payload.nickname;
-      }
+  name: 'session',
+  initialState: {
+    email: '',
+    nickName: ''
+  },
+  reducers: {
+    setSession: (state, action) => {
+      state.email = action.payload.email;
+      state.nickName = action.payload.nickname;
     }
+  }
 })
 
 

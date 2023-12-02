@@ -11,6 +11,9 @@
 @include CardFunction.cardTitle();
 
 }
+.cardText{
+    @include CardFunction.cardText()
+}
 
 .cardMiddleBox{
 @include CardFunction.cardContent();

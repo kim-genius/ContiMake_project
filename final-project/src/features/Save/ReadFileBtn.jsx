@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import axios from '../../axios';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styles from "./Save.module.css"
 import {
     setCurrentTitle, setCurrentImgNum, setPrompt, setImages,
@@ -13,28 +14,28 @@ const ReadFileBtn = () => {
 
     const readFileName = useRef();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const readFile = async () => {
         await axios.post('/upload/readFile', { fileName: readFileName.current.value })
             .then(res => {
                 console.log(res.filePath, 'res.파일경로');
-                console.log(res.data.title, 'res.데이터');
-
-                dispatch(setCurrentTitle(res.data.title));
+                console.log(res.data.prompts, 'res.데이터');
                 dispatch(setCurrentImgNum(res.data.imgNums));
-                // dispatch(setPrompt(res.data.prompts));
                 dispatch(setImages(res.data.images));
-                // dispatch(setCurIdx(res.data.curIdx));
-                // dispatch(setPrediction(res.data.prediction));
-                // dispatch(setLastPrediction(res.data.lastPrediction));
-                // dispatch(setCurPrompt(res.data.curPrompt));
+                dispatch(setMask(res.data.mask));
+                dispatch(setCurIdx(res.data.curIdx));
+                dispatch(setPrediction(res.data.prediction));
+                dispatch(setLastPrediction(res.data.lastPrediction));
+                dispatch(setCurPrompt(res.data.curPrompt));
+                dispatch(setPrompt(res.data.prompts));
+                dispatch(setCurrentTitle(res.data.title));
+                navigate('/edit');
             })
             .catch(err => {
                 console.error(err);
             });
     };
-
-    // <img src={'data:image/png;base64,' + readConti.images}></img> 
 
     return (
         <button className={styles.btn}>
@@ -47,7 +48,7 @@ const ReadFileBtn = () => {
                 id="profileImg"
             ></input>
             <label htmlFor="profileImg">
-                <img src='/images/readFile.png' />
+                <img className={styles.readFileIcon} src='/images/export_icon.svg' />
             </label>
         </button>
     );

@@ -14,6 +14,7 @@ const HeaderNav = (props) => {
     const [showEditIcon, setShowEditIcon] = useState(true);
     const dispatch = useDispatch();
     const cur_project = useSelector(state => state.cur_project);
+    const currentTitle = useSelector(state => state.currentTitle);
 
     /** 타이틀 수정 활성화 */
     const editTitle = () => {

@@ -6,8 +6,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import HeaderModal from '../modal/HeaderModal'
 
 const Header = () => {
-  const [location, setLocation] = useState(sessionStorage.getItem("location"));
-  console.log(location, '뭐가뜨냐')
   const headerRef = useRef();
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [position, setPosition] = useState(0);
@@ -15,10 +13,6 @@ const Header = () => {
   const exitModal = () => {
     setIsModalOpen(false)
   }
-  const openModal = () => {
-    setIsModalOpen(true)
-  }
-
   function onScroll() {
     setPosition(window.scrollY);
   }
@@ -43,16 +37,22 @@ const Header = () => {
         <div className={styles.headerBox}>
           <Link to='/'><img className={styles.logo} src='images/logo.png' alt='logo' /></Link>
           <div className={styles.headerRight}>
+
+            { sessionStorage.getItem('email') ?
             <Link className={styles.headerGenerateBtn}to='/generate'>{Button('새 콘티 생성')}</Link>
+            :
+            <Link className={styles.headerGenerateBtn}to='/login'>{Button('새 콘티 생성')}</Link>
+            }
+            
             {
               sessionStorage.getItem('nickname') ?
-                <div className={styles.profileBox} onClick={openModal}>
-
+                <div className={styles.profileBox} onClick={() => setIsModalOpen(!isModalOpen)}>
                   <div className={styles.profile} style={{
-                    backgroundImage: `url(${location})`,
+                    backgroundImage: `url(${sessionStorage.getItem("location")})`,
                     backgroundSize: 'cover',
-                  }}></div>
-                  <p>{sessionStorage.getItem('nickname')}님</p>
+                  }}>
+                  </div>
+                  <img style={{ width: '12px' }} src='/images/arrow.png' />
                 </div>
                 :
                 <Link to='/login'><span className={styles.loginBtn}>로그인</span></Link>
@@ -60,7 +60,7 @@ const Header = () => {
             <HeaderModal isOpen={isModalOpen} isClose={exitModal}></HeaderModal>
           </div>
         </div>
-      </header>
+      </header >
     </>
 
   )

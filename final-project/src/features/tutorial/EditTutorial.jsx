@@ -16,7 +16,7 @@ const tutContents = [
         linePosition: 'leftTop'
     },
     {
-        title: '인페인팅',
+        title: '리터칭',
         text: '펜 툴을 이용하여 이미지 영역을 선택하세요. 일부분만 재생성할 수 있습니다.',
         position: { left: '20%', top: '45%' },
         linePosition: 'leftTop'

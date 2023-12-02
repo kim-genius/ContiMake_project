@@ -56,4 +56,13 @@
 }
 .textBtnBox button:last-child {
   padding-bottom: 0.2em;
+}
+
+.speechBubble {
+  pointer-events: auto;
+  background-color: transparent;
+  display: flex;
+  border: none;
+  width: auto;
+  height: auto;
 }/*# sourceMappingURL=Editpage.module.css.map */

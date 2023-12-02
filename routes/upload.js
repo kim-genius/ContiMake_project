@@ -73,7 +73,7 @@ router.post("/submit", upload.single("file"), (req, res) => {
 //     res.render('saveFile');
 // });
 
-router.post('/saveFile', (req, res) => {
+router.post('/createFile', (req, res) => {
     console.log(req.body.store);
     const fileName = (req.body.store.title || '제목없음') + '.corn';
     const store = req.body.store;
@@ -158,7 +158,6 @@ router.post('/readFile', (req, res) => {
                 return;
             }
             res.send(data);
-            // 파일 경로를 클라이언트에게 응답으로 보냅니다.
             // res.json({ data });
         });
     });

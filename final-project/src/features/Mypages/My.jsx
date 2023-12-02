@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { redirect, useNavigate } from 'react-router-dom'
 import styles from "./My.module.scss";
 import VaildPassword from "../auth/join/components/VaildPassword";
 import axios from "../../axios";
 import FileUpload from "../FileUpload/FileUpload";
 
-const My = ({ location, setLocation }) => {
+const My = () => {
   const navigate = useNavigate()
   const [modal, setModal] = useState(false);
   const [password, setPassword] = useState("");
@@ -16,11 +16,15 @@ const My = ({ location, setLocation }) => {
   const [isPasswordNameEdit, setIsPasswordNameEdit] = useState(false);
   const nickNameRef = useRef();
   const passwordRef = useRef();
-  const profile = useRef();
   const samePasswordRef = useRef();
+  const [location, setLocation] = useState(sessionStorage.getItem('location'));
 
 
-  const changeMyPage = ({ location, setLocation }) => {
+  useEffect(() => {
+    setLocation(sessionStorage.getItem('location'))
+  }, [setLocation])
+
+  const changeMyPage = () => {
     console.log('email', sessionStorage.getItem("email"), 'nick', nickName)
     axios
       .post("/userpage/update", {
@@ -56,7 +60,9 @@ const My = ({ location, setLocation }) => {
 
   const removeImg = () => {
     setLocation(sessionStorage.setItem("location", 'images/defaultImage.png'))
+    window.location.href = "/mypage"
   };
+
 
   const Withdrawal = () => {
     console.log('회원탈퇴')
@@ -87,9 +93,8 @@ const My = ({ location, setLocation }) => {
       console.log('탈퇴취소');
     }
   }
-  useEffect(() => {
-    setLocation(sessionStorage.getItem('location'))
-  }, [setLocation])
+
+
 
   return (
     <form className={styles.myBox} onSubmit={(e) => e.preventDefault()}>
@@ -97,12 +102,11 @@ const My = ({ location, setLocation }) => {
         <div className={styles.userBox}>
 
           <div className={styles.userImg}
-            ref={profile}
             style={{
               backgroundImage: `url(${location})`,
               backgroundSize: 'cover',
-            }} />
-
+            }}
+          ></div>
           <button onClick={() => setModal(true)} className={styles.btnUp}>이미지업로드</button>
           <br></br>
           <button onClick={removeImg} className={styles.btnDown}>이미지제거</button>

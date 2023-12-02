@@ -1,0 +1,21 @@
+.scroll {
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  z-index: 1;
+}
+.scroll button {
+  font-weight: bold;
+  padding: 14px 12px;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 50%;
+  outline: none;
+}
+.scroll button:hover {
+  background-color: #FFC478;
+}
+.scroll .upArrow {
+  width: 25px;
+}/*# sourceMappingURL=TopButton.module.css.map */

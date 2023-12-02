@@ -7,12 +7,12 @@
   background: white;
   color: black;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 10px;
 }
 
 @media screen and (max-width: 1200px) {
   a {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 @media screen and (max-width: 900px) {

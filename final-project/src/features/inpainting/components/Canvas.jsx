@@ -3,12 +3,13 @@ import { ReactSketchCanvas } from 'react-sketch-canvas'
 import styles from '../styles/Canvas.module.scss'
 import { useSelector, useDispatch } from 'react-redux';
 import { setMask } from '../../../store';
+import {fabric} from 'fabric'
 const style = {
     border: '0.0625rem solid #9c9c9c',
     borderRadius: '0.25rem',
 };
 
-const Canvas = () => {
+const Canvas = ({speech,setSpeech}) => {
     const brushState = useSelector((state) => state.canvas_slice);
     const cur_project = useSelector((state) => state.cur_project);
     const dispatch = useDispatch();
@@ -36,8 +37,11 @@ const Canvas = () => {
 
     // const predicting = predictions.some((prediction) => !prediction.output);
     // const lastPrediction = predictions[predictions.length - 1];
+ 
+  
+
     return (
-        <div className={styles.canvasWrapper}>
+        <div className={styles.canvasWrapper} >
             {
                 cur_project.images ?
                 <img
@@ -54,6 +58,7 @@ const Canvas = () => {
                  className={styles.canvasBox}
             >
                 <ReactSketchCanvas
+                    
                     className={styles.sketchCanvas}
                     onChange={onChange}
                     ref={canvasRef}

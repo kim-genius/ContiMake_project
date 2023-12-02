@@ -5,4 +5,8 @@
 
 .readFile {
   display: none;
+}
+
+.readFileIcon {
+  transform: rotate(180deg);
 }/*# sourceMappingURL=Save.module.css.map */

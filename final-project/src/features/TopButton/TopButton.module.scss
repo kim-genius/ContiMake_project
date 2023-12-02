@@ -1,0 +1,23 @@
+.scroll{
+    position:fixed;
+    right:2%;
+    bottom:5%;
+    z-index:1;
+    
+    button{
+      font-weight: bold;
+      padding: 14px 12px;
+      background-color: white;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.200);
+      border: none;
+      border-radius: 50%;
+      outline: none;
+      &:hover {
+        background-color: #FFC478;
+      };
+    }  
+    .upArrow{
+      width: 25px;
+    }
+  
+  }
