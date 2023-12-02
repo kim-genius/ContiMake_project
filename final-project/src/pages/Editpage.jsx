@@ -49,7 +49,7 @@ const Editpage = () => {
     console.log("init:", init_data);
     if (mask_data.length > 0) {
       const result = await axios.get(
-        `http://114.110.130.45:5000/inpainting?edited_prompt==${prompt[idx]}&mask_data==${mask_data}&image_data==${init_data[idx]}`
+        `http://64.98.238.3:41012/inpainting?edited_prompt==${prompt[idx]}&mask_data==${mask_data}&image_data==${init_data[idx]}`
       );
       dispatch(setImages(result.data));
       setLoading(false);
@@ -94,7 +94,7 @@ const Editpage = () => {
                 ref={(el) => (btnRef.current[1] = el)}
                 onClick={() => {
                   return (
-        
+
                     activeBtn(1)
                   );
                 }}
@@ -136,12 +136,7 @@ const Editpage = () => {
         <section className={styles.canvas}>
           {loading ? (
             <div className={styles.loading_bar}>
-              <BarLoader
-                color="#36d7b7"
-                loading={loading}
-                width={200}
-                height={20}
-              />
+              <img style={{ transform: 'translateY(150px)', width: '200px', height: '200px' }} src='/images/consoupLoadingLogo.gif'></img>
             </div>
           ) : cur_project.images.length != 0 ? (
             <>
