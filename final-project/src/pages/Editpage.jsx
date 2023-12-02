@@ -74,9 +74,9 @@ const Editpage = () => {
         <div>
           <ToggleBtn tab1={"드로잉"} tab2={"리터칭"} />
           <section className={styles.designTab}>
-            <BoxItem title={"콘티 내용 입력"} />
+            <BoxItem title={"콘티 내용"} />
             <PromptBox />
-            <BoxItem title={"리터칭"} />
+            <BoxItem title={"리터칭 영역 선택"} />
             <p>설명</p>
             <button
               className={styles.toolBtn}

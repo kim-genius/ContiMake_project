@@ -52,7 +52,7 @@ const Generatepage = () => {
             <ToggleBtn tab1={"드로잉"} tab2={"리터칭"} />
             <BoxItem title={"드로잉 컷 수 지정"} />
             <CutsNumber />
-            <BoxItem title={"콘티 내용 입력"} />
+            <BoxItem title={"콘티 내용"} />
             <div className={styles.promptsBox}>
               <Prompts />
             </div>
