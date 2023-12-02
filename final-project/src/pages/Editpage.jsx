@@ -72,11 +72,11 @@ const Editpage = () => {
       </nav>
       <div className={styles.contentsWrapper}>
         <div>
-          <ToggleBtn tab1={"생성"} tab2={"편집"} />
+          <ToggleBtn tab1={"드로잉"} tab2={"리터칭"} />
           <section className={styles.designTab}>
-            <BoxItem title={"프롬프트"} />
+            <BoxItem title={"콘티 내용"} />
             <PromptBox />
-            <BoxItem title={"인페인팅"} />
+            <BoxItem title={"리터칭 영역 선택"} />
             <p>설명</p>
             <button
               className={styles.toolBtn}
@@ -128,7 +128,7 @@ const Editpage = () => {
               </button>
             </div>
             <ColorButton
-              text={"재생성"}
+              text={"리터칭"}
               func={regenerate}
               parameter={{
                 prompt: cur_project.prompts,
@@ -141,17 +141,18 @@ const Editpage = () => {
           </section>
         </div>
         <section className={styles.canvas}>
-          {loading ? (
-            <div className={styles.loading_bar}>
-              <img style={{ transform: 'translateY(150px)', width: '200px', height: '200px' }} src='/images/consoupLoadingLogo.gif'></img>
-            </div>
-          ) : cur_project.images.length != 0 ? (
-            <>
-              <Canvas />
-            </>
-          ) : null}
-
-          <TextBox></TextBox>
+          {/* <TextBox></TextBox> */}
+          {
+            loading ?
+              <section className={styles.canvasblack}>
+                <div className={styles.loading_bar}>
+                  <img style={{ transform: 'translateY(120px)', width: '180px', height: '320px' }} src='/images/consoupLoadingLogo.gif'></img>
+                </div>
+              </section>
+              : cur_project.images.length != 0 ?
+                <Canvas />
+                : null
+          }
         </section>
         <section className={styles.designTab}>
           <OutputImgs />
