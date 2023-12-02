@@ -48,8 +48,12 @@ const Editpage = () => {
     console.log("mask:", mask_data);
     console.log("init:", init_data);
     if (mask_data.length > 0) {
-      const result = await axios.get(
-        `http://64.98.238.3:41012/inpainting?edited_prompt==${prompt[idx]}&mask_data==${mask_data}&image_data==${init_data[idx]}`
+      const result = await axios.post(
+        'http://64.98.238.3:41012/inpainting/', {
+        edited_prompt: prompt[idx],
+        mask_data: mask_data,
+        image_data: init_data[idx]
+      }
       );
       dispatch(setImages(result.data));
       setLoading(false);
