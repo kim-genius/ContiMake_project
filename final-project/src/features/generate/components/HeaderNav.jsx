@@ -23,13 +23,15 @@ const HeaderNav = (props) => {
         setShowEditIcon(false)
     }
 
-    const saveProject = () => {
+    const saveProject = () =>{
+        console.log('왜 두번실해오디냐')
         axios
-            .post("/generate/save", {
-                title: cur_project.title,
-                email: sessionStorage.getItem("email"),
-                images: cur_project.images
-            }).then(res => console.log(res.data))
+          .post("/generate/save", {
+            title: cur_project.title,
+            email: sessionStorage.getItem("email"),
+            images: cur_project.images,
+            prompts: cur_project.prompts
+          }).then(res=>console.log(res.data))
     }
 
     return (
@@ -53,7 +55,7 @@ const HeaderNav = (props) => {
                 />
             </div>
             <div className={styles.btnArea}>
-                <ColorButton text={'저장'} />
+                <ColorButton text={'저장'} func={saveProject}/>
                 <SaveFileBtn></SaveFileBtn>
                 <ReadFileBtn></ReadFileBtn>
             </div>
