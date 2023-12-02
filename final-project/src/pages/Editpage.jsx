@@ -44,22 +44,25 @@ const Editpage = () => {
 
   /** 인페인팅 */
   const regenerate = async ({ prompt, mask_data, init_data, idx }) => {
-    setLoading(true);
-    console.log("mask:", mask_data);
-    console.log("init:", init_data);
-    if (mask_data.length > 0) {
+    setLoading(true)
+      console.log('mask : ', mask_data)
+      console.log('image : ', init_data)
+    // if (mask_data.length > 0) {
       const result = await axios.post(
-        'http://64.98.238.3:41012/inpainting/', {
-        edited_prompt: prompt[idx],
-        mask_data: mask_data,
-        image_data: init_data[idx]
-      }
-      );
-      dispatch(setImages(result.data));
-      setLoading(false);
-    } else {
-    }
-  };
+      // 'http://114.110.130.45:5000/inpainting'
+      // 'http://127.0.0.1:8000/inpainting' => 로컬
+      'http://64.98.238.3:41012/inpainting', {
+        edited_prompt : prompt[idx],
+        mask_data : mask_data,
+        image_data : init_data[idx]
+      })
+      let copy = [...init_data]
+      copy[idx] = result.data
+      dispatch(setImages(copy))
+      console.log(cur_project)
+      setLoading(false)
+    // } 
+  }
 
   return (
     <div className={styles.Wrapper}>
