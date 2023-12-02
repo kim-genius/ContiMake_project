@@ -49,7 +49,7 @@ const Editpage = () => {
     console.log("init:", init_data);
     if (mask_data.length > 0) {
       const result = await axios.get(
-        `http://114.110.130.45:5000/inpainting?edited_prompt==${prompt[idx]}&mask_data==${mask_data}&image_data==${init_data[idx]}`
+        `http://64.98.238.3:41012/inpainting?edited_prompt==${prompt[idx]}&mask_data==${mask_data}&image_data==${init_data[idx]}`
       );
       dispatch(setImages(result.data));
       setLoading(false);
@@ -65,11 +65,11 @@ const Editpage = () => {
       </nav>
       <div className={styles.contentsWrapper}>
         <div>
-          <ToggleBtn tab1={"생성"} tab2={"편집"} />
+          <ToggleBtn tab1={"드로잉"} tab2={"리터칭"} />
           <section className={styles.designTab}>
-            <BoxItem title={"프롬프트"} />
+            <BoxItem title={"콘티 내용 입력"} />
             <PromptBox />
-            <BoxItem title={"인페인팅"} />
+            <BoxItem title={"리터칭"} />
             <p>설명</p>
             <button
               className={styles.toolBtn}
@@ -94,7 +94,7 @@ const Editpage = () => {
                 ref={(el) => (btnRef.current[1] = el)}
                 onClick={() => {
                   return (
-        
+
                     activeBtn(1)
                   );
                 }}
@@ -121,7 +121,7 @@ const Editpage = () => {
               </button>
             </div>
             <ColorButton
-              text={"재생성"}
+              text={"리터칭"}
               func={regenerate}
               parameter={{
                 prompt: cur_project.prompts,
@@ -134,22 +134,18 @@ const Editpage = () => {
           </section>
         </div>
         <section className={styles.canvas}>
-          {loading ? (
-            <div className={styles.loading_bar}>
-              <BarLoader
-                color="#36d7b7"
-                loading={loading}
-                width={200}
-                height={20}
-              />
-            </div>
-          ) : cur_project.images.length != 0 ? (
-            <>
-              <Canvas />
-            </>
-          ) : null}
-
-          <TextBox></TextBox>
+          {/* <TextBox></TextBox> */}
+          {
+            loading ?
+              <section className={styles.canvasblack}>
+                <div className={styles.loading_bar}>
+                  <img style={{ transform: 'translateY(120px)', width: '180px', height: '320px' }} src='/images/consoupLoadingLogo.gif'></img>
+                </div>
+              </section>
+              : cur_project.images.length != 0 ?
+                <Canvas />
+                : null
+          }
         </section>
         <section className={styles.designTab}>
           <OutputImgs />

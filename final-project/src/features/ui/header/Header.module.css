@@ -11,6 +11,8 @@ a {
 .headerGenerateBtn button {
   width: 120px;
   font-size: 0.8rem;
+  background-color: #FFC478;
+  border: none;
 }
 
 .header {
