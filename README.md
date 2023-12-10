@@ -25,6 +25,6 @@
 ### 이미지드로잉
 <img src='./final-project/public/images/generate.png'></img>
 ### 이미지리터칭
-<img src='./final-project/public/images/generage.png'></img>
+<img src='./final-project/public/images/retuching.png'></img>
 ### Kakao/google login
-<img src='./final-project/public/login.jpg'></img>
+<img src='./final-project/public/images/login.jpg'></img>
