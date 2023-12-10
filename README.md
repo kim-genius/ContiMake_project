@@ -21,7 +21,7 @@
 
 ## 📌 주요 기능
 ### 메인화면
-
+<img src='./final-project/public/images/mainpage.png'></img>
 ### 이미지생성
 
 ### inpaing 편집
