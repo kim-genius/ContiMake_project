@@ -23,5 +23,8 @@
 ### 메인화면
 <img src='./final-project/public/images/mainpage.png'></img>
 ### 이미지생성
-
+<img src='./final-project/public/images/generage.png'></img>
 ### inpaing 편집
+<img src='./final-project/public/images/generage.png'></img>
+### Kakao/google login
+<img src='./final-project/public/login.jpeg'></img>
