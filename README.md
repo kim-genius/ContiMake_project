@@ -21,7 +21,7 @@
 
 ## 📌 주요 기능
 ### 메인화면
-<img src='./final-project/public/images/mainpage.png'></img>
+<img src='./final-project/public/images/banner.png'></img>
 ### 이미지드로잉
 <img src='./final-project/public/images/generate.png'></img>
 ### 이미지리터칭
