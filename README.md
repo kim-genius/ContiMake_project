@@ -1,6 +1,6 @@
 # contiStoryPrompt PROJECT
 
-![logo](./final-project/public/images/consouplogo.png)
+![logo](./final-project/public/images/introduce.jpg)
 
 
 ## 🖥 프로젝트 소개
@@ -28,3 +28,6 @@
 <img src='./final-project/public/images/retuching.png'></img>
 ### Kakao/google login
 <img src='./final-project/public/images/login.jpg'></img>
+
+## ❤️ 팀 소개
+<img src='./final-project/public/images/team.png'></img>
