@@ -1,21 +1,25 @@
 import './features/styles/global.css'
 import Header from './features/ui/header/Header';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Mypage from './pages/Mypage';
-import Myconti from './pages/Myconti';
-import Mypassword from './pages/Mypassword';
 import ExportEmail from './features/exports/ExportEmail';
-import Join from './pages/Join'
 // import Join from './pages/Join';
-import Login from './features/auth/login/Login';
 import Footer from './features/ui/footer/Footer';
-import Generatepage from './pages/Generatepage';
 import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
-import Editpage from './pages/Editpage';
 import SpeechBubble from './features/speechbubble/components/SpeechBubble';
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import loadable from '@loadable/component'
+
+const Home = loadable(() => import('./pages/Home'))
+const Generatepage = loadable(()=> import('./pages/Generatepage'))
+const Login = loadable(()=>import('./features/auth/login/Login'))
+const Join = loadable(()=>import('./pages/Join'))
+const Mypage = loadable(()=>import('./pages/Mypage'))
+const Myconti = loadable(()=>import('./pages/Myconti'))
+const Editpage = loadable(()=>import('./pages/Editpage'))
+const Mypassword = loadable(()=>import('./pages/Mypassword'))
+
+
 const googleClientId = '183693880565-u1sni2g5gpfg03fjhv5o5n37rs25homt.apps.googleusercontent.com'
 
 function App() {
@@ -32,7 +36,6 @@ function App() {
         <Route path='/myconti' element={<Header></Header>}></Route>
         {/* <Route path='/login/oauth/callback/kakao' element={<Header></Header>}></Route> */}
         <Route path='/login/oauth/callback/google' element={<Header></Header>}></Route>
-
       </Routes>
 
       <Routes>

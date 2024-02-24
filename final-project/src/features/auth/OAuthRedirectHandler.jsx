@@ -48,7 +48,7 @@ const OAuthRedirectHandler = ({ provider }) => {
             );
             return result.data.access_token;
         } else if (provider == 'google') {
-            console.log('')
+       
             // const result = await axios.post(
             //     `https://oauth2.googleapis.com/token?code=${code}&client_id=${googleClientId}&client_secret=${googleClientSecret}&redirect_uri=${googleRedirectUri}&grant_type=${grant_type}`,
             //     {
