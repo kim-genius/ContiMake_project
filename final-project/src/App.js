@@ -1,5 +1,4 @@
 import './features/styles/global.css'
-import Header from './features/ui/header/Header';
 import { Route, Routes } from 'react-router-dom';
 import ExportEmail from './features/exports/ExportEmail';
 // import Join from './pages/Join';
@@ -8,8 +7,9 @@ import OAuthRedirectHandler from './features/auth/OAuthRedirectHandler';
 import FileUpload from './features/FileUpload/FileUpload';
 import SpeechBubble from './features/speechbubble/components/SpeechBubble';
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import loadable from '@loadable/component'
+import loadable from '@loadable/component';
 
+const Header = loadable(()=> import(`/features/ui/header/Header`))
 const Home = loadable(() => import('./pages/Home'))
 const Generatepage = loadable(()=> import('./pages/Generatepage'))
 const Login = loadable(()=>import('./features/auth/login/Login'))
@@ -66,7 +66,6 @@ function App() {
         <Route path='/myconti' element={<Header></Header>}></Route>
         <Route path='/login/oauth/callback/kakao' element={<Footer></Footer>}></Route>
         <Route path='/login/oauth/callback/google' element={<Footer></Footer>}></Route>
-
       </Routes>
 
 
