@@ -9,7 +9,7 @@ import SpeechBubble from './features/speechbubble/components/SpeechBubble';
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import loadable from '@loadable/component';
 
-const Header = loadable(()=> import(`/features/ui/header/Header`))
+const Header = loadable(()=> import("./features/ui/header/Header"))
 const Home = loadable(() => import('./pages/Home'))
 const Generatepage = loadable(()=> import('./pages/Generatepage'))
 const Login = loadable(()=>import('./features/auth/login/Login'))
